@@ -1044,7 +1044,7 @@ github。
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-08-15 23:17:32" itemprop="dateModified" datetime="2019-08-15T23:17:32+08:00">2019-08-15</time>
+                <time title="修改时间：2019-08-15 23:36:07" itemprop="dateModified" datetime="2019-08-15T23:36:07+08:00">2019-08-15</time>
               
             
           </span>
@@ -1098,27 +1098,103 @@ github。
       
         
           
-            <p>use test;</p>
-<p>/*<br>  dept：部门表</p>
-<p>  deptno：     部门编号；<br>  dname：      部门名称；<br>  loc：        地理位置；<br>*/</p>
-<p>create table dept (<br>  deptno int (2) not null,<br>  dname varchar (14),<br>  loc varchar (13)<br>);</p>
-<p>– 添加主键<br>– alter table 表 add primary key (主键字段名);<br>alter table dept add primary key (deptno);</p>
-<p>insert into dept (deptno,dname,loc)values (10,’财务部’,’高新四路’);<br>insert into dept (deptno,dname,loc)values (20,’人事部’,’科技二路’);<br>insert into dept (deptno,dname,loc)values (30,’销售部’,’长安区’);<br>insert into dept (deptno,dname,loc)values (40,’运输部’,’雁塔区’);</p>
-<hr>
-<p>/*<br>  emp：员工表</p>
-<p>  empno：       员工编号；<br>  ename：       员工名字；<br>  job：         职位；<br>  mgr:          上司；<br>  hiredate：    入职时间；<br>  sal：         基本工资；<br>  comm：        补贴；<br>  deptno：      所属部门编号；<br>*/</p>
-<p>create table emp(<br>    empno int(4) not null,<br>    ename varchar(10),<br>    job varchar(9),<br>    mgr int(4),<br>    hiredate date,<br>    sal int(7 ),<br>    comm int(7 ),<br>    deptno int(2)<br>)</p>
-<p>– 添加主键<br>– alter table 表 add primary key (主键字段名);<br>alter table emp add primary key (empno);<br>desc emp;</p>
-<p>– 添加外键约束<br>/<em><br>alter table 从表 add constraint 自己建的外键名<br>foreign key (从表里的外键字段)<br>references 主表(映射主表中的主键字段);
-</em>/<br>alter table emp add constraint f_ed_key<br>foreign key (deptno)<br>references dept(deptno)</p>
-<p>INSERT INTO <code>emp</code> (<code>empno</code>, <code>ename</code>, <code>job</code>, <code>mgr</code>, <code>hiredate</code>, <code>sal</code>, <code>comm</code>, <code>deptno</code>) VALUES(‘7369’,’张倩’,’办事员’,’7902’,’2019-12-17’,’820’,NULL,’20’);<br>INSERT INTO <code>emp</code> (<code>empno</code>, <code>ename</code>, <code>job</code>, <code>mgr</code>, <code>hiredate</code>, <code>sal</code>, <code>comm</code>, <code>deptno</code>) VALUES(‘7499’,’刘博’,’售货员’,’7698’,’1981-02-20’,’1900’,’300’,’30’);<br>INSERT INTO <code>emp</code> (<code>empno</code>, <code>ename</code>, <code>job</code>, <code>mgr</code>, <code>hiredate</code>, <code>sal</code>, <code>comm</code>, <code>deptno</code>) VALUES(‘7521’,’李兴’,’售货员’,’7698’,’1981-02-22’,’1250’,’500’,’30’);<br>INSERT INTO <code>emp</code> (<code>empno</code>, <code>ename</code>, <code>job</code>, <code>mgr</code>, <code>hiredate</code>, <code>sal</code>, <code>comm</code>, <code>deptno</code>) VALUES(‘7566’,’小曲’,’人事部长’,’7839’,’1981-04-02’,’2975’,NULL,’20’);<br>INSERT INTO <code>emp</code> (<code>empno</code>, <code>ename</code>, <code>job</code>, <code>mgr</code>, <code>hiredate</code>, <code>sal</code>, <code>comm</code>, <code>deptno</code>) VALUES(‘7654’,’刘浩’,’售货员’,’7698’,’1981-09-28’,’1250’,’1400’,’30’);<br>INSERT INTO <code>emp</code> (<code>empno</code>, <code>ename</code>, <code>job</code>, <code>mgr</code>, <code>hiredate</code>, <code>sal</code>, <code>comm</code>, <code>deptno</code>) VALUES(‘7698’,’刘涛’,’销售部长’,’7839’,’1981-05-01’,’2850’,NULL,’30’);<br>INSERT INTO <code>emp</code> (<code>empno</code>, <code>ename</code>, <code>job</code>, <code>mgr</code>, <code>hiredate</code>, <code>sal</code>, <code>comm</code>, <code>deptno</code>) VALUES(‘7782’,’华仔’,’人事部长’,’7839’,’1981-06-09’,’2450’,NULL,’10’);<br>INSERT INTO <code>emp</code> (<code>empno</code>, <code>ename</code>, <code>job</code>, <code>mgr</code>, <code>hiredate</code>, <code>sal</code>, <code>comm</code>, <code>deptno</code>) VALUES(‘7788’,’张飞’,’人事专员’,’7566’,’1987-04-19’,’3000’,NULL,’20’);<br>INSERT INTO <code>emp</code> (<code>empno</code>, <code>ename</code>, <code>job</code>, <code>mgr</code>, <code>hiredate</code>, <code>sal</code>, <code>comm</code>, <code>deptno</code>) VALUES(‘7839’,’马晓云’,’董事长’,NULL,’1981-11-17’,’5000’,NULL,’10’);<br>INSERT INTO <code>emp</code> (<code>empno</code>, <code>ename</code>, <code>job</code>, <code>mgr</code>, <code>hiredate</code>, <code>sal</code>, <code>comm</code>, <code>deptno</code>) VALUES(‘7844’,’马琪’,’售货员’,’7698’,’1981-09-08’,’1500’,’0’,’30’);<br>INSERT INTO <code>emp</code> (<code>empno</code>, <code>ename</code>, <code>job</code>, <code>mgr</code>, <code>hiredate</code>, <code>sal</code>, <code>comm</code>, <code>deptno</code>) VALUES(‘7876’,’李涵’,’办事员’,’7788’,’1987-05-23’,’1100’,NULL,’20’);<br>INSERT INTO <code>emp</code> (<code>empno</code>, <code>ename</code>, <code>job</code>, <code>mgr</code>, <code>hiredate</code>, <code>sal</code>, <code>comm</code>, <code>deptno</code>) VALUES(‘7900’,’李涵’,’销售员’,’7698’,’1981-12-03’,’950’,NULL,’30’);<br>INSERT INTO <code>emp</code> (<code>empno</code>, <code>ename</code>, <code>job</code>, <code>mgr</code>, <code>hiredate</code>, <code>sal</code>, <code>comm</code>, <code>deptno</code>) VALUES(‘7902’,’汪涵’,’人事组长’,’7566’,’1981-12-03’,’3000’,NULL,’20’);<br>INSERT INTO <code>emp</code> (<code>empno</code>, <code>ename</code>, <code>job</code>, <code>mgr</code>, <code>hiredate</code>, <code>sal</code>, <code>comm</code>, <code>deptno</code>) VALUES(‘7934’,’黄晓明’,’人事长’,’7782’,’1982-01-23’,’1300’,NULL,’10’);</p>
-<hr>
-<p>/*<br>salgrade：工资等级</p>
-<p>grade：      工资等级；<br>losal：      最低限额；<br>hisal：      最高限额；<br>*/</p>
-<p>create table salgrade(<br>grade int (10),<br>losal int (10),<br>hisal int (10)<br>)</p>
-<p>insert into salgrade (grade, losal, hisal)values (1, 700, 1200);<br>insert into salgrade (grade, losal, hisal)values (2, 1201, 1400);<br>insert into salgrade (grade, losal, hisal)values (3, 1401, 2000);<br>insert into salgrade (grade, losal, hisal)values (4, 2001, 3000);<br>insert into salgrade (grade, losal, hisal)values (5, 3001, 9999);</p>
-<p>select * from salgrade;</p>
+            <h2 id="use-test"><a href="#use-test" class="headerlink" title="use test;"></a>use test;</h2><pre><code>/*
+     dept：部门表
 
+  deptno：     部门编号；  
+  dname：      部门名称； 
+  loc：        地理位置；
+*/
+
+create table dept (
+  deptno int (2) not null,
+  dname varchar (14),
+  loc varchar (13) 
+);
+
+-- 添加主键
+-- alter table 表 add primary key (主键字段名);
+alter table dept add primary key (deptno);
+
+insert into dept (deptno,dname,loc)values (10,&apos;财务部&apos;,&apos;高新四路&apos;);
+insert into dept (deptno,dname,loc)values (20,&apos;人事部&apos;,&apos;科技二路&apos;);
+insert into dept (deptno,dname,loc)values (30,&apos;销售部&apos;,&apos;长安区&apos;);
+insert into dept (deptno,dname,loc)values (40,&apos;运输部&apos;,&apos;雁塔区&apos;);
+</code></pre><hr>
+<pre><code>/*
+  emp：员工表
+
+  empno：       员工编号；  
+  ename：       员工名字；  
+  job：         职位； 
+  mgr:          上司； 
+  hiredate：    入职时间；
+  sal：         基本工资；  
+  comm：        补贴；      
+  deptno：      所属部门编号；
+*/
+
+  create table emp(
+      empno int(4) not null,
+      ename varchar(10),
+      job varchar(9),
+      mgr int(4),
+      hiredate date,
+      sal int(7 ),
+      comm int(7 ),
+      deptno int(2)
+  )
+
+  -- 添加主键
+  -- alter table 表 add primary key (主键字段名);
+  alter table emp add primary key (empno);
+  desc emp;
+
+  -- 添加外键约束
+  /*
+  alter table 从表 add constraint 自己建的外键名 
+  foreign key (从表里的外键字段) 
+  references 主表(映射主表中的主键字段);
+  */
+  alter table emp add constraint f_ed_key
+  foreign key (deptno) 
+  references dept(deptno)
+
+  INSERT INTO `emp` (`empno`, `ename`, `job`, `mgr`, `hiredate`, `sal`, `comm`, `deptno`) VALUES(&apos;7369&apos;,&apos;张倩&apos;,&apos;办事员&apos;,&apos;7902&apos;,&apos;2019-12-17&apos;,&apos;820&apos;,NULL,&apos;20&apos;);
+  INSERT INTO `emp` (`empno`, `ename`, `job`, `mgr`, `hiredate`, `sal`, `comm`, `deptno`) VALUES(&apos;7499&apos;,&apos;刘博&apos;,&apos;售货员&apos;,&apos;7698&apos;,&apos;1981-02-20&apos;,&apos;1900&apos;,&apos;300&apos;,&apos;30&apos;);
+  INSERT INTO `emp` (`empno`, `ename`, `job`, `mgr`, `hiredate`, `sal`, `comm`, `deptno`) VALUES(&apos;7521&apos;,&apos;李兴&apos;,&apos;售货员&apos;,&apos;7698&apos;,&apos;1981-02-22&apos;,&apos;1250&apos;,&apos;500&apos;,&apos;30&apos;);
+  INSERT INTO `emp` (`empno`, `ename`, `job`, `mgr`, `hiredate`, `sal`, `comm`, `deptno`) VALUES(&apos;7566&apos;,&apos;小曲&apos;,&apos;人事部长&apos;,&apos;7839&apos;,&apos;1981-04-02&apos;,&apos;2975&apos;,NULL,&apos;20&apos;);
+  INSERT INTO `emp` (`empno`, `ename`, `job`, `mgr`, `hiredate`, `sal`, `comm`, `deptno`) VALUES(&apos;7654&apos;,&apos;刘浩&apos;,&apos;售货员&apos;,&apos;7698&apos;,&apos;1981-09-28&apos;,&apos;1250&apos;,&apos;1400&apos;,&apos;30&apos;);
+  INSERT INTO `emp` (`empno`, `ename`, `job`, `mgr`, `hiredate`, `sal`, `comm`, `deptno`) VALUES(&apos;7698&apos;,&apos;刘涛&apos;,&apos;销售部长&apos;,&apos;7839&apos;,&apos;1981-05-01&apos;,&apos;2850&apos;,NULL,&apos;30&apos;);
+  INSERT INTO `emp` (`empno`, `ename`, `job`, `mgr`, `hiredate`, `sal`, `comm`, `deptno`) VALUES(&apos;7782&apos;,&apos;华仔&apos;,&apos;人事部长&apos;,&apos;7839&apos;,&apos;1981-06-09&apos;,&apos;2450&apos;,NULL,&apos;10&apos;);
+  INSERT INTO `emp` (`empno`, `ename`, `job`, `mgr`, `hiredate`, `sal`, `comm`, `deptno`) VALUES(&apos;7788&apos;,&apos;张飞&apos;,&apos;人事专员&apos;,&apos;7566&apos;,&apos;1987-04-19&apos;,&apos;3000&apos;,NULL,&apos;20&apos;);
+  INSERT INTO `emp` (`empno`, `ename`, `job`, `mgr`, `hiredate`, `sal`, `comm`, `deptno`) VALUES(&apos;7839&apos;,&apos;马晓云&apos;,&apos;董事长&apos;,NULL,&apos;1981-11-17&apos;,&apos;5000&apos;,NULL,&apos;10&apos;);
+  INSERT INTO `emp` (`empno`, `ename`, `job`, `mgr`, `hiredate`, `sal`, `comm`, `deptno`) VALUES(&apos;7844&apos;,&apos;马琪&apos;,&apos;售货员&apos;,&apos;7698&apos;,&apos;1981-09-08&apos;,&apos;1500&apos;,&apos;0&apos;,&apos;30&apos;);
+  INSERT INTO `emp` (`empno`, `ename`, `job`, `mgr`, `hiredate`, `sal`, `comm`, `deptno`) VALUES(&apos;7876&apos;,&apos;李涵&apos;,&apos;办事员&apos;,&apos;7788&apos;,&apos;1987-05-23&apos;,&apos;1100&apos;,NULL,&apos;20&apos;);
+  INSERT INTO `emp` (`empno`, `ename`, `job`, `mgr`, `hiredate`, `sal`, `comm`, `deptno`) VALUES(&apos;7900&apos;,&apos;李涵&apos;,&apos;销售员&apos;,&apos;7698&apos;,&apos;1981-12-03&apos;,&apos;950&apos;,NULL,&apos;30&apos;);
+  INSERT INTO `emp` (`empno`, `ename`, `job`, `mgr`, `hiredate`, `sal`, `comm`, `deptno`) VALUES(&apos;7902&apos;,&apos;汪涵&apos;,&apos;人事组长&apos;,&apos;7566&apos;,&apos;1981-12-03&apos;,&apos;3000&apos;,NULL,&apos;20&apos;);
+  INSERT INTO `emp` (`empno`, `ename`, `job`, `mgr`, `hiredate`, `sal`, `comm`, `deptno`) VALUES(&apos;7934&apos;,&apos;黄晓明&apos;,&apos;人事长&apos;,&apos;7782&apos;,&apos;1982-01-23&apos;,&apos;1300&apos;,NULL,&apos;10&apos;);
+</code></pre><hr>
+<pre><code>/*
+salgrade：工资等级
+
+grade：      工资等级；  
+losal：      最低限额；  
+hisal：      最高限额；
+*/
+
+create table salgrade(
+grade int (10),
+losal int (10),
+hisal int (10)
+)
+
+insert into salgrade (grade, losal, hisal)values (1, 700, 1200);
+insert into salgrade (grade, losal, hisal)values (2, 1201, 1400);
+insert into salgrade (grade, losal, hisal)values (3, 1401, 2000);
+insert into salgrade (grade, losal, hisal)values (4, 2001, 3000);
+insert into salgrade (grade, losal, hisal)values (5, 3001, 9999);
+</code></pre>
           
         
       
