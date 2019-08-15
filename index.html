@@ -327,12 +327,607 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://Cuipeng19970825.github.io/2019/08/13/git教程/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="崔鹏">
+      <meta itemprop="description" content="个人博客">
+      <meta itemprop="image" content="https://raw.githubusercontent.com/CuiPeng19970825/blogimages/master/img/%E5%A4%B4%E5%83%8F.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Program Life">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/08/13/git教程/" class="post-title-link" itemprop="url">git学习</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-08-13 13:25:36" itemprop="dateCreated datePublished" datetime="2019-08-13T13:25:36+08:00">2019-08-13</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-08-15 17:31:53" itemprop="dateModified" datetime="2019-08-15T17:31:53+08:00">2019-08-15</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/工具/" itemprop="url" rel="index"><span itemprop="name">工具</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="前言：git的学习记录，学习参考网站Git教程-廖雪峰的官方网站"><a href="#前言：git的学习记录，学习参考网站Git教程-廖雪峰的官方网站" class="headerlink" title="前言：git的学习记录，学习参考网站Git教程-廖雪峰的官方网站"></a>前言：git的学习记录，学习参考网站<a href="https://www.liaoxuefeng.com/wiki/896043488029600" target="_blank" rel="noopener">Git教程-廖雪峰的官方网站</a></h1><h1 id="一、"><a href="#一、" class="headerlink" title="一、"></a>一、</h1><h1 id="git定义：分布式版本控制系统"><a href="#git定义：分布式版本控制系统" class="headerlink" title="git定义：分布式版本控制系统"></a>git定义：分布式版本控制系统</h1><h1 id="git作用：记录、管理文件的每一次改动，支持协作编辑。"><a href="#git作用：记录、管理文件的每一次改动，支持协作编辑。" class="headerlink" title="git作用：记录、管理文件的每一次改动，支持协作编辑。"></a>git作用：记录、管理文件的每一次改动，支持协作编辑。</h1><ol>
+<li><p>版本控制系统：记录软件更新内容的系统</p>
+</li>
+<li><p>集中式：版本库是集中存放在中央服务器中的，工作时需要从中央服务器中取得最新的版本，更</p>
+<p>新版本内容后再把最新的版本提交到中央服务器，举例：中央服务器就好比是一个图书馆，你要</p>
+<p>改一本书，必须先从图书馆借出来，然后回到家自己改，改完了，再放回图书馆。</p>
+</li>
+<li><p>分布式：分布式版本控制系统没有“中央服务器”，每个人的电脑上都是一个完整的版本库，协作</p>
+<p>时只需将更新的内容推送给对方即可。</p>
+</li>
+<li><p>集中式vs分布式：集中式版本控制系统最大的毛病就是必须联网才能工作，而分布式版本控制系</p>
+<p>统没有中央服务器，每个人电脑里都有完整的版本库，不需要联网，同时提高了安全性问题，当</p>
+<p>某一人电脑坏了的时候只需要从其他人电脑里把版本库复制一份即可，而集中式版本控制系统若</p>
+<p>中央服务器出问题会导致所有人都无法工作。</p>
+</li>
+</ol>
+<h1 id="二、"><a href="#二、" class="headerlink" title="二、"></a>二、</h1><h1 id="同类工具："><a href="#同类工具：" class="headerlink" title="同类工具："></a>同类工具：</h1><ol>
+<li><p>CVS最早的开源而且免费的集中式版本控制系统，直到现在还有不少人在用。由于CVS自身设</p>
+<p>计的问题，会造成提交文件不完整，版本库莫名其妙损坏的情况。同样是开源而且免费的SVN</p>
+<p>修正了CVS的一些稳定性问题，是目前用得最多的集中式版本库控制系统。</p>
+</li>
+<li><p>除了免费的外，还有收费的集中式版本控制系统，比如IBM的ClearCase（以前是Rational公司</p>
+<p>的，被IBM收购了），特点是安装比Windows还大，运行比蜗牛还慢。微软自己也有一个集中式版</p>
+<p>本控制系统叫VSS，集成在Visual Studio中。</p>
+</li>
+<li><p>分布式版本控制系统除了Git以及促使Git诞生的BitKeeper外，还有类似Git的Mercurial和Ba</p>
+<p>zaar等。这些分布式版本控制系统各有特点，但最快、最简单也最流行的依然是Git！</p>
+</li>
+</ol>
+<h1 id="三、"><a href="#三、" class="headerlink" title="三、"></a>三、</h1><h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><ol>
+<li><p>安装教程连接</p>
+<p><a href="https://git-scm.com/book/zh/v2/%E8%B5%B7%E6%AD%A5-%E5%AE%89%E8%A3%85-Git" target="_blank" rel="noopener">https://git-scm.com/book/zh/v2/%E8%B5%B7%E6%AD%A5-%E5%AE%89%E8%A3%85-Git</a></p>
+</li>
+</ol>
+<h1 id="语法和用法："><a href="#语法和用法：" class="headerlink" title="语法和用法："></a>语法和用法：</h1><ol>
+<li><p>创建版本库</p>
+<p>mkdir blogimages   //版本库又名仓库，英文名respository,blogimages为仓库名</p>
+<p>cd blogimages      //切换到blogimages仓库</p>
+<p>pwd                //显示当前目录位置</p>
+</li>
+<li><p>初始化仓库</p>
+<p>git init           //通过该命令把这个目录变成git可以管理的仓库</p>
+</li>
+<li><p>将更新的内容放到该仓库中   //这里在该仓库中添加了一个img文件夹</p>
+</li>
+<li><p>将文件添加到仓库</p>
+<p>git add img        //该命令可反复多次使用，添加多个文件</p>
+</li>
+<li><p>将文件提交到仓库</p>
+<p>git commit -m “add two images”   //-m后面输入的是本次提交的说明</p>
+</li>
+<li><p>查看仓库当前的状态</p>
+<p>git status         //该命令可以让我们时刻掌握仓库当的状态</p>
+</li>
+<li><p>查看修改前后的差别</p>
+<p>git diff          //查看修改前后的difference</p>
+</li>
+<li><p>查看提交历史</p>
+<p>git log           //git log命令显示从最近到最远的提交日志</p>
+</li>
+<li><p>从当前版本回退到上一个版本</p>
+<p>git reset -hard Head^  </p>
+<p>/*<br>   Head表示当前版本，Head^表示上一个版本，Head^^表示上上一个版本，Head~100表示往</p>
+<p>   上100个版本<br>*/</p>
+</li>
+<li><p>查看命令历史</p>
+<p>git reflog   //git提供了一个命令git reflog用来记录你的每一次命令</p>
+</li>
+<li><p>工作区和暂存区</p>
+<ul>
+<li><p>在你电脑里能看到的目录，即上面所建的blogimages为工作区</p>
+</li>
+<li><p>工作区中的.git不算工作区，而是git的版本库</p>
+</li>
+<li><p>版本库中的stage(或者叫index)为暂存区，master为git自动给我们创建的第一个分支</p>
+</li>
+<li><p>前面讲了我们把文件往Git版本库里添加的时候，是分两步执行的：</p>
+<p>第一步是用git add把文件添加进去，实际上就是把文件修改添加到暂存区；</p>
+<p>第二步是用git commit提交更改，实际上就是把暂存区的所有内容提交到当前分支。</p>
+</li>
+</ul>
+</li>
+<li><p>查看工作区和版本库里最新版本的区别</p>
+<p>git diff Head – img</p>
+</li>
+<li><p>丢弃工作区的修改</p>
+<p>git checkout – img</p>
+<p>/*<br>  一种是img自修改后还没有被放到暂存区，现在，撤销修改就回到和版本库一模一样的状态；</p>
+<p>  一种是img已经添加到暂存区后，又作了修改，现在，撤销修改就回到添加到暂存区后的状态。</p>
+<p>  总之，就是让这个文件回到最近一次git commit或git add时的状态。</p>
+<p>*/</p>
+</li>
+<li><p>把暂存区的修改撤销掉，重新放回工作区</p>
+<p>git reset Head img   </p>
+<p>/<em><br>   由此可知道git reset命令既可以回退版本，也可以把暂存区的修改回退到工作区
+</em>/</p>
+</li>
+<li><p>删除文件</p>
+<p>  rm 文件名</p>
+<p>  git rm 文件名</p>
+<p>  /*</p>
+<pre><code>用 git rm 来删除文件，同时还会将这个删除操作记录下来；
+
+用 rm 来删除文件，仅仅是删除了物理文件，没有将其从 git 的记录中剔除。
+</code></pre><p>  */</p>
+</li>
+</ol>
+<h2 id="添加远程库"><a href="#添加远程库" class="headerlink" title="添加远程库"></a>添加远程库</h2><ol>
+<li><p>将本地的仓库与GitHub上的仓库相关联</p>
+<p> git remote add origin <a href="mailto:git@github.com" target="_blank" rel="noopener">git@github.com</a>:github用户名/GitHub仓库名.git</p>
+<p> //origin就是远程库的名字，这是git默认的叫法</p>
+</li>
+<li><p>把本地库的所有内容推送到远程库上</p>
+<p> git push -u origin master  </p>
+<p> /*</p>
+<p>  加上-u参数git不仅会把本地的master分支内容推送到远程的master分支，而且还会</p>
+<p>  把本地的master分支和远程的master分支关联起来，在以后的推送或者拉取时就可以</p>
+<p>  简化命令。推送成功之后可以在GitHub页面中看到远程仓库的内容已和本地一模一样。</p>
+<p>  从现在起，可以通过git push origin master命令将master分支的最新修改推送至</p>
+<p>  github</p>
+<p> */</p>
+</li>
+</ol>
+<h2 id="从远程库克隆"><a href="#从远程库克隆" class="headerlink" title="从远程库克隆"></a>从远程库克隆</h2><ol>
+<li><p>克隆一个本地库</p>
+<p>git clone <a href="mailto:git@github.com" target="_blank" rel="noopener">git@github.com</a>:GitHub用户名/GitHub仓库名.git</p>
+<p>/<em><br> Git支持多种协议，包括https，但通过ssh支持的原生git协议速度最快。
+</em>/</p>
+</li>
+</ol>
+<h2 id="分支管理"><a href="#分支管理" class="headerlink" title="分支管理"></a>分支管理</h2><ol>
+<li><p>创建+切换分支</p>
+<p>git checkout -b dev //-b参数表示创建并切换,dev为新创建的分支</p>
+</li>
+<li><p>查看分支</p>
+<p>git branch //该命令会列出所有分支，当前分支前面会标有一个*</p>
+</li>
+<li><p>切换回master分支</p>
+<p>git checkout master  </p>
+</li>
+</ol>
+<p>4.把dev分支的成果合并到master分支上</p>
+<p>  git merge dev //该命令用于合并指定分支到当前分支</p>
+<ol start="5">
+<li><p>删除dev分支</p>
+<p>git branch -d dev</p>
+</li>
+<li><p>查看分支合并图</p>
+<p>git log –graph</p>
+</li>
+<li><p>普通模式合并</p>
+<p>git merge –no-ff -m “提交说明” dev</p>
+<p>/*<br>  合并分支时，加上–no-ff参数就可以用普通模式合并，合并后的历史有分支，能看出来曾经</p>
+<p>  做过合并，而fast forward合并就看不出来曾经做过合并。<br>*/</p>
+</li>
+<li><p>储藏当前现场，等到恢复现场后继续工作</p>
+<p>git stash</p>
+</li>
+<li><p>查看储藏的工作现场</p>
+<p>git stash list</p>
+</li>
+<li><p>恢复工作现场</p>
+<ul>
+<li><p>git stash apply //恢复后stash内容并不删除，需要用git stash drop来删除</p>
+</li>
+<li><p>git stash pop  //恢复的同时把stash内容也删了</p>
+</li>
+<li><p>git stash apply stash@{0}  //可以多次stash，恢复的时候先查看再恢复指定现场</p>
+</li>
+</ul>
+</li>
+<li><p>强行删除一个没有被合并的分支</p>
+<p>git branch -D &lt;分支名&gt;</p>
+</li>
+<li><p>查看远程库的信息</p>
+<ul>
+<li><p>git remote</p>
+</li>
+<li><p>git remote -v  //显示更详细的信息</p>
+</li>
+</ul>
+</li>
+<li><p>多人协作分支管理总结</p>
+<p>查看远程库信息，使用git remote -v；</p>
+<p>本地新建的分支如果不推送到远程，对其他人就是不可见的；</p>
+<p>从本地推送分支，使用git push origin branch-name，如果推送失败，先用git </p>
+<p>pull抓取远程的新提交；</p>
+<p>在本地创建和远程分支对应的分支，使用git checkout -b branch-name origin/</p>
+<p>branch-name，本地和远程分支的名称最好一致；</p>
+<p>建立本地分支和远程分支的关联，使用git branch –set-upstream branch-name origin/</p>
+<p>branch-name；</p>
+<p>从远程抓取分支，使用git pull，如果有冲突，要先处理冲突。</p>
+</li>
+<li><p>把本地未push的分叉提交历史整理成直线</p>
+<p>git rebase</p>
+<p>/<em><br> rebase的目的是使得我们在查看历史提交的变化时更容易，因为分叉的提交需要三方对比。
+</em>/</p>
+</li>
+</ol>
+<h2 id="标签管理"><a href="#标签管理" class="headerlink" title="标签管理"></a>标签管理</h2><ol>
+<li><p>创建一个新标签</p>
+<p>git tag <name></name></p>
+<p>创建带有说明的标签</p>
+<p>git tag -a v0.1 -m”version 0.1 released” 1094adb</p>
+<p>//用-a指定标签名，用-m指定说明文字，1094adb为提交号</p>
+</li>
+<li><p>查看所有标签</p>
+<p>git tag</p>
+</li>
+<li><p>查看标签详细信息</p>
+<p>git show <tagname></tagname></p>
+</li>
+<li><p>删除标签</p>
+<p>git tag -d v0.1  </p>
+<p>//创建的标签都存储在本地，不会自动推送到远程，打错的标签可以在本地安全删除</p>
+</li>
+<li><p>推送某个标签到远程</p>
+<p>git push origin <tagname></tagname></p>
+<p>一次性推送全部尚未推送到远程的本地标签</p>
+<p>git push origin -tags</p>
+</li>
+<li><p>删除远程标签</p>
+<p>git tag -d v0.1  //先从本地删除</p>
+<p>git push origin :refs/tags/v0.1  //然后从远程删除</p>
+</li>
+</ol>
+<h2 id="自定义git"><a href="#自定义git" class="headerlink" title="自定义git"></a>自定义git</h2><ol>
+<li><p>配置别名</p>
+<p>git config –global alias.st status  //用st代替单词status</p>
+</li>
+</ol>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://Cuipeng19970825.github.io/2019/08/09/员工部门练习题/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="崔鹏">
+      <meta itemprop="description" content="个人博客">
+      <meta itemprop="image" content="https://raw.githubusercontent.com/CuiPeng19970825/blogimages/master/img/%E5%A4%B4%E5%83%8F.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Program Life">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/08/09/员工部门练习题/" class="post-title-link" itemprop="url">员工部门——中文版</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-08-09 16:51:00" itemprop="dateCreated datePublished" datetime="2019-08-09T16:51:00+08:00">2019-08-09</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-08-13 13:33:55" itemprop="dateModified" datetime="2019-08-13T13:33:55+08:00">2019-08-13</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/数据库/" itemprop="url" rel="index"><span itemprop="name">数据库</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>use test;</p>
+<p>/*<br>  dept：部门表</p>
+<p>  deptno：     部门编号；<br>  dname：      部门名称；<br>  loc：        地理位置；<br>*/</p>
+<p>create table dept (<br>  deptno int (2) not null,<br>  dname varchar (14),<br>  loc varchar (13)<br>);</p>
+<p>– 添加主键<br>– alter table 表 add primary key (主键字段名);<br>alter table dept add primary key (deptno);</p>
+<p>insert into dept (deptno,dname,loc)values (10,’财务部’,’高新四路’);<br>insert into dept (deptno,dname,loc)values (20,’人事部’,’科技二路’);<br>insert into dept (deptno,dname,loc)values (30,’销售部’,’长安区’);<br>insert into dept (deptno,dname,loc)values (40,’运输部’,’雁塔区’);</p>
+<hr>
+<p>/*<br>  emp：员工表</p>
+<p>  empno：       员工编号；<br>  ename：       员工名字；<br>  job：         职位；<br>  mgr:          上司；<br>  hiredate：    入职时间；<br>  sal：         基本工资；<br>  comm：        补贴；<br>  deptno：      所属部门编号；<br>*/</p>
+<p>create table emp(<br>    empno int(4) not null,<br>    ename varchar(10),<br>    job varchar(9),<br>    mgr int(4),<br>    hiredate date,<br>    sal int(7 ),<br>    comm int(7 ),<br>    deptno int(2)<br>)</p>
+<p>– 添加主键<br>– alter table 表 add primary key (主键字段名);<br>alter table emp add primary key (empno);<br>desc emp;</p>
+<p>– 添加外键约束<br>/<em><br>alter table 从表 add constraint 自己建的外键名<br>foreign key (从表里的外键字段)<br>references 主表(映射主表中的主键字段);
+</em>/<br>alter table emp add constraint f_ed_key<br>foreign key (deptno)<br>references dept(deptno)</p>
+<p>INSERT INTO <code>emp</code> (<code>empno</code>, <code>ename</code>, <code>job</code>, <code>mgr</code>, <code>hiredate</code>, <code>sal</code>, <code>comm</code>, <code>deptno</code>) VALUES(‘7369’,’张倩’,’办事员’,’7902’,’2019-12-17’,’820’,NULL,’20’);<br>INSERT INTO <code>emp</code> (<code>empno</code>, <code>ename</code>, <code>job</code>, <code>mgr</code>, <code>hiredate</code>, <code>sal</code>, <code>comm</code>, <code>deptno</code>) VALUES(‘7499’,’刘博’,’售货员’,’7698’,’1981-02-20’,’1900’,’300’,’30’);<br>INSERT INTO <code>emp</code> (<code>empno</code>, <code>ename</code>, <code>job</code>, <code>mgr</code>, <code>hiredate</code>, <code>sal</code>, <code>comm</code>, <code>deptno</code>) VALUES(‘7521’,’李兴’,’售货员’,’7698’,’1981-02-22’,’1250’,’500’,’30’);<br>INSERT INTO <code>emp</code> (<code>empno</code>, <code>ename</code>, <code>job</code>, <code>mgr</code>, <code>hiredate</code>, <code>sal</code>, <code>comm</code>, <code>deptno</code>) VALUES(‘7566’,’小曲’,’人事部长’,’7839’,’1981-04-02’,’2975’,NULL,’20’);<br>INSERT INTO <code>emp</code> (<code>empno</code>, <code>ename</code>, <code>job</code>, <code>mgr</code>, <code>hiredate</code>, <code>sal</code>, <code>comm</code>, <code>deptno</code>) VALUES(‘7654’,’刘浩’,’售货员’,’7698’,’1981-09-28’,’1250’,’1400’,’30’);<br>INSERT INTO <code>emp</code> (<code>empno</code>, <code>ename</code>, <code>job</code>, <code>mgr</code>, <code>hiredate</code>, <code>sal</code>, <code>comm</code>, <code>deptno</code>) VALUES(‘7698’,’刘涛’,’销售部长’,’7839’,’1981-05-01’,’2850’,NULL,’30’);<br>INSERT INTO <code>emp</code> (<code>empno</code>, <code>ename</code>, <code>job</code>, <code>mgr</code>, <code>hiredate</code>, <code>sal</code>, <code>comm</code>, <code>deptno</code>) VALUES(‘7782’,’华仔’,’人事部长’,’7839’,’1981-06-09’,’2450’,NULL,’10’);<br>INSERT INTO <code>emp</code> (<code>empno</code>, <code>ename</code>, <code>job</code>, <code>mgr</code>, <code>hiredate</code>, <code>sal</code>, <code>comm</code>, <code>deptno</code>) VALUES(‘7788’,’张飞’,’人事专员’,’7566’,’1987-04-19’,’3000’,NULL,’20’);<br>INSERT INTO <code>emp</code> (<code>empno</code>, <code>ename</code>, <code>job</code>, <code>mgr</code>, <code>hiredate</code>, <code>sal</code>, <code>comm</code>, <code>deptno</code>) VALUES(‘7839’,’马晓云’,’董事长’,NULL,’1981-11-17’,’5000’,NULL,’10’);<br>INSERT INTO <code>emp</code> (<code>empno</code>, <code>ename</code>, <code>job</code>, <code>mgr</code>, <code>hiredate</code>, <code>sal</code>, <code>comm</code>, <code>deptno</code>) VALUES(‘7844’,’马琪’,’售货员’,’7698’,’1981-09-08’,’1500’,’0’,’30’);<br>INSERT INTO <code>emp</code> (<code>empno</code>, <code>ename</code>, <code>job</code>, <code>mgr</code>, <code>hiredate</code>, <code>sal</code>, <code>comm</code>, <code>deptno</code>) VALUES(‘7876’,’李涵’,’办事员’,’7788’,’1987-05-23’,’1100’,NULL,’20’);<br>INSERT INTO <code>emp</code> (<code>empno</code>, <code>ename</code>, <code>job</code>, <code>mgr</code>, <code>hiredate</code>, <code>sal</code>, <code>comm</code>, <code>deptno</code>) VALUES(‘7900’,’李涵’,’销售员’,’7698’,’1981-12-03’,’950’,NULL,’30’);<br>INSERT INTO <code>emp</code> (<code>empno</code>, <code>ename</code>, <code>job</code>, <code>mgr</code>, <code>hiredate</code>, <code>sal</code>, <code>comm</code>, <code>deptno</code>) VALUES(‘7902’,’汪涵’,’人事组长’,’7566’,’1981-12-03’,’3000’,NULL,’20’);<br>INSERT INTO <code>emp</code> (<code>empno</code>, <code>ename</code>, <code>job</code>, <code>mgr</code>, <code>hiredate</code>, <code>sal</code>, <code>comm</code>, <code>deptno</code>) VALUES(‘7934’,’黄晓明’,’人事长’,’7782’,’1982-01-23’,’1300’,NULL,’10’);</p>
+<hr>
+<p>/*<br>salgrade：工资等级</p>
+<p>grade：      工资等级；<br>losal：      最低限额；<br>hisal：      最高限额；<br>*/</p>
+<p>create table salgrade(<br>grade int (10),<br>losal int (10),<br>hisal int (10)<br>)</p>
+<p>insert into salgrade (grade, losal, hisal)values (1, 700, 1200);<br>insert into salgrade (grade, losal, hisal)values (2, 1201, 1400);<br>insert into salgrade (grade, losal, hisal)values (3, 1401, 2000);<br>insert into salgrade (grade, losal, hisal)values (4, 2001, 3000);<br>insert into salgrade (grade, losal, hisal)values (5, 3001, 9999);</p>
+<p>select * from salgrade;</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://Cuipeng19970825.github.io/2019/04/23/Matlab2/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="崔鹏">
       <meta itemprop="description" content="个人博客">
-      <meta itemprop="image" content="https://user-images.githubusercontent.com/49342060/62762841-a7012980-babc-11e9-97bf-d5750094d005.jpg">
+      <meta itemprop="image" content="https://raw.githubusercontent.com/CuiPeng19970825/blogimages/master/img/%E5%A4%B4%E5%83%8F.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -551,7 +1146,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="崔鹏">
       <meta itemprop="description" content="个人博客">
-      <meta itemprop="image" content="https://user-images.githubusercontent.com/49342060/62762841-a7012980-babc-11e9-97bf-d5750094d005.jpg">
+      <meta itemprop="image" content="https://raw.githubusercontent.com/CuiPeng19970825/blogimages/master/img/%E5%A4%B4%E5%83%8F.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -868,7 +1463,7 @@ x=[1 2 3;4 5 6; 7 8 9]
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="崔鹏">
       <meta itemprop="description" content="个人博客">
-      <meta itemprop="image" content="https://user-images.githubusercontent.com/49342060/62762841-a7012980-babc-11e9-97bf-d5750094d005.jpg">
+      <meta itemprop="image" content="https://raw.githubusercontent.com/CuiPeng19970825/blogimages/master/img/%E5%A4%B4%E5%83%8F.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -925,7 +1520,7 @@ x=[1 2 3;4 5 6; 7 8 9]
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-08-09 15:13:11" itemprop="dateModified" datetime="2019-08-09T15:13:11+08:00">2019-08-09</time>
+                <time title="修改时间：2019-08-15 19:24:51" itemprop="dateModified" datetime="2019-08-15T19:24:51+08:00">2019-08-15</time>
               
             
           </span>
@@ -979,139 +1574,113 @@ x=[1 2 3;4 5 6; 7 8 9]
       
         
           
-            <h1 id="Markdown基础语法简介"><a href="#Markdown基础语法简介" class="headerlink" title="Markdown基础语法简介"></a><strong>Markdown基础语法简介</strong></h1><h2 id="前言"><a href="#前言" class="headerlink" title="前言:"></a>前言:</h2><p>程序员写博客的专用文本标记语言markdown，让你更加极客范！<br>这里是本人自己初学Markdown总结的一些基本语法并写了这篇文章,学习者可以在掌握<br>这些基本语法后进一步学习更多Markdown写文本时的语法，初学者会遇到很多小问题,<br>当你自己不断摸索学习并熟练使用Markdown后你会发现使用Markdown会给你带来很多<br>方便。</p>
-<h3 id="简介"><a href="#简介" class="headerlink" title="简介:"></a>简介:</h3><p>Markdown是一种用来文本处理的轻量级「标记语言」,它用简洁的语法代替排版,而无需<br>像Microsoft的Word一样需要花费大量的时间进行排版、字体设置。它使我们专心于码字，<br>用「标记」语法，来代替常见的排版格式。Markdown不止可以处理文本，使得文字更美观,<br>还支持图像、表格等的插入,大大方便了我们的写作。例如此文从内容到格式，甚至插图,<br>一个键盘可以搞定了，无需鼠标！</p>
+            <h1 id="Markdown基础语法简介"><a href="#Markdown基础语法简介" class="headerlink" title="Markdown基础语法简介"></a><strong>Markdown基础语法简介</strong></h1><h2 id="前言"><a href="#前言" class="headerlink" title="前言:"></a>前言:</h2><p>程序员写博客的专用文本标记语言markdown，让你更加极客范！  </p>
+<p>这里是本人自己初学Markdown总结的一些基本语法并写了这篇文章,学习者可以在掌握</p>
+<p>这些基本语法后进一步学习更多Markdown写文本时的语法，初学者会遇到很多小问题, </p>
+<p>当你自己不断摸索学习并熟练使用Markdown后你会发现使用Markdown会给你带来很多 </p>
+<p>方便。</p>
+<h3 id="简介"><a href="#简介" class="headerlink" title="简介:"></a>简介:</h3><p>Markdown是一种用来文本处理的轻量级「标记语言」,它用简洁的语法代替排版,而无需</p>
+<p>像Microsoft的Word一样需要花费大量的时间进行排版、字体设置。它使我们专心于码字，</p>
+<p>用「标记」语法，来代替常见的排版格式。Markdown不止可以处理文本，使得文字更美观,</p>
+<p>还支持图像、表格等的插入,大大方便了我们的写作。例如此文从内容到格式，甚至插图, </p>
+<p>一个键盘可以搞定了，无需鼠标！</p>
 <h4 id="Markdown特点"><a href="#Markdown特点" class="headerlink" title="Markdown特点:"></a>Markdown特点:</h4><ul>
-<li>专注你的文字内容而不是排版样式；</li>
-<li>轻松的导出 HTML、PDF 和本身的 .md 文件；</li>
-<li>纯文本内容，兼容所有的文本编辑器与字处理软件；</li>
-<li>可读，直观。适合所有人的写作语言。</li>
+<li><p>专注你的文字内容而不是排版样式；</p>
+</li>
+<li><p>轻松的导出 HTML、PDF 和本身的 .md 文件；</p>
+</li>
+<li><p>纯文本内容，兼容所有的文本编辑器与字处理软件；</p>
+</li>
+<li><p>可读，直观，适合所有人的写作语言。</p>
+</li>
 </ul>
 <h5 id="这里介绍一些常用的markdown语法"><a href="#这里介绍一些常用的markdown语法" class="headerlink" title="这里介绍一些常用的markdown语法:"></a>这里介绍一些常用的markdown语法:</h5><ol>
-<li><p>标题：文章的标题用#来标记，并建议在#后面加一个空格。</p>
-<p> 示例: </p>
-</li>
+<li>标题：文章的标题用#来标记，并建议在#后面加一个空格。</li>
 </ol>
-<pre><code>\# 一级标题  
-\## 二级标题  
-\### 三级标题  
-以此类推，总共六级标题。
-
-
-效果展示:
-</code></pre><p><img src="https://user-images.githubusercontent.com/49342060/56472929-54611a80-6497-11e9-93ed-78ffbae6c1dd.PNG" alt="标题"></p>
+<p>示例: </p>
+<pre><code># 一级标题  
+## 二级标题  
+### 三级标题  
+#### 以此类推，总共六级标题。
+</code></pre><p>效果展示:</p>
+<p><img src="https://raw.githubusercontent.com/CuiPeng19970825/blogimages/master/MarkdownImg/%E6%A0%87%E9%A2%98.JPG" alt="标题"></p>
 <ol start="2">
-<li>字体:</li>
-</ol>
-<pre><code>* 加粗  
-  要加粗的文字左右分别用两个*包起来； 
-* 斜体  
-  要倾斜的文字左右分别用一个\*包起来；  
-* 斜体加粗  
-  要倾斜和加粗的文字左右分别用三个\*号包起来;  
-* 删除线  
-  要加删除线的文字左右分别用两个~~号包起来;
-
-
-示例:
-
-
-\*\*这是加粗的文字\*\*  
-\* 这是倾斜的文字\*   
-\*\*\* 这是斜体加粗的文字\*\*\*  
-\~~这是加删除线的文字~~ 
-
-
-效果展示:
-</code></pre><p><img src="https://user-images.githubusercontent.com/49342060/56472949-7a86ba80-6497-11e9-8921-75036d71c835.PNG" alt="字体"></p>
-<ol start="3">
-<li><p>区块引用:在引用的内容前加>即可。</p>
-<p> 示例:</p>
+<li><p>字体:</p>
+<ul>
+<li>加粗<br>要加粗的文字左右分别用两个*包起来； </li>
+<li>斜体<br>要倾斜的文字左右分别用一个*包起来；  </li>
+<li>斜体加粗<br>要倾斜和加粗的文字左右分别用三个*号包起来;  </li>
+<li>删除线<br>要加删除线的文字左右分别用两个~~号包起来;</li>
+</ul>
 </li>
 </ol>
-<pre><code>\&gt;这是引用的内容  
-\&gt;Markdown 
-
-
-效果展示:
-</code></pre><p><img src="https://user-images.githubusercontent.com/49342060/56472947-79ee2400-6497-11e9-8847-8009c806e675.PNG" alt="引用"></p>
-<ol start="4">
-<li><p>列表:  </p>
-<ul>
-<li><p>无序列表:使用*或+或-表示无序列表。</p>
 <p>示例:</p>
-</li>
+<pre><code>**这是加粗的文字**  
+ *这是倾斜的文字*  
+***这是斜体加粗的文字***  
+~~这是加删除线的文字~~
+</code></pre><p>效果展示:</p>
+<p><img src="https://raw.githubusercontent.com/CuiPeng19970825/blogimages/master/MarkdownImg/%E5%AD%97%E4%BD%93.JPG" alt="字体"></p>
+<ol start="3">
+<li>区块引用:在引用的内容前加&gt;即可。</li>
+</ol>
+<p>示例:</p>
+<pre><code>&gt;这是引用的内容  
+&gt;&gt;这是引用的内容
+&gt;&gt;&gt;&gt;&gt;&gt;&gt;这是引用的内容
+</code></pre><p>效果展示:</p>
+<p><img src="https://raw.githubusercontent.com/CuiPeng19970825/blogimages/master/MarkdownImg/%E5%BC%95%E7%94%A8.JPG" alt="引用"></p>
+<ol start="4">
+<li>列表:  <ul>
+<li>无序列表:使用*或+或-表示无序列表。</li>
 </ul>
 </li>
 </ol>
-<pre><code>\*无序列表1  
-\+无序列表2  
-\-无序列表3
-
-
-效果展示:
-</code></pre><p><img src="https://user-images.githubusercontent.com/49342060/56472954-7bb7e780-6497-11e9-9a0e-f02f144ceb6f.PNG" alt="无序列表"></p>
+<p>示例:</p>
+<pre><code>* 无序列表1  
++ 无序列表2  
+- 无序列表3
+</code></pre><p>效果展示:</p>
+<p><img src="https://raw.githubusercontent.com/CuiPeng19970825/blogimages/master/MarkdownImg/%E6%97%A0%E5%BA%8F%E5%88%97%E8%A1%A8.JPG" alt="无序列表"></p>
 <ul>
-<li><p>有序列表:有序列表则使用数字接着一个英文句点。</p>
-<p> 示例:</p>
-</li>
+<li>有序列表:有序列表则使用数字接着一个英文句点。</li>
 </ul>
+<p>示例:</p>
 <pre><code>1. 有序列表1  
 2. 有序列表2  
 3. 有序列表3 
-
-效果展示: 
-</code></pre><p><img src="https://user-images.githubusercontent.com/49342060/56472948-79ee2400-6497-11e9-9fd1-9bafff30bf04.PNG" alt="有序列表"></p>
+</code></pre><p>效果展示:</p>
+<p><img src="https://raw.githubusercontent.com/CuiPeng19970825/blogimages/master/MarkdownImg/%E6%9C%89%E5%BA%8F%E5%88%97%E8%A1%A8.JPG" alt="有序列表"></p>
 <ol start="5">
-<li><p>分割线:你可以在一行中用三个以上的星号、减号、底线来建立一个分隔线, 行内不能有其他东西。你也可以在星号或是减号中间插入空格。</p>
-<p> 示例:</p>
+<li><p>分割线:你可以在一行中用三个以上的星号、减号、底线来建立一个分隔线,</p>
+<p>行内不能有其他东西。你也可以在星号或是减号中间插入空格。</p>
 </li>
 </ol>
-<pre><code>\* * *   
-\- - - -   
-\_ _ _ _ _ _ 
-
-
-效果展示:
-</code></pre><p><img src="https://user-images.githubusercontent.com/49342060/56472952-7b1f5100-6497-11e9-9f8d-0557d76a1618.PNG" alt="分割线"></p>
+<p>示例:</p>
+<pre><code>* * *   
+- - - -   
+_ _ _ _ _ _ 
+</code></pre><p>效果展示:</p>
+<p><img src="https://raw.githubusercontent.com/CuiPeng19970825/blogimages/master/MarkdownImg/%E5%88%86%E5%89%B2%E7%BA%BF.JPG" alt="分割线"></p>
 <ol start="6">
-<li><p>图片和链接:</p>
-<ul>
-<li>链接:[链接名称](链接地址);  </li>
-<li>图片:![图片名称](图片地址);</li>
-</ul>
+<li>图片和链接:</li>
+</ol>
+<p>示例：</p>
+<pre><code>链接:[链接名称](链接地址);  
+图片:![图片名称](图片地址);
+</code></pre><p>如：</p>
+<pre><code>链接：[百度](http://baidu.com)    
+图片：![Mou icon](http://mouapp.com/Mou_128.png)
+</code></pre><p>效果展示: </p>
+<p><img src="https://raw.githubusercontent.com/CuiPeng19970825/blogimages/master/MarkdownImg/%E9%93%BE%E6%8E%A5%E5%92%8C%E5%9B%BE%E7%89%87.JPG" alt="图片和链接">  </p>
+<ol start="7">
+<li><p>代码区块:和程序相关的写作或是标签语言原始码通常会有已经排版好的代码区块，通常这些 </p>
+<p>代码块我们并不希望它以一般段落文件的方式去排版，而是照原来的样子显示,要在 Markdown </p>
+<p>中建立代码区块很简单，只要简单地缩进 4 个空格或是 1 个制表符就可以。</p>
 </li>
 </ol>
-<pre><code>示例:
-
-
-链接：\[Baidu](http://baidu.com)    
-图片：\!\[Mou icon](http://mouapp.com/Mou_128.png)
-
-
-效果展示: 
-</code></pre><p><img src="https://user-images.githubusercontent.com/49342060/56472953-7b1f5100-6497-11e9-9013-1c018c363330.PNG" alt="图片和链接">  </p>
-<ol start="7">
-<li>代码区块:和程序相关的写作或是标签语言原始码通常会有已经排版好的代码区块，通常这些<br>代码块我们并不希望它以一般段落文件的方式去排版，而是照原来的样子显示,要在 Markdown 中建立代码区块很简单，只要简单地缩进 4 个空格或是 1 个制表符就可以。</li>
-</ol>
-<pre><code>示例：
-
-
-下面是一段java的helloword程序代码:
-
-四个空格public class HelloWorld {
-
-四个空格public static void main(String[] args) {
-
-四个空格System.out.println(&quot;Hello,World!!!&quot;);
-
-四个空格    }
-
-四个空格} 
-
-
-效果展示: 
-</code></pre><p><img src="https://user-images.githubusercontent.com/49342060/56472950-7a86ba80-6497-11e9-9fa7-662774cc1d4c.PNG" alt="代码区块">  </p>
+<p>效果展示: </p>
+<p><img src="https://raw.githubusercontent.com/CuiPeng19970825/blogimages/master/MarkdownImg/%E4%BB%A3%E7%A0%81%E5%8C%BA%E5%9D%97.JPG" alt="代码区块">  </p>
 
           
         
@@ -1184,7 +1753,7 @@ x=[1 2 3;4 5 6; 7 8 9]
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
-              <img class="site-author-image" itemprop="image" src="https://user-images.githubusercontent.com/49342060/62762841-a7012980-babc-11e9-97bf-d5750094d005.jpg" alt="崔鹏">
+              <img class="site-author-image" itemprop="image" src="https://raw.githubusercontent.com/CuiPeng19970825/blogimages/master/img/%E5%A4%B4%E5%83%8F.jpg" alt="崔鹏">
             
               <p class="site-author-name" itemprop="name">崔鹏</p>
               <div class="site-description motion-element" itemprop="description">个人博客</div>
@@ -1197,7 +1766,7 @@ x=[1 2 3;4 5 6; 7 8 9]
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">3</span>
+                    <span class="site-state-item-count">5</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -1218,7 +1787,11 @@ x=[1 2 3;4 5 6; 7 8 9]
                     
                       
                     
-                    <span class="site-state-item-count">2</span>
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">4</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -1239,7 +1812,11 @@ x=[1 2 3;4 5 6; 7 8 9]
                     
                       
                     
-                    <span class="site-state-item-count">2</span>
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">4</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
