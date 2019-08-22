@@ -96,18 +96,18 @@
 
 
 
-  <meta name="description" content="use test;/*      dept：部门表    deptno：     部门编号；     dname：      部门名称；    loc：        地理位置； */  create table dept (   deptno int (2) not null,   dname varchar (14),   loc varchar (13)  );  -- 添加主键 -- al">
-<meta name="keywords" content="MySQL">
+  <meta name="description" content="单链表学习整理单链表通过一个链子把多个结点（元素）连接起来，由数据和地址组成的一个元素，节点本身必须有一个 地址值（就是下一个元素的地址值）链表的每个结点中只包含一个指针域，叫做单链表（即构成链 表的每个节点只有一个指向直接后继结点的指针，且尾节点的指针为null）。 优点： 链表是很常用的一种数据结构，不需要初始化容量，可以任意加减元素；  添加或者删除元素时只需要改变前后两个元素结点的指针域指">
+<meta name="keywords" content="数据结构与算法">
 <meta property="og:type" content="article">
-<meta property="og:title" content="员工部门——中文版">
-<meta property="og:url" content="https://Cuipeng19970825.github.io/2019/08/09/员工部门---中文版/index.html">
+<meta property="og:title" content="一、线性结构—单链表">
+<meta property="og:url" content="https://Cuipeng19970825.github.io/2019/08/23/数据结构与算法学习之单链表/index.html">
 <meta property="og:site_name" content="Program Life">
-<meta property="og:description" content="use test;/*      dept：部门表    deptno：     部门编号；     dname：      部门名称；    loc：        地理位置； */  create table dept (   deptno int (2) not null,   dname varchar (14),   loc varchar (13)  );  -- 添加主键 -- al">
+<meta property="og:description" content="单链表学习整理单链表通过一个链子把多个结点（元素）连接起来，由数据和地址组成的一个元素，节点本身必须有一个 地址值（就是下一个元素的地址值）链表的每个结点中只包含一个指针域，叫做单链表（即构成链 表的每个节点只有一个指向直接后继结点的指针，且尾节点的指针为null）。 优点： 链表是很常用的一种数据结构，不需要初始化容量，可以任意加减元素；  添加或者删除元素时只需要改变前后两个元素结点的指针域指">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-08-15T15:36:07.724Z">
+<meta property="og:updated_time" content="2019-08-22T17:52:15.140Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="员工部门——中文版">
-<meta name="twitter:description" content="use test;/*      dept：部门表    deptno：     部门编号；     dname：      部门名称；    loc：        地理位置； */  create table dept (   deptno int (2) not null,   dname varchar (14),   loc varchar (13)  );  -- 添加主键 -- al">
+<meta name="twitter:title" content="一、线性结构—单链表">
+<meta name="twitter:description" content="单链表学习整理单链表通过一个链子把多个结点（元素）连接起来，由数据和地址组成的一个元素，节点本身必须有一个 地址值（就是下一个元素的地址值）链表的每个结点中只包含一个指针域，叫做单链表（即构成链 表的每个节点只有一个指向直接后继结点的指针，且尾节点的指针为null）。 优点： 链表是很常用的一种数据结构，不需要初始化容量，可以任意加减元素；  添加或者删除元素时只需要改变前后两个元素结点的指针域指">
 
 
 
@@ -115,7 +115,7 @@
 
   
   
-  <link rel="canonical" href="https://Cuipeng19970825.github.io/2019/08/09/员工部门---中文版/">
+  <link rel="canonical" href="https://Cuipeng19970825.github.io/2019/08/23/数据结构与算法学习之单链表/">
 
 
 
@@ -125,7 +125,7 @@
   };
 </script>
 
-  <title>员工部门——中文版 | Program Life</title>
+  <title>一、线性结构—单链表 | Program Life</title>
   
 
 
@@ -328,7 +328,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://Cuipeng19970825.github.io/2019/08/09/员工部门---中文版/">
+    <link itemprop="mainEntityOfPage" href="https://Cuipeng19970825.github.io/2019/08/23/数据结构与算法学习之单链表/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="崔鹏">
@@ -345,7 +345,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">员工部门——中文版
+          <h1 class="post-title" itemprop="name headline">一、线性结构—单链表
 
               
             
@@ -371,24 +371,12 @@
                 
               
 
-              <time title="创建时间：2019-08-09 16:51:00" itemprop="dateCreated datePublished" datetime="2019-08-09T16:51:00+08:00">2019-08-09</time>
+              <time title="创建时间：2019-08-23 01:19:55 / 修改时间：01:52:15" itemprop="dateCreated datePublished" datetime="2019-08-23T01:19:55+08:00">2019-08-23</time>
             
 
             
               
 
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-08-15 23:36:07" itemprop="dateModified" datetime="2019-08-15T23:36:07+08:00">2019-08-15</time>
               
             
           </span>
@@ -405,7 +393,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/数据库/" itemprop="url" rel="index"><span itemprop="name">数据库</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/数据结构与算法/" itemprop="url" rel="index"><span itemprop="name">数据结构与算法</span></a></span>
 
                 
                 
@@ -440,102 +428,144 @@
       
 
       
-        <h2 id="use-test"><a href="#use-test" class="headerlink" title="use test;"></a>use test;</h2><pre><code>/*
-     dept：部门表
+        <h1 id="单链表学习整理"><a href="#单链表学习整理" class="headerlink" title="单链表学习整理"></a>单链表学习整理</h1><h2 id="单链表"><a href="#单链表" class="headerlink" title="单链表"></a>单链表</h2><p>通过一个链子把多个结点（元素）连接起来，由数据和地址组成的一个元素，节点本身必须有一个</p>
+<p>地址值（就是下一个元素的地址值）链表的每个结点中只包含一个指针域，叫做单链表（即构成链</p>
+<p>表的每个节点只有一个指向直接后继结点的指针，且尾节点的指针为null）。</p>
+<h3 id="优点："><a href="#优点：" class="headerlink" title="优点："></a>优点：</h3><ol>
+<li><p>链表是很常用的一种数据结构，不需要初始化容量，可以任意加减元素；</p>
+</li>
+<li><p>添加或者删除元素时只需要改变前后两个元素结点的指针域指向地址即可，所以添加，</p>
+</li>
+</ol>
+<p>删除很快； </p>
+<h3 id="缺点："><a href="#缺点：" class="headerlink" title="缺点："></a>缺点：</h3><ol>
+<li><p>因为含有大量的指针域，占用空间较大；</p>
+</li>
+<li><p>查找元素需要遍历链表来查找，非常耗时。</p>
+</li>
+</ol>
+<h3 id="适用场景："><a href="#适用场景：" class="headerlink" title="适用场景："></a>适用场景：</h3><p>数据量较小，需要频繁增加，删除操作的场景。</p>
+<h4 id="基类的定义"><a href="#基类的定义" class="headerlink" title="基类的定义"></a>基类的定义</h4><ul>
+<li><p>定义一个节点类Node</p>
+</li>
+<li><p>append()方法,为当前节点追加节点</p>
+</li>
+<li><p>Next()方法，获取下一个节点</p>
+</li>
+<li><p>getData()方法，获取节点中的数据</p>
+</li>
+<li><p>isLast()方法，判断当前节点是否是最后一个节点</p>
+</li>
+<li><p>remove()方法，删除下一个节点</p>
+</li>
+<li><p>show()方法，显示所有节点信息</p>
+</li>
+<li><p>insert()方法，插入一个节点</p>
+</li>
+</ul>
+<h4 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h4><pre><code>package demoNode;
+public class Node {
+       //数据
+       private int data;
+       //下一个节点
+       private Node next;
 
-  deptno：     部门编号；  
-  dname：      部门名称； 
-  loc：        地理位置；
-*/
+       //构造方法
+       public Node(int data){
+           this.data=data;
+       }
 
-create table dept (
-  deptno int (2) not null,
-  dname varchar (14),
-  loc varchar (13) 
-);
+       //为当前节点追加节点
+       public Node append(Node node){
+           //当前节点
+           Node currentNode=this;
+           //循环查找
+           while(true){
+               //取出下一个节点
+               Node nextNode=currentNode.next;
+               //如果下一个节点为空，当前节点已经是最后一个节点
+               if(nextNode==null){
+                   break;
+               }
+               //赋值给当前节点
+               currentNode=nextNode;
+           }
+           //把需要追加的节点追加到找到的当前节点的下一个节点
+           currentNode.next=node;
+           return this;
+       }
 
--- 添加主键
--- alter table 表 add primary key (主键字段名);
-alter table dept add primary key (deptno);
+       //获取下一个节点
+       public Node Next(){
+           return this.next;
+       }
 
-insert into dept (deptno,dname,loc)values (10,&apos;财务部&apos;,&apos;高新四路&apos;);
-insert into dept (deptno,dname,loc)values (20,&apos;人事部&apos;,&apos;科技二路&apos;);
-insert into dept (deptno,dname,loc)values (30,&apos;销售部&apos;,&apos;长安区&apos;);
-insert into dept (deptno,dname,loc)values (40,&apos;运输部&apos;,&apos;雁塔区&apos;);
-</code></pre><hr>
-<pre><code>/*
-  emp：员工表
+       //获取节点中的数据
+       public int getData(){
+           return this.data;
+       }
 
-  empno：       员工编号；  
-  ename：       员工名字；  
-  job：         职位； 
-  mgr:          上司； 
-  hiredate：    入职时间；
-  sal：         基本工资；  
-  comm：        补贴；      
-  deptno：      所属部门编号；
-*/
+       //判断当前节点是否是最后一个节点
+       public boolean isLast(){
+           return next==null;
+       }
 
-  create table emp(
-      empno int(4) not null,
-      ename varchar(10),
-      job varchar(9),
-      mgr int(4),
-      hiredate date,
-      sal int(7 ),
-      comm int(7 ),
-      deptno int(2)
-  )
+       //删除下一个节点
+       public void remove(){
+           //取出下一个节点
+           Node newNext=next.next;
+           //把下下个节点设置为当前节点的下一个节点
+           this.next=newNext;
 
-  -- 添加主键
-  -- alter table 表 add primary key (主键字段名);
-  alter table emp add primary key (empno);
-  desc emp;
+       }
 
-  -- 添加外键约束
-  /*
-  alter table 从表 add constraint 自己建的外键名 
-  foreign key (从表里的外键字段) 
-  references 主表(映射主表中的主键字段);
-  */
-  alter table emp add constraint f_ed_key
-  foreign key (deptno) 
-  references dept(deptno)
+       //显示所有节点信息
+       public void show(){
+           Node currentNode=this;
+           while(true){
+               System.out.print(currentNode.data+&quot; &quot;);
+               //取出下一个节点
+               currentNode=currentNode.next;
+               if(currentNode==null){
+                   break;
+               }
+           }
+           System.out.println();
+       }
 
-  INSERT INTO `emp` (`empno`, `ename`, `job`, `mgr`, `hiredate`, `sal`, `comm`, `deptno`) VALUES(&apos;7369&apos;,&apos;张倩&apos;,&apos;办事员&apos;,&apos;7902&apos;,&apos;2019-12-17&apos;,&apos;820&apos;,NULL,&apos;20&apos;);
-  INSERT INTO `emp` (`empno`, `ename`, `job`, `mgr`, `hiredate`, `sal`, `comm`, `deptno`) VALUES(&apos;7499&apos;,&apos;刘博&apos;,&apos;售货员&apos;,&apos;7698&apos;,&apos;1981-02-20&apos;,&apos;1900&apos;,&apos;300&apos;,&apos;30&apos;);
-  INSERT INTO `emp` (`empno`, `ename`, `job`, `mgr`, `hiredate`, `sal`, `comm`, `deptno`) VALUES(&apos;7521&apos;,&apos;李兴&apos;,&apos;售货员&apos;,&apos;7698&apos;,&apos;1981-02-22&apos;,&apos;1250&apos;,&apos;500&apos;,&apos;30&apos;);
-  INSERT INTO `emp` (`empno`, `ename`, `job`, `mgr`, `hiredate`, `sal`, `comm`, `deptno`) VALUES(&apos;7566&apos;,&apos;小曲&apos;,&apos;人事部长&apos;,&apos;7839&apos;,&apos;1981-04-02&apos;,&apos;2975&apos;,NULL,&apos;20&apos;);
-  INSERT INTO `emp` (`empno`, `ename`, `job`, `mgr`, `hiredate`, `sal`, `comm`, `deptno`) VALUES(&apos;7654&apos;,&apos;刘浩&apos;,&apos;售货员&apos;,&apos;7698&apos;,&apos;1981-09-28&apos;,&apos;1250&apos;,&apos;1400&apos;,&apos;30&apos;);
-  INSERT INTO `emp` (`empno`, `ename`, `job`, `mgr`, `hiredate`, `sal`, `comm`, `deptno`) VALUES(&apos;7698&apos;,&apos;刘涛&apos;,&apos;销售部长&apos;,&apos;7839&apos;,&apos;1981-05-01&apos;,&apos;2850&apos;,NULL,&apos;30&apos;);
-  INSERT INTO `emp` (`empno`, `ename`, `job`, `mgr`, `hiredate`, `sal`, `comm`, `deptno`) VALUES(&apos;7782&apos;,&apos;华仔&apos;,&apos;人事部长&apos;,&apos;7839&apos;,&apos;1981-06-09&apos;,&apos;2450&apos;,NULL,&apos;10&apos;);
-  INSERT INTO `emp` (`empno`, `ename`, `job`, `mgr`, `hiredate`, `sal`, `comm`, `deptno`) VALUES(&apos;7788&apos;,&apos;张飞&apos;,&apos;人事专员&apos;,&apos;7566&apos;,&apos;1987-04-19&apos;,&apos;3000&apos;,NULL,&apos;20&apos;);
-  INSERT INTO `emp` (`empno`, `ename`, `job`, `mgr`, `hiredate`, `sal`, `comm`, `deptno`) VALUES(&apos;7839&apos;,&apos;马晓云&apos;,&apos;董事长&apos;,NULL,&apos;1981-11-17&apos;,&apos;5000&apos;,NULL,&apos;10&apos;);
-  INSERT INTO `emp` (`empno`, `ename`, `job`, `mgr`, `hiredate`, `sal`, `comm`, `deptno`) VALUES(&apos;7844&apos;,&apos;马琪&apos;,&apos;售货员&apos;,&apos;7698&apos;,&apos;1981-09-08&apos;,&apos;1500&apos;,&apos;0&apos;,&apos;30&apos;);
-  INSERT INTO `emp` (`empno`, `ename`, `job`, `mgr`, `hiredate`, `sal`, `comm`, `deptno`) VALUES(&apos;7876&apos;,&apos;李涵&apos;,&apos;办事员&apos;,&apos;7788&apos;,&apos;1987-05-23&apos;,&apos;1100&apos;,NULL,&apos;20&apos;);
-  INSERT INTO `emp` (`empno`, `ename`, `job`, `mgr`, `hiredate`, `sal`, `comm`, `deptno`) VALUES(&apos;7900&apos;,&apos;李涵&apos;,&apos;销售员&apos;,&apos;7698&apos;,&apos;1981-12-03&apos;,&apos;950&apos;,NULL,&apos;30&apos;);
-  INSERT INTO `emp` (`empno`, `ename`, `job`, `mgr`, `hiredate`, `sal`, `comm`, `deptno`) VALUES(&apos;7902&apos;,&apos;汪涵&apos;,&apos;人事组长&apos;,&apos;7566&apos;,&apos;1981-12-03&apos;,&apos;3000&apos;,NULL,&apos;20&apos;);
-  INSERT INTO `emp` (`empno`, `ename`, `job`, `mgr`, `hiredate`, `sal`, `comm`, `deptno`) VALUES(&apos;7934&apos;,&apos;黄晓明&apos;,&apos;人事长&apos;,&apos;7782&apos;,&apos;1982-01-23&apos;,&apos;1300&apos;,NULL,&apos;10&apos;);
-</code></pre><hr>
-<pre><code>/*
-salgrade：工资等级
+       //插入一个节点
+       public void insert(Node newNode){
+           Node currentNode=this;
+           newNode.next=currentNode.next;
+           currentNode.next=newNode;
+       }
 
-grade：      工资等级；  
-losal：      最低限额；  
-hisal：      最高限额；
-*/
-
-create table salgrade(
-grade int (10),
-losal int (10),
-hisal int (10)
-)
-
-insert into salgrade (grade, losal, hisal)values (1, 700, 1200);
-insert into salgrade (grade, losal, hisal)values (2, 1201, 1400);
-insert into salgrade (grade, losal, hisal)values (3, 1401, 2000);
-insert into salgrade (grade, losal, hisal)values (4, 2001, 3000);
-insert into salgrade (grade, losal, hisal)values (5, 3001, 9999);
+   }
+</code></pre><h4 id="测试代码"><a href="#测试代码" class="headerlink" title="测试代码"></a>测试代码</h4><pre><code> package demoNode;
+ public class TestNode {
+    public static void main(String[] args) {
+        //创建节点对象
+        Node n1=new Node(1);
+        Node n2=new Node(2);
+        Node n3=new Node(3);
+        //用追加节点方法将相应的节点连成单链表
+        n1.append(n2).append(n3).append(new Node(4));
+        //取出下一个节点中的数据
+        System.out.println(n1.Next().Next().getData());
+        System.out.println(n1.isLast());
+        //显示所有节点信息
+        n1.show();
+        //删除某个节点的下一个节点
+        n1.remove();
+        n1.show();
+        //插入节点
+        n1.insert(n2);
+        //追加新节点
+        n1.append(new Node(5));
+        n1.show();
+        System.out.println(n2.getData());
+    }
+}
 </code></pre>
       
     </div>
@@ -559,7 +589,7 @@ insert into salgrade (grade, losal, hisal)values (5, 3001, 9999);
       
         <div class="post-tags">
           
-            <a href="/tags/MySQL/" rel="tag"># MySQL</a>
+            <a href="/tags/数据结构与算法/" rel="tag"># 数据结构与算法</a>
           
         </div>
       
@@ -572,8 +602,8 @@ insert into salgrade (grade, losal, hisal)values (5, 3001, 9999);
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/04/23/Matlab2/" rel="next" title="Matlab学习笔记2">
-                <i class="fa fa-chevron-left"></i> Matlab学习笔记2
+              <a href="/2019/08/23/数据结构与算法学习之队列/" rel="next" title="一、线性结构—队列">
+                <i class="fa fa-chevron-left"></i> 一、线性结构—队列
               </a>
             
           </div>
@@ -581,10 +611,6 @@ insert into salgrade (grade, losal, hisal)values (5, 3001, 9999);
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/08/13/git教程/" rel="prev" title="git学习">
-                git学习 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -751,7 +777,7 @@ insert into salgrade (grade, losal, hisal)values (5, 3001, 9999);
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#use-test"><span class="nav-number">1.</span> <span class="nav-text">use test;</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#单链表学习整理"><span class="nav-number">1.</span> <span class="nav-text">单链表学习整理</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#单链表"><span class="nav-number">1.1.</span> <span class="nav-text">单链表</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#优点："><span class="nav-number">1.1.1.</span> <span class="nav-text">优点：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#缺点："><span class="nav-number">1.1.2.</span> <span class="nav-text">缺点：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#适用场景："><span class="nav-number">1.1.3.</span> <span class="nav-text">适用场景：</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#基类的定义"><span class="nav-number">1.1.3.1.</span> <span class="nav-text">基类的定义</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#代码实现"><span class="nav-number">1.1.3.2.</span> <span class="nav-text">代码实现</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#测试代码"><span class="nav-number">1.1.3.3.</span> <span class="nav-text">测试代码</span></a></li></ol></li></ol></li></ol></li></ol></div>
             
 
           </div>
