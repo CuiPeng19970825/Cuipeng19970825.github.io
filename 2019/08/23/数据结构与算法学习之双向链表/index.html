@@ -96,18 +96,18 @@
 
 
 
-  <meta name="description" content="use test;/*      dept：部门表    deptno：     部门编号；     dname：      部门名称；    loc：        地理位置； */  create table dept (   deptno int (2) not null,   dname varchar (14),   loc varchar (13)  );  -- 添加主键 -- al">
-<meta name="keywords" content="MySQL">
+  <meta name="description" content="双项链表学习整理双向链表单向链表的缺点在于每个节点只能知道自己与下一个节点，无法寻找到上一个节点。而双向链表可以 解决这个问题，通过在节点内部添加一个pre指针，指向它的前一节点。 优点：支持向前遍历，也支持向后遍历；缺点：在对链表进行增删的时候需要对2个以上指针进行操作。基类的定义 定义一个节点类DoubleNode  insert()方法，插入一个节点  pre()方法，获取上一个节点  ne">
+<meta name="keywords" content="数据结构与算法">
 <meta property="og:type" content="article">
-<meta property="og:title" content="员工部门——中文版">
-<meta property="og:url" content="https://Cuipeng19970825.github.io/2019/08/09/员工部门---中文版/index.html">
+<meta property="og:title" content="一、线性结构—双向链表">
+<meta property="og:url" content="https://Cuipeng19970825.github.io/2019/08/23/数据结构与算法学习之双向链表/index.html">
 <meta property="og:site_name" content="Program Life">
-<meta property="og:description" content="use test;/*      dept：部门表    deptno：     部门编号；     dname：      部门名称；    loc：        地理位置； */  create table dept (   deptno int (2) not null,   dname varchar (14),   loc varchar (13)  );  -- 添加主键 -- al">
+<meta property="og:description" content="双项链表学习整理双向链表单向链表的缺点在于每个节点只能知道自己与下一个节点，无法寻找到上一个节点。而双向链表可以 解决这个问题，通过在节点内部添加一个pre指针，指向它的前一节点。 优点：支持向前遍历，也支持向后遍历；缺点：在对链表进行增删的时候需要对2个以上指针进行操作。基类的定义 定义一个节点类DoubleNode  insert()方法，插入一个节点  pre()方法，获取上一个节点  ne">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-08-15T15:36:07.724Z">
+<meta property="og:updated_time" content="2019-08-22T18:35:55.816Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="员工部门——中文版">
-<meta name="twitter:description" content="use test;/*      dept：部门表    deptno：     部门编号；     dname：      部门名称；    loc：        地理位置； */  create table dept (   deptno int (2) not null,   dname varchar (14),   loc varchar (13)  );  -- 添加主键 -- al">
+<meta name="twitter:title" content="一、线性结构—双向链表">
+<meta name="twitter:description" content="双项链表学习整理双向链表单向链表的缺点在于每个节点只能知道自己与下一个节点，无法寻找到上一个节点。而双向链表可以 解决这个问题，通过在节点内部添加一个pre指针，指向它的前一节点。 优点：支持向前遍历，也支持向后遍历；缺点：在对链表进行增删的时候需要对2个以上指针进行操作。基类的定义 定义一个节点类DoubleNode  insert()方法，插入一个节点  pre()方法，获取上一个节点  ne">
 
 
 
@@ -115,7 +115,7 @@
 
   
   
-  <link rel="canonical" href="https://Cuipeng19970825.github.io/2019/08/09/员工部门---中文版/">
+  <link rel="canonical" href="https://Cuipeng19970825.github.io/2019/08/23/数据结构与算法学习之双向链表/">
 
 
 
@@ -125,7 +125,7 @@
   };
 </script>
 
-  <title>员工部门——中文版 | Program Life</title>
+  <title>一、线性结构—双向链表 | Program Life</title>
   
 
 
@@ -328,7 +328,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://Cuipeng19970825.github.io/2019/08/09/员工部门---中文版/">
+    <link itemprop="mainEntityOfPage" href="https://Cuipeng19970825.github.io/2019/08/23/数据结构与算法学习之双向链表/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="崔鹏">
@@ -345,7 +345,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">员工部门——中文版
+          <h1 class="post-title" itemprop="name headline">一、线性结构—双向链表
 
               
             
@@ -371,24 +371,12 @@
                 
               
 
-              <time title="创建时间：2019-08-09 16:51:00" itemprop="dateCreated datePublished" datetime="2019-08-09T16:51:00+08:00">2019-08-09</time>
+              <time title="创建时间：2019-08-23 02:22:12 / 修改时间：02:35:55" itemprop="dateCreated datePublished" datetime="2019-08-23T02:22:12+08:00">2019-08-23</time>
             
 
             
               
 
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-08-15 23:36:07" itemprop="dateModified" datetime="2019-08-15T23:36:07+08:00">2019-08-15</time>
               
             
           </span>
@@ -405,7 +393,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/数据库/" itemprop="url" rel="index"><span itemprop="name">数据库</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/数据结构与算法/" itemprop="url" rel="index"><span itemprop="name">数据结构与算法</span></a></span>
 
                 
                 
@@ -440,102 +428,84 @@
       
 
       
-        <h2 id="use-test"><a href="#use-test" class="headerlink" title="use test;"></a>use test;</h2><pre><code>/*
-     dept：部门表
+        <h1 id="双项链表学习整理"><a href="#双项链表学习整理" class="headerlink" title="双项链表学习整理"></a>双项链表学习整理</h1><h2 id="双向链表"><a href="#双向链表" class="headerlink" title="双向链表"></a>双向链表</h2><p>单向链表的缺点在于每个节点只能知道自己与下一个节点，无法寻找到上一个节点。而双向链表可以</p>
+<p>解决这个问题，通过在节点内部添加一个pre指针，指向它的前一节点。</p>
+<h3 id="优点：支持向前遍历，也支持向后遍历；"><a href="#优点：支持向前遍历，也支持向后遍历；" class="headerlink" title="优点：支持向前遍历，也支持向后遍历；"></a>优点：支持向前遍历，也支持向后遍历；</h3><h3 id="缺点：在对链表进行增删的时候需要对2个以上指针进行操作。"><a href="#缺点：在对链表进行增删的时候需要对2个以上指针进行操作。" class="headerlink" title="缺点：在对链表进行增删的时候需要对2个以上指针进行操作。"></a>缺点：在对链表进行增删的时候需要对2个以上指针进行操作。</h3><h4 id="基类的定义"><a href="#基类的定义" class="headerlink" title="基类的定义"></a>基类的定义</h4><ul>
+<li><p>定义一个节点类DoubleNode</p>
+</li>
+<li><p>insert()方法，插入一个节点</p>
+</li>
+<li><p>pre()方法，获取上一个节点</p>
+</li>
+<li><p>next()方法，获取下一个节点</p>
+</li>
+<li><p>getData()方法，获取节点中的数据</p>
+</li>
+</ul>
+<h4 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h4><pre><code>package demoDoubleNode;
+       public class DoubleNode {
+           //上一个节点
+           private DoubleNode pre;
+           //下一个节点
+           private DoubleNode next;
+           //数据
+           private int data;
 
-  deptno：     部门编号；  
-  dname：      部门名称； 
-  loc：        地理位置；
-*/
+           public DoubleNode(int data){
+               pre=this;
+               next=this;
+               this.data=data;
+           }
 
-create table dept (
-  deptno int (2) not null,
-  dname varchar (14),
-  loc varchar (13) 
-);
+           //插入一个节点
+           public void insert(DoubleNode newNode){
+               //当前节点
+               DoubleNode currentNode=this;
+               //当前节点的下一个节点之后作为下下一个节点
+               DoubleNode NextNode=this.next;
+               //令将当前节点的下一个节点指向新节点
+               currentNode.next=newNode;
+               //将新节点的前一个节点指向当前节点
+               newNode.pre=currentNode;
+               //将新节点的下一个节点指向下下一个节点
+               newNode.next=NextNode;
+               //将下下一个节点的前一个节点指向新节点
+               NextNode.pre=newNode;
+           }
 
--- 添加主键
--- alter table 表 add primary key (主键字段名);
-alter table dept add primary key (deptno);
+           //获取上一个节点
+           public DoubleNode pre(){
+               return this.pre;
+           }
 
-insert into dept (deptno,dname,loc)values (10,&apos;财务部&apos;,&apos;高新四路&apos;);
-insert into dept (deptno,dname,loc)values (20,&apos;人事部&apos;,&apos;科技二路&apos;);
-insert into dept (deptno,dname,loc)values (30,&apos;销售部&apos;,&apos;长安区&apos;);
-insert into dept (deptno,dname,loc)values (40,&apos;运输部&apos;,&apos;雁塔区&apos;);
-</code></pre><hr>
-<pre><code>/*
-  emp：员工表
+           //获取下一个节点
+           public DoubleNode next(){
+               return this.next;
+           }
 
-  empno：       员工编号；  
-  ename：       员工名字；  
-  job：         职位； 
-  mgr:          上司； 
-  hiredate：    入职时间；
-  sal：         基本工资；  
-  comm：        补贴；      
-  deptno：      所属部门编号；
-*/
+           //获取数据
+           public int getData(){
+               return this.data;
+           }
 
-  create table emp(
-      empno int(4) not null,
-      ename varchar(10),
-      job varchar(9),
-      mgr int(4),
-      hiredate date,
-      sal int(7 ),
-      comm int(7 ),
-      deptno int(2)
-  )
-
-  -- 添加主键
-  -- alter table 表 add primary key (主键字段名);
-  alter table emp add primary key (empno);
-  desc emp;
-
-  -- 添加外键约束
-  /*
-  alter table 从表 add constraint 自己建的外键名 
-  foreign key (从表里的外键字段) 
-  references 主表(映射主表中的主键字段);
-  */
-  alter table emp add constraint f_ed_key
-  foreign key (deptno) 
-  references dept(deptno)
-
-  INSERT INTO `emp` (`empno`, `ename`, `job`, `mgr`, `hiredate`, `sal`, `comm`, `deptno`) VALUES(&apos;7369&apos;,&apos;张倩&apos;,&apos;办事员&apos;,&apos;7902&apos;,&apos;2019-12-17&apos;,&apos;820&apos;,NULL,&apos;20&apos;);
-  INSERT INTO `emp` (`empno`, `ename`, `job`, `mgr`, `hiredate`, `sal`, `comm`, `deptno`) VALUES(&apos;7499&apos;,&apos;刘博&apos;,&apos;售货员&apos;,&apos;7698&apos;,&apos;1981-02-20&apos;,&apos;1900&apos;,&apos;300&apos;,&apos;30&apos;);
-  INSERT INTO `emp` (`empno`, `ename`, `job`, `mgr`, `hiredate`, `sal`, `comm`, `deptno`) VALUES(&apos;7521&apos;,&apos;李兴&apos;,&apos;售货员&apos;,&apos;7698&apos;,&apos;1981-02-22&apos;,&apos;1250&apos;,&apos;500&apos;,&apos;30&apos;);
-  INSERT INTO `emp` (`empno`, `ename`, `job`, `mgr`, `hiredate`, `sal`, `comm`, `deptno`) VALUES(&apos;7566&apos;,&apos;小曲&apos;,&apos;人事部长&apos;,&apos;7839&apos;,&apos;1981-04-02&apos;,&apos;2975&apos;,NULL,&apos;20&apos;);
-  INSERT INTO `emp` (`empno`, `ename`, `job`, `mgr`, `hiredate`, `sal`, `comm`, `deptno`) VALUES(&apos;7654&apos;,&apos;刘浩&apos;,&apos;售货员&apos;,&apos;7698&apos;,&apos;1981-09-28&apos;,&apos;1250&apos;,&apos;1400&apos;,&apos;30&apos;);
-  INSERT INTO `emp` (`empno`, `ename`, `job`, `mgr`, `hiredate`, `sal`, `comm`, `deptno`) VALUES(&apos;7698&apos;,&apos;刘涛&apos;,&apos;销售部长&apos;,&apos;7839&apos;,&apos;1981-05-01&apos;,&apos;2850&apos;,NULL,&apos;30&apos;);
-  INSERT INTO `emp` (`empno`, `ename`, `job`, `mgr`, `hiredate`, `sal`, `comm`, `deptno`) VALUES(&apos;7782&apos;,&apos;华仔&apos;,&apos;人事部长&apos;,&apos;7839&apos;,&apos;1981-06-09&apos;,&apos;2450&apos;,NULL,&apos;10&apos;);
-  INSERT INTO `emp` (`empno`, `ename`, `job`, `mgr`, `hiredate`, `sal`, `comm`, `deptno`) VALUES(&apos;7788&apos;,&apos;张飞&apos;,&apos;人事专员&apos;,&apos;7566&apos;,&apos;1987-04-19&apos;,&apos;3000&apos;,NULL,&apos;20&apos;);
-  INSERT INTO `emp` (`empno`, `ename`, `job`, `mgr`, `hiredate`, `sal`, `comm`, `deptno`) VALUES(&apos;7839&apos;,&apos;马晓云&apos;,&apos;董事长&apos;,NULL,&apos;1981-11-17&apos;,&apos;5000&apos;,NULL,&apos;10&apos;);
-  INSERT INTO `emp` (`empno`, `ename`, `job`, `mgr`, `hiredate`, `sal`, `comm`, `deptno`) VALUES(&apos;7844&apos;,&apos;马琪&apos;,&apos;售货员&apos;,&apos;7698&apos;,&apos;1981-09-08&apos;,&apos;1500&apos;,&apos;0&apos;,&apos;30&apos;);
-  INSERT INTO `emp` (`empno`, `ename`, `job`, `mgr`, `hiredate`, `sal`, `comm`, `deptno`) VALUES(&apos;7876&apos;,&apos;李涵&apos;,&apos;办事员&apos;,&apos;7788&apos;,&apos;1987-05-23&apos;,&apos;1100&apos;,NULL,&apos;20&apos;);
-  INSERT INTO `emp` (`empno`, `ename`, `job`, `mgr`, `hiredate`, `sal`, `comm`, `deptno`) VALUES(&apos;7900&apos;,&apos;李涵&apos;,&apos;销售员&apos;,&apos;7698&apos;,&apos;1981-12-03&apos;,&apos;950&apos;,NULL,&apos;30&apos;);
-  INSERT INTO `emp` (`empno`, `ename`, `job`, `mgr`, `hiredate`, `sal`, `comm`, `deptno`) VALUES(&apos;7902&apos;,&apos;汪涵&apos;,&apos;人事组长&apos;,&apos;7566&apos;,&apos;1981-12-03&apos;,&apos;3000&apos;,NULL,&apos;20&apos;);
-  INSERT INTO `emp` (`empno`, `ename`, `job`, `mgr`, `hiredate`, `sal`, `comm`, `deptno`) VALUES(&apos;7934&apos;,&apos;黄晓明&apos;,&apos;人事长&apos;,&apos;7782&apos;,&apos;1982-01-23&apos;,&apos;1300&apos;,NULL,&apos;10&apos;);
-</code></pre><hr>
-<pre><code>/*
-salgrade：工资等级
-
-grade：      工资等级；  
-losal：      最低限额；  
-hisal：      最高限额；
-*/
-
-create table salgrade(
-grade int (10),
-losal int (10),
-hisal int (10)
-)
-
-insert into salgrade (grade, losal, hisal)values (1, 700, 1200);
-insert into salgrade (grade, losal, hisal)values (2, 1201, 1400);
-insert into salgrade (grade, losal, hisal)values (3, 1401, 2000);
-insert into salgrade (grade, losal, hisal)values (4, 2001, 3000);
-insert into salgrade (grade, losal, hisal)values (5, 3001, 9999);
+       }
+</code></pre><h4 id="测试代码"><a href="#测试代码" class="headerlink" title="测试代码"></a>测试代码</h4><pre><code>package demoDoubleNode;
+public class TestDoubleNode {
+       public static void main(String[] args) {
+           DoubleNode n1=new DoubleNode(1);
+           DoubleNode n2=new DoubleNode(2);
+           DoubleNode n3=new DoubleNode(3);
+           DoubleNode n4=new DoubleNode(4);
+           System.out.println(n1.pre().getData());
+           System.out.println(n1.next().getData());
+           n1.insert(n2);
+           n2.insert(n3);
+           n3.insert(n4);
+           System.out.println(n1.pre().getData());
+           System.out.println(n4.next().getData());
+           System.out.println(n2.next().getData());
+       }
+   }
 </code></pre>
       
     </div>
@@ -559,7 +529,7 @@ insert into salgrade (grade, losal, hisal)values (5, 3001, 9999);
       
         <div class="post-tags">
           
-            <a href="/tags/MySQL/" rel="tag"># MySQL</a>
+            <a href="/tags/数据结构与算法/" rel="tag"># 数据结构与算法</a>
           
         </div>
       
@@ -572,8 +542,8 @@ insert into salgrade (grade, losal, hisal)values (5, 3001, 9999);
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/04/23/Matlab2/" rel="next" title="Matlab学习笔记2">
-                <i class="fa fa-chevron-left"></i> Matlab学习笔记2
+              <a href="/2019/08/23/数据结构与算法学习之循环链表/" rel="next" title="一、线性结构—循环链表">
+                <i class="fa fa-chevron-left"></i> 一、线性结构—循环链表
               </a>
             
           </div>
@@ -581,10 +551,6 @@ insert into salgrade (grade, losal, hisal)values (5, 3001, 9999);
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/08/13/git教程/" rel="prev" title="git学习">
-                git学习 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -751,7 +717,7 @@ insert into salgrade (grade, losal, hisal)values (5, 3001, 9999);
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#use-test"><span class="nav-number">1.</span> <span class="nav-text">use test;</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#双项链表学习整理"><span class="nav-number">1.</span> <span class="nav-text">双项链表学习整理</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#双向链表"><span class="nav-number">1.1.</span> <span class="nav-text">双向链表</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#优点：支持向前遍历，也支持向后遍历；"><span class="nav-number">1.1.1.</span> <span class="nav-text">优点：支持向前遍历，也支持向后遍历；</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#缺点：在对链表进行增删的时候需要对2个以上指针进行操作。"><span class="nav-number">1.1.2.</span> <span class="nav-text">缺点：在对链表进行增删的时候需要对2个以上指针进行操作。</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#基类的定义"><span class="nav-number">1.1.2.1.</span> <span class="nav-text">基类的定义</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#代码实现"><span class="nav-number">1.1.2.2.</span> <span class="nav-text">代码实现</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#测试代码"><span class="nav-number">1.1.2.3.</span> <span class="nav-text">测试代码</span></a></li></ol></li></ol></li></ol></li></ol></div>
             
 
           </div>
