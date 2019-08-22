@@ -96,18 +96,18 @@
 
 
 
-  <meta name="description" content="use test;/*      dept：部门表    deptno：     部门编号；     dname：      部门名称；    loc：        地理位置； */  create table dept (   deptno int (2) not null,   dname varchar (14),   loc varchar (13)  );  -- 添加主键 -- al">
-<meta name="keywords" content="MySQL">
+  <meta name="description" content="数组学习整理数组数据结构中最基本的一个结构就是线性结构，而线性结构又分为连续存储结构和离散存储结构， 所谓的连续存储结构其实就是数组。 优点：知道坐标时可以快速的存取缺点：查找慢，删除慢，大小固定二次封装数组基类的定义 定义一个工具类Arr  size()方法，获取数组长度  add()方法，向数组末尾增加一个元素  show()方法，显示数组中的所有元素  delete()方法，删除数组中某个位">
+<meta name="keywords" content="数据结构与算法">
 <meta property="og:type" content="article">
-<meta property="og:title" content="员工部门——中文版">
-<meta property="og:url" content="https://Cuipeng19970825.github.io/2019/08/09/员工部门---中文版/index.html">
+<meta property="og:title" content="一、线性结构————数组">
+<meta property="og:url" content="https://Cuipeng19970825.github.io/2019/08/22/数据结构与算法学习之数组/index.html">
 <meta property="og:site_name" content="Program Life">
-<meta property="og:description" content="use test;/*      dept：部门表    deptno：     部门编号；     dname：      部门名称；    loc：        地理位置； */  create table dept (   deptno int (2) not null,   dname varchar (14),   loc varchar (13)  );  -- 添加主键 -- al">
+<meta property="og:description" content="数组学习整理数组数据结构中最基本的一个结构就是线性结构，而线性结构又分为连续存储结构和离散存储结构， 所谓的连续存储结构其实就是数组。 优点：知道坐标时可以快速的存取缺点：查找慢，删除慢，大小固定二次封装数组基类的定义 定义一个工具类Arr  size()方法，获取数组长度  add()方法，向数组末尾增加一个元素  show()方法，显示数组中的所有元素  delete()方法，删除数组中某个位">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-08-15T15:36:07.724Z">
+<meta property="og:updated_time" content="2019-08-22T16:30:28.090Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="员工部门——中文版">
-<meta name="twitter:description" content="use test;/*      dept：部门表    deptno：     部门编号；     dname：      部门名称；    loc：        地理位置； */  create table dept (   deptno int (2) not null,   dname varchar (14),   loc varchar (13)  );  -- 添加主键 -- al">
+<meta name="twitter:title" content="一、线性结构————数组">
+<meta name="twitter:description" content="数组学习整理数组数据结构中最基本的一个结构就是线性结构，而线性结构又分为连续存储结构和离散存储结构， 所谓的连续存储结构其实就是数组。 优点：知道坐标时可以快速的存取缺点：查找慢，删除慢，大小固定二次封装数组基类的定义 定义一个工具类Arr  size()方法，获取数组长度  add()方法，向数组末尾增加一个元素  show()方法，显示数组中的所有元素  delete()方法，删除数组中某个位">
 
 
 
@@ -115,7 +115,7 @@
 
   
   
-  <link rel="canonical" href="https://Cuipeng19970825.github.io/2019/08/09/员工部门---中文版/">
+  <link rel="canonical" href="https://Cuipeng19970825.github.io/2019/08/22/数据结构与算法学习之数组/">
 
 
 
@@ -125,7 +125,7 @@
   };
 </script>
 
-  <title>员工部门——中文版 | Program Life</title>
+  <title>一、线性结构————数组 | Program Life</title>
   
 
 
@@ -328,7 +328,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://Cuipeng19970825.github.io/2019/08/09/员工部门---中文版/">
+    <link itemprop="mainEntityOfPage" href="https://Cuipeng19970825.github.io/2019/08/22/数据结构与算法学习之数组/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="崔鹏">
@@ -345,7 +345,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">员工部门——中文版
+          <h1 class="post-title" itemprop="name headline">一、线性结构————数组
 
               
             
@@ -371,7 +371,7 @@
                 
               
 
-              <time title="创建时间：2019-08-09 16:51:00" itemprop="dateCreated datePublished" datetime="2019-08-09T16:51:00+08:00">2019-08-09</time>
+              <time title="创建时间：2019-08-22 22:55:51" itemprop="dateCreated datePublished" datetime="2019-08-22T22:55:51+08:00">2019-08-22</time>
             
 
             
@@ -388,7 +388,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-08-15 23:36:07" itemprop="dateModified" datetime="2019-08-15T23:36:07+08:00">2019-08-15</time>
+                <time title="修改时间：2019-08-23 00:30:28" itemprop="dateModified" datetime="2019-08-23T00:30:28+08:00">2019-08-23</time>
               
             
           </span>
@@ -405,7 +405,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/数据库/" itemprop="url" rel="index"><span itemprop="name">数据库</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/数据结构与算法/" itemprop="url" rel="index"><span itemprop="name">数据结构与算法</span></a></span>
 
                 
                 
@@ -440,102 +440,214 @@
       
 
       
-        <h2 id="use-test"><a href="#use-test" class="headerlink" title="use test;"></a>use test;</h2><pre><code>/*
-     dept：部门表
+        <h1 id="数组学习整理"><a href="#数组学习整理" class="headerlink" title="数组学习整理"></a>数组学习整理</h1><h2 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h2><p>数据结构中最基本的一个结构就是线性结构，而线性结构又分为连续存储结构和离散存储结构，</p>
+<p>所谓的连续存储结构其实就是数组。</p>
+<h3 id="优点：知道坐标时可以快速的存取"><a href="#优点：知道坐标时可以快速的存取" class="headerlink" title="优点：知道坐标时可以快速的存取"></a>优点：知道坐标时可以快速的存取</h3><h3 id="缺点：查找慢，删除慢，大小固定"><a href="#缺点：查找慢，删除慢，大小固定" class="headerlink" title="缺点：查找慢，删除慢，大小固定"></a>缺点：查找慢，删除慢，大小固定</h3><h3 id="二次封装数组"><a href="#二次封装数组" class="headerlink" title="二次封装数组"></a>二次封装数组</h3><h4 id="基类的定义"><a href="#基类的定义" class="headerlink" title="基类的定义"></a>基类的定义</h4><ul>
+<li><p>定义一个工具类Arr</p>
+</li>
+<li><p>size()方法，获取数组长度</p>
+</li>
+<li><p>add()方法，向数组末尾增加一个元素</p>
+</li>
+<li><p>show()方法，显示数组中的所有元素</p>
+</li>
+<li><p>delete()方法，删除数组中某个位置的元素</p>
+</li>
+<li><p>insert()方法，向数组中插入一个元素</p>
+</li>
+<li><p>get()方法，获取数组中目标位置的元素</p>
+</li>
+<li><p>set()方法，替换数组中目标位置的元素值</p>
+</li>
+<li><p>search()线性查找方法</p>
+</li>
+<li><p>BinarySearch()二分法查找，条件：查找的数组有序</p>
+</li>
+</ul>
+<h4 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h4><pre><code>package demoArray;
+import java.util.Arrays;
+public class Arr {
+    private int[] arr;
 
-  deptno：     部门编号；  
-  dname：      部门名称； 
-  loc：        地理位置；
-*/
+    public Arr (){
+        arr=new int[0];
 
-create table dept (
-  deptno int (2) not null,
-  dname varchar (14),
-  loc varchar (13) 
-);
+    }
 
--- 添加主键
--- alter table 表 add primary key (主键字段名);
-alter table dept add primary key (deptno);
+    //获取数组长度
+    public int size(){
+        return arr.length;
+    }
 
-insert into dept (deptno,dname,loc)values (10,&apos;财务部&apos;,&apos;高新四路&apos;);
-insert into dept (deptno,dname,loc)values (20,&apos;人事部&apos;,&apos;科技二路&apos;);
-insert into dept (deptno,dname,loc)values (30,&apos;销售部&apos;,&apos;长安区&apos;);
-insert into dept (deptno,dname,loc)values (40,&apos;运输部&apos;,&apos;雁塔区&apos;);
-</code></pre><hr>
-<pre><code>/*
-  emp：员工表
+    //向数组末尾增加一个元素
+    public void add(int element){
+        //新创建一个数组
+        int[] newarr=new int[arr.length+1];
+        //将原数组中的元素复制到新数组中
+        for(int i=0;i&lt;arr.length;i++){
+            newarr[i]=arr[i];
+        }
+        //将新增加的元素放入新数组中
+        newarr[arr.length]=element;
+        //新数组替换原数组
+        arr=newarr;
+    }
 
-  empno：       员工编号；  
-  ename：       员工名字；  
-  job：         职位； 
-  mgr:          上司； 
-  hiredate：    入职时间；
-  sal：         基本工资；  
-  comm：        补贴；      
-  deptno：      所属部门编号；
-*/
+    //显示数组中的所有元素
+    public void show(){
+        System.out.println(Arrays.toString(arr));
+    }
 
-  create table emp(
-      empno int(4) not null,
-      ename varchar(10),
-      job varchar(9),
-      mgr int(4),
-      hiredate date,
-      sal int(7 ),
-      comm int(7 ),
-      deptno int(2)
-  )
+    //删除数组中某个位置的元素
+    public void delete(int index){
+        //创建一个新数组
+        int[] newarr=new int[arr.length-1];
+        //判断目标位置是否越界
+        if(index&lt;0||index&gt;arr.length-1){
+            throw new RuntimeException(&quot;下标越界&quot;);
+        }
+        for(int i=0;i&lt;newarr.length;i++){
+            //将删除元素前的元素复制到新数组中
+            if(i&lt;index){
+            newarr[i]=arr[i];
+            //将删除元素后的元素复制到新数组中
+            }else{
+                newarr[i]=arr[i+1];
+            }
+        }
+        //新数组替换原数组
+        arr=newarr;
+    }
 
-  -- 添加主键
-  -- alter table 表 add primary key (主键字段名);
-  alter table emp add primary key (empno);
-  desc emp;
+    //向数组中插入一个元素
+    public void insert(int index,int element){
+        //创建一个新数组
+        int[] newarr=new int[arr.length+1];
+        //判断下标是否越界
+        if(index&lt;0||index&gt;newarr.length-1){
+            throw new RuntimeException(&quot;下标越界&quot;);
+        }
+        for(int i=0;i&lt;arr.length;i++){
+            //将插入元素前的元素复制到新数组
+            if(i&lt;index){
+                newarr[i]=arr[i];
+            //将插入元素后的元素复制到新数组
+            }else{
+                newarr[i+1]=arr[i];
+            }
+        }
+        //将插入元素放入到新数组中
+        newarr[index]=element;
+        //新数组替换原数组
+        arr=newarr;
+    }
 
-  -- 添加外键约束
-  /*
-  alter table 从表 add constraint 自己建的外键名 
-  foreign key (从表里的外键字段) 
-  references 主表(映射主表中的主键字段);
-  */
-  alter table emp add constraint f_ed_key
-  foreign key (deptno) 
-  references dept(deptno)
+    //获取数组中目标位置元素
+    public int get(int index){
+        //判断目标位置是否越界
+        if(index&lt;0||index&gt;arr.length-1){
+            throw new RuntimeException(&quot;下标越界&quot;);
+        }
+        return arr[index];
+    }
 
-  INSERT INTO `emp` (`empno`, `ename`, `job`, `mgr`, `hiredate`, `sal`, `comm`, `deptno`) VALUES(&apos;7369&apos;,&apos;张倩&apos;,&apos;办事员&apos;,&apos;7902&apos;,&apos;2019-12-17&apos;,&apos;820&apos;,NULL,&apos;20&apos;);
-  INSERT INTO `emp` (`empno`, `ename`, `job`, `mgr`, `hiredate`, `sal`, `comm`, `deptno`) VALUES(&apos;7499&apos;,&apos;刘博&apos;,&apos;售货员&apos;,&apos;7698&apos;,&apos;1981-02-20&apos;,&apos;1900&apos;,&apos;300&apos;,&apos;30&apos;);
-  INSERT INTO `emp` (`empno`, `ename`, `job`, `mgr`, `hiredate`, `sal`, `comm`, `deptno`) VALUES(&apos;7521&apos;,&apos;李兴&apos;,&apos;售货员&apos;,&apos;7698&apos;,&apos;1981-02-22&apos;,&apos;1250&apos;,&apos;500&apos;,&apos;30&apos;);
-  INSERT INTO `emp` (`empno`, `ename`, `job`, `mgr`, `hiredate`, `sal`, `comm`, `deptno`) VALUES(&apos;7566&apos;,&apos;小曲&apos;,&apos;人事部长&apos;,&apos;7839&apos;,&apos;1981-04-02&apos;,&apos;2975&apos;,NULL,&apos;20&apos;);
-  INSERT INTO `emp` (`empno`, `ename`, `job`, `mgr`, `hiredate`, `sal`, `comm`, `deptno`) VALUES(&apos;7654&apos;,&apos;刘浩&apos;,&apos;售货员&apos;,&apos;7698&apos;,&apos;1981-09-28&apos;,&apos;1250&apos;,&apos;1400&apos;,&apos;30&apos;);
-  INSERT INTO `emp` (`empno`, `ename`, `job`, `mgr`, `hiredate`, `sal`, `comm`, `deptno`) VALUES(&apos;7698&apos;,&apos;刘涛&apos;,&apos;销售部长&apos;,&apos;7839&apos;,&apos;1981-05-01&apos;,&apos;2850&apos;,NULL,&apos;30&apos;);
-  INSERT INTO `emp` (`empno`, `ename`, `job`, `mgr`, `hiredate`, `sal`, `comm`, `deptno`) VALUES(&apos;7782&apos;,&apos;华仔&apos;,&apos;人事部长&apos;,&apos;7839&apos;,&apos;1981-06-09&apos;,&apos;2450&apos;,NULL,&apos;10&apos;);
-  INSERT INTO `emp` (`empno`, `ename`, `job`, `mgr`, `hiredate`, `sal`, `comm`, `deptno`) VALUES(&apos;7788&apos;,&apos;张飞&apos;,&apos;人事专员&apos;,&apos;7566&apos;,&apos;1987-04-19&apos;,&apos;3000&apos;,NULL,&apos;20&apos;);
-  INSERT INTO `emp` (`empno`, `ename`, `job`, `mgr`, `hiredate`, `sal`, `comm`, `deptno`) VALUES(&apos;7839&apos;,&apos;马晓云&apos;,&apos;董事长&apos;,NULL,&apos;1981-11-17&apos;,&apos;5000&apos;,NULL,&apos;10&apos;);
-  INSERT INTO `emp` (`empno`, `ename`, `job`, `mgr`, `hiredate`, `sal`, `comm`, `deptno`) VALUES(&apos;7844&apos;,&apos;马琪&apos;,&apos;售货员&apos;,&apos;7698&apos;,&apos;1981-09-08&apos;,&apos;1500&apos;,&apos;0&apos;,&apos;30&apos;);
-  INSERT INTO `emp` (`empno`, `ename`, `job`, `mgr`, `hiredate`, `sal`, `comm`, `deptno`) VALUES(&apos;7876&apos;,&apos;李涵&apos;,&apos;办事员&apos;,&apos;7788&apos;,&apos;1987-05-23&apos;,&apos;1100&apos;,NULL,&apos;20&apos;);
-  INSERT INTO `emp` (`empno`, `ename`, `job`, `mgr`, `hiredate`, `sal`, `comm`, `deptno`) VALUES(&apos;7900&apos;,&apos;李涵&apos;,&apos;销售员&apos;,&apos;7698&apos;,&apos;1981-12-03&apos;,&apos;950&apos;,NULL,&apos;30&apos;);
-  INSERT INTO `emp` (`empno`, `ename`, `job`, `mgr`, `hiredate`, `sal`, `comm`, `deptno`) VALUES(&apos;7902&apos;,&apos;汪涵&apos;,&apos;人事组长&apos;,&apos;7566&apos;,&apos;1981-12-03&apos;,&apos;3000&apos;,NULL,&apos;20&apos;);
-  INSERT INTO `emp` (`empno`, `ename`, `job`, `mgr`, `hiredate`, `sal`, `comm`, `deptno`) VALUES(&apos;7934&apos;,&apos;黄晓明&apos;,&apos;人事长&apos;,&apos;7782&apos;,&apos;1982-01-23&apos;,&apos;1300&apos;,NULL,&apos;10&apos;);
-</code></pre><hr>
-<pre><code>/*
-salgrade：工资等级
+    //替换数组中目标位置元素的值
+    public void set(int index,int element){
+        //判断目标位置是否越界
+        if(index&lt;0||index&gt;arr.length-1){
+            throw new RuntimeException(&quot;下标越界&quot;);
+        }
+        arr[index]=element;
+    }
 
-grade：      工资等级；  
-losal：      最低限额；  
-hisal：      最高限额；
-*/
+    //线性查找
+    public int search(int target) {
+        for(int i=0;i&lt;arr.length;i++){
+            if(arr[i]==target){
+                return i;
+            }
+        }
+        return -1;
+    }
 
-create table salgrade(
-grade int (10),
-losal int (10),
-hisal int (10)
-)
+    //二分法查找
+    public int BinarySearch(int target){
+        // 记录开始位置
+        int begin = 0;
+        // 记录结束位置
+        int end = arr.length - 1;
+        // 记录中间的位置
+        int mid = (begin + end) / 2;
+        // 循环查找
+        while (true) {
+            //判断什么情况下没有目标元素
+            if(begin&gt;=end){
+                return -1;
+            }
+            // 判断中间的这个元素是否是目标元素
+            if (arr[mid] == target) {
+                return mid;
+            } else {
+                if (arr[mid] &gt; target) {
+                    end = mid - 1;
+                } else {
+                    begin = mid + 1;
+                }
+                mid = (begin + end) / 2;
+            }
+        }
+    }
+ }
+</code></pre><h4 id="测试代码"><a href="#测试代码" class="headerlink" title="测试代码"></a>测试代码</h4><pre><code>package demoArray;
+public class TestArr {
+    public static void main(String[] args) {
+        //创建一个基类的对象
+        Arr arr=new Arr();
+        //获取数组长度
+        int size=arr.size();
+        System.out.println(size);
+        //向数组中增加元素
+        arr.add(99);
+        arr.add(98);
+        arr.add(97);
+        System.out.println(arr.size());
+        //显示数组中的所有元素
+        arr.show();
+        //删除数组中第一个位置的元素
+        arr.delete(1);
+        arr.show();
+        arr.add(96);
+        arr.add(95);
+        arr.add(94);
+        arr.add(93);
+        arr.show();
+        //向数组中第一个位置插入元素98
+        arr.insert(1,98);
+        arr.show();
+        //取出数组第四个位置的元素
+        System.out.println(arr.get(4));
+        //设置数组中第六个位置元素的值为90
+        arr.set(6,90);
+        arr.show();
+    }
+}
 
-insert into salgrade (grade, losal, hisal)values (1, 700, 1200);
-insert into salgrade (grade, losal, hisal)values (2, 1201, 1400);
-insert into salgrade (grade, losal, hisal)values (3, 1401, 2000);
-insert into salgrade (grade, losal, hisal)values (4, 2001, 3000);
-insert into salgrade (grade, losal, hisal)values (5, 3001, 9999);
+ package demoArray;
+ public class TestArrSearch {
+     public static void main(String[] args) {
+        Arr arr=new Arr();
+        arr.add(1);
+        arr.add(2);
+        arr.add(3);
+        arr.add(4);
+        arr.add(5);
+        arr.add(6);
+        arr.add(7);
+        System.out.println(&quot;线性查找:&quot;+arr.search(4));
+        System.out.println(&quot;二分法查找:&quot;+arr.BinarySearch(0));
+
+    }
+}
 </code></pre>
       
     </div>
@@ -559,7 +671,7 @@ insert into salgrade (grade, losal, hisal)values (5, 3001, 9999);
       
         <div class="post-tags">
           
-            <a href="/tags/MySQL/" rel="tag"># MySQL</a>
+            <a href="/tags/数据结构与算法/" rel="tag"># 数据结构与算法</a>
           
         </div>
       
@@ -572,8 +684,8 @@ insert into salgrade (grade, losal, hisal)values (5, 3001, 9999);
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/04/23/Matlab2/" rel="next" title="Matlab学习笔记2">
-                <i class="fa fa-chevron-left"></i> Matlab学习笔记2
+              <a href="/2019/08/16/TCP-IP/" rel="next" title="TCP/IP">
+                <i class="fa fa-chevron-left"></i> TCP/IP
               </a>
             
           </div>
@@ -581,10 +693,6 @@ insert into salgrade (grade, losal, hisal)values (5, 3001, 9999);
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/08/13/git教程/" rel="prev" title="git学习">
-                git学习 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -751,7 +859,7 @@ insert into salgrade (grade, losal, hisal)values (5, 3001, 9999);
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#use-test"><span class="nav-number">1.</span> <span class="nav-text">use test;</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#数组学习整理"><span class="nav-number">1.</span> <span class="nav-text">数组学习整理</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#数组"><span class="nav-number">1.1.</span> <span class="nav-text">数组</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#优点：知道坐标时可以快速的存取"><span class="nav-number">1.1.1.</span> <span class="nav-text">优点：知道坐标时可以快速的存取</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#缺点：查找慢，删除慢，大小固定"><span class="nav-number">1.1.2.</span> <span class="nav-text">缺点：查找慢，删除慢，大小固定</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二次封装数组"><span class="nav-number">1.1.3.</span> <span class="nav-text">二次封装数组</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#基类的定义"><span class="nav-number">1.1.3.1.</span> <span class="nav-text">基类的定义</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#代码实现"><span class="nav-number">1.1.3.2.</span> <span class="nav-text">代码实现</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#测试代码"><span class="nav-number">1.1.3.3.</span> <span class="nav-text">测试代码</span></a></li></ol></li></ol></li></ol></li></ol></div>
             
 
           </div>
