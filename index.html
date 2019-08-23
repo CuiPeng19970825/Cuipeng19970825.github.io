@@ -555,6 +555,431 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://Cuipeng19970825.github.io/2019/05/17/快速排序/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="崔鹏">
+      <meta itemprop="description" content="个人博客">
+      <meta itemprop="image" content="https://raw.githubusercontent.com/CuiPeng19970825/blogimages/master/TouxiangImg/%E5%A4%B4%E5%83%8F.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Program Life">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/05/17/快速排序/" class="post-title-link" itemprop="url">三、常见排序—快速排序</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-05-17 16:41:35" itemprop="dateCreated datePublished" datetime="2019-05-17T16:41:35+08:00">2019-05-17</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-08-23 14:53:12" itemprop="dateModified" datetime="2019-08-23T14:53:12+08:00">2019-08-23</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/数据结构与算法/" itemprop="url" rel="index"><span itemprop="name">数据结构与算法</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="快速排序学习整理"><a href="#快速排序学习整理" class="headerlink" title="快速排序学习整理"></a>快速排序学习整理</h1><h2 id="快速排序"><a href="#快速排序" class="headerlink" title="快速排序"></a>快速排序</h2><h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><p>快速排序使用分治法策略来把一个序列分为两个子序列，基本步骤为：</p>
+<ol>
+<li><p>先从序列中取出一个数作为基准数；</p>
+</li>
+<li><p>分区过程：将把这个数大的数全部放到它的右边，小于或者等于它的数全放到它的左边；</p>
+</li>
+<li><p>递归地对左右子序列进行步骤2，直到各区间只有一个数。</p>
+</li>
+</ol>
+<h3 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h3><pre><code>package demoSort;
+import java.util.Arrays;
+public class DemoQuickSort {
+       public static void main(String[] args) {
+           int[] elements=new int[]{2,4,3,6,5,1,7,9,8};
+           quicksort(elements,0,elements.length-1);
+           System.out.println(Arrays.toString(elements));
+       }
+
+       //快速排序
+       public static void quicksort(int[] arr,int start,int end){
+           if(start&lt;end){
+               //把数组中第0个数字作为标准
+               int stard=arr[start];
+               //记录需要排序的下标
+               int low=start;
+               int high=end;
+               //循环找比标准数大的数和比标准数小的数
+               while(low&lt;high){
+                   //右边的数字比标准数大
+                   while(low&lt;high&amp;&amp;stard&lt;=arr[high]){
+                       high--;
+                   }
+                   //右边的数字比标准数小
+                   arr[low]=arr[high];
+                   //左边的数字比标准数小
+                   while(low&lt;high&amp;&amp;stard&gt;=arr[low]){
+                       low++;
+                   }
+                   //左边的数字比标准数大
+                   arr[high]=arr[low];
+               }
+               //把标准数赋给当前低与高重合的位置的元素
+               arr[low]=stard;
+               //排序标准数前面所有小的数字
+               quicksort(arr,start,low);
+               //排序标准数后面所有大的数字
+               quicksort(arr,low+1,end);
+           }
+
+       }
+   }
+</code></pre>
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://Cuipeng19970825.github.io/2019/05/17/冒泡排序/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="崔鹏">
+      <meta itemprop="description" content="个人博客">
+      <meta itemprop="image" content="https://raw.githubusercontent.com/CuiPeng19970825/blogimages/master/TouxiangImg/%E5%A4%B4%E5%83%8F.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Program Life">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/05/17/冒泡排序/" class="post-title-link" itemprop="url">三、常见排序算法—冒泡排序</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-05-17 14:14:36" itemprop="dateCreated datePublished" datetime="2019-05-17T14:14:36+08:00">2019-05-17</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-08-23 14:40:58" itemprop="dateModified" datetime="2019-08-23T14:40:58+08:00">2019-08-23</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/数据结构与算法/" itemprop="url" rel="index"><span itemprop="name">数据结构与算法</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="冒泡排序学习整理"><a href="#冒泡排序学习整理" class="headerlink" title="冒泡排序学习整理"></a>冒泡排序学习整理</h1><h2 id="冒泡排序"><a href="#冒泡排序" class="headerlink" title="冒泡排序"></a>冒泡排序</h2><h3 id="原理：每次比较两个相邻的元素，将较大的元素交换至右端。"><a href="#原理：每次比较两个相邻的元素，将较大的元素交换至右端。" class="headerlink" title="原理：每次比较两个相邻的元素，将较大的元素交换至右端。"></a>原理：每次比较两个相邻的元素，将较大的元素交换至右端。</h3><h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><p>依次比较相邻的两个数，将小数放在前面，大数放在后面，即在第一趟，首先比较第1</p>
+<p>个数和第2个数，将小数放前，大数放后，然后比较第2个数和第三个数，将小数放前，</p>
+<p>大数放后，如此继续，直至比较最后两个数，将小数放前，大数放后，重复第一趟步骤，</p>
+<p>直至全部排序完成。</p>
+<h3 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h3><pre><code>package demoSort;
+import java.util.Arrays;
+public class DemoBubbleSort {
+       public static void main(String[] args) {
+           int[] elements=new int[]{1,3,5,4,2,6,4,8,5,9,7};
+           System.out.println(Arrays.toString(elements));
+           bubblesort(elements);
+           System.out.println(Arrays.toString(elements));
+       }
+
+       //冒泡排序
+       public static void bubblesort(int[] arr){
+           //控制比较多少轮
+           for(int i=0;i&lt;arr.length-1;i++){
+               //控制比较多少次
+               for(int j=1;j&lt;arr.length-1-i;j++){
+                   if(arr[j]&gt;arr[j+1]){
+                       int temp;
+                       temp=arr[j];
+                       arr[j]=arr[j+1];
+                       arr[j+1]=temp;
+                   }
+               }
+           }
+       }
+   }
+</code></pre>
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://Cuipeng19970825.github.io/2019/05/16/算法的时间复杂度/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -708,208 +1133,6 @@
 </li>
 </ul>
 <h3 id="以上时间复杂度随n增大时间复杂度增大"><a href="#以上时间复杂度随n增大时间复杂度增大" class="headerlink" title="以上时间复杂度随n增大时间复杂度增大"></a>以上时间复杂度随n增大时间复杂度增大</h3>
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://Cuipeng19970825.github.io/2019/05/16/冒泡排序/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="崔鹏">
-      <meta itemprop="description" content="个人博客">
-      <meta itemprop="image" content="https://raw.githubusercontent.com/CuiPeng19970825/blogimages/master/TouxiangImg/%E5%A4%B4%E5%83%8F.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Program Life">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/05/16/冒泡排序/" class="post-title-link" itemprop="url">三、常见排序算法—冒泡排序</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2019-05-16 14:14:36" itemprop="dateCreated datePublished" datetime="2019-05-16T14:14:36+08:00">2019-05-16</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-08-23 14:38:36" itemprop="dateModified" datetime="2019-08-23T14:38:36+08:00">2019-08-23</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/数据结构与算法/" itemprop="url" rel="index"><span itemprop="name">数据结构与算法</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="冒泡排序学习整理"><a href="#冒泡排序学习整理" class="headerlink" title="冒泡排序学习整理"></a>冒泡排序学习整理</h1><h2 id="冒泡排序"><a href="#冒泡排序" class="headerlink" title="冒泡排序"></a>冒泡排序</h2><h3 id="原理：每次比较两个相邻的元素，将较大的元素交换至右端。"><a href="#原理：每次比较两个相邻的元素，将较大的元素交换至右端。" class="headerlink" title="原理：每次比较两个相邻的元素，将较大的元素交换至右端。"></a>原理：每次比较两个相邻的元素，将较大的元素交换至右端。</h3><h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><p>依次比较相邻的两个数，将小数放在前面，大数放在后面，即在第一趟，首先比较第1</p>
-<p>个数和第2个数，将小数放前，大数放后，然后比较第2个数和第三个数，将小数放前，</p>
-<p>大数放后，如此继续，直至比较最后两个数，将小数放前，大数放后，重复第一趟步骤，</p>
-<p>直至全部排序完成。</p>
-<h3 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h3><pre><code>package demoSort;
-import java.util.Arrays;
-public class DemoBubbleSort {
-       public static void main(String[] args) {
-           int[] elements=new int[]{1,3,5,4,2,6,4,8,5,9,7};
-           System.out.println(Arrays.toString(elements));
-           bubblesort(elements);
-           System.out.println(Arrays.toString(elements));
-       }
-
-       //冒泡排序
-       public static void bubblesort(int[] arr){
-           //控制比较多少轮
-           for(int i=0;i&lt;arr.length-1;i++){
-               //控制比较多少次
-               for(int j=1;j&lt;arr.length-1-i;j++){
-                   if(arr[j]&gt;arr[j+1]){
-                       int temp;
-                       temp=arr[j];
-                       arr[j]=arr[j+1];
-                       arr[j+1]=temp;
-                   }
-               }
-           }
-       }
-   }
-</code></pre>
           
         
       
@@ -2342,257 +2565,6 @@ public class Node {
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://Cuipeng19970825.github.io/2019/05/11/数据结构与算法学习之队列/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="崔鹏">
-      <meta itemprop="description" content="个人博客">
-      <meta itemprop="image" content="https://raw.githubusercontent.com/CuiPeng19970825/blogimages/master/TouxiangImg/%E5%A4%B4%E5%83%8F.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Program Life">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/05/11/数据结构与算法学习之队列/" class="post-title-link" itemprop="url">一、线性结构—队列</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2019-05-11 15:57:35" itemprop="dateCreated datePublished" datetime="2019-05-11T15:57:35+08:00">2019-05-11</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-08-23 03:05:54" itemprop="dateModified" datetime="2019-08-23T03:05:54+08:00">2019-08-23</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/数据结构与算法/" itemprop="url" rel="index"><span itemprop="name">数据结构与算法</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="队列学习整理"><a href="#队列学习整理" class="headerlink" title="队列学习整理"></a>队列学习整理</h1><h2 id="队列"><a href="#队列" class="headerlink" title="队列"></a>队列</h2><p>队列(queue)是一种特殊的线性表 ，它只允许在表的前端（front）进行删除操作，而在表的后端</p>
-<p>（rear）进行插入操作。进行插入操作的端称为队尾，进行删除操作的端称为队头。队列是按照“先</p>
-<p>进先出”或“后进后出”的原则组织数据的。队列中没有元素时，称为空队列。</p>
-<h3 id="优点：提供先进先出的存取方式"><a href="#优点：提供先进先出的存取方式" class="headerlink" title="优点：提供先进先出的存取方式"></a>优点：提供先进先出的存取方式</h3><h3 id="缺点：存取其他项都很慢"><a href="#缺点：存取其他项都很慢" class="headerlink" title="缺点：存取其他项都很慢"></a>缺点：存取其他项都很慢</h3><h4 id="基类的定义"><a href="#基类的定义" class="headerlink" title="基类的定义"></a>基类的定义</h4><ul>
-<li><p>定义一个队列类Queue</p>
-</li>
-<li><p>add()方法，入队</p>
-</li>
-<li><p>poll()方法，出队</p>
-</li>
-<li><p>isEmpty()方法，判断队列是否为空</p>
-</li>
-</ul>
-<h4 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h4><pre><code>package demoQueue;
-public class Queue {
-       int[] arr;
-       public Queue(){
-           arr=new int[0];
-       }
-
-       //入队
-       public void add(int element){
-           // 新创建一个数组
-           int[] newarr = new int[arr.length + 1];
-           // 将原数组中的元素复制到新数组中
-           for (int i = 0; i &lt; arr.length; i++) {
-               newarr[i] = arr[i];
-           }
-           // 将新增加的元素放入新数组中
-           newarr[arr.length] = element;
-           // 新数组替换原数组
-           arr = newarr;
-       }
-
-       //出队
-       public int poll(){
-           int element=arr[0];
-           //新创建一个数组
-           int[] newarr=new int[arr.length-1];
-           //将未出栈的元素复制到新数组中
-           for(int i=0;i&lt;newarr.length;i++){
-               newarr[i]=arr[i+1];
-           }
-           //新数组替换原数组
-           arr=newarr;
-           //返回出队的元素
-           return element;
-       }
-
-       //判断队列是否为空
-       public boolean isEmpty(){
-           return arr.length==0;
-       }
-   }
-</code></pre><h4 id="测试代码"><a href="#测试代码" class="headerlink" title="测试代码"></a>测试代码</h4><pre><code> package demoQueue;
- public class TestQueue {
-    public static void main(String[] args) {
-        //创建一个队列对象
-        Queue queue=new Queue();
-        //入队
-        queue.add(9);
-        queue.add(8);
-        queue.add(7);
-        queue.add(6);
-        queue.add(5);
-        //出队
-        System.out.println(queue.poll());
-        System.out.println(queue.poll());
-        //判断队列是否为空
-        System.out.println(queue.isEmpty());
-        System.out.println(queue.poll());
-        System.out.println(queue.poll());
-        System.out.println(queue.poll());
-        queue.add(1);
-        System.out.println(queue.isEmpty());
-        System.out.println(queue.poll());
-        System.out.println(queue.isEmpty());
-    }
-}
-</code></pre>
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2641,7 +2613,7 @@ public class Queue {
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">18</span>
+                    <span class="site-state-item-count">19</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
