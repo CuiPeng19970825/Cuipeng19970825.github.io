@@ -96,18 +96,18 @@
 
 
 
-  <meta name="description" content="单链表学习整理单链表通过一个链子把多个结点（元素）连接起来，由数据和地址组成的一个元素，节点本身必须有一个 地址值（就是下一个元素的地址值）链表的每个结点中只包含一个指针域，叫做单链表（即构成链 表的每个节点只有一个指向直接后继结点的指针，且尾节点的指针为null）。 优点： 链表是很常用的一种数据结构，不需要初始化容量，可以任意加减元素；  添加或者删除元素时只需要改变前后两个元素结点的指针域指">
+  <meta name="description" content="归并排序算法学习整理归并排序思路归并排序 (merge sort) 是一类与插入排序、交换排序、选择排序不同的另一种排序方法。归并的含 义是将两个或两个以上的有序表合并成一个新的有序表。归并排序有多路归并排序、两路归并排序 ,  可用于内排序，也可以用于外排序。这里仅对内排序的两路归并方法进行讨论。 步骤分而治之(divide - conquer);每个递归过程涉及三个步骤  第一, 分解: 把待">
 <meta name="keywords" content="数据结构与算法">
 <meta property="og:type" content="article">
-<meta property="og:title" content="一、线性结构—单链表">
-<meta property="og:url" content="https://Cuipeng19970825.github.io/2019/05/11/数据结构与算法学习之单链表/index.html">
+<meta property="og:title" content="三、常见排序算法—归并排序">
+<meta property="og:url" content="https://Cuipeng19970825.github.io/2019/05/19/归并排序/index.html">
 <meta property="og:site_name" content="Program Life">
-<meta property="og:description" content="单链表学习整理单链表通过一个链子把多个结点（元素）连接起来，由数据和地址组成的一个元素，节点本身必须有一个 地址值（就是下一个元素的地址值）链表的每个结点中只包含一个指针域，叫做单链表（即构成链 表的每个节点只有一个指向直接后继结点的指针，且尾节点的指针为null）。 优点： 链表是很常用的一种数据结构，不需要初始化容量，可以任意加减元素；  添加或者删除元素时只需要改变前后两个元素结点的指针域指">
+<meta property="og:description" content="归并排序算法学习整理归并排序思路归并排序 (merge sort) 是一类与插入排序、交换排序、选择排序不同的另一种排序方法。归并的含 义是将两个或两个以上的有序表合并成一个新的有序表。归并排序有多路归并排序、两路归并排序 ,  可用于内排序，也可以用于外排序。这里仅对内排序的两路归并方法进行讨论。 步骤分而治之(divide - conquer);每个递归过程涉及三个步骤  第一, 分解: 把待">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-08-22T19:06:47.137Z">
+<meta property="og:updated_time" content="2019-08-23T08:38:58.008Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="一、线性结构—单链表">
-<meta name="twitter:description" content="单链表学习整理单链表通过一个链子把多个结点（元素）连接起来，由数据和地址组成的一个元素，节点本身必须有一个 地址值（就是下一个元素的地址值）链表的每个结点中只包含一个指针域，叫做单链表（即构成链 表的每个节点只有一个指向直接后继结点的指针，且尾节点的指针为null）。 优点： 链表是很常用的一种数据结构，不需要初始化容量，可以任意加减元素；  添加或者删除元素时只需要改变前后两个元素结点的指针域指">
+<meta name="twitter:title" content="三、常见排序算法—归并排序">
+<meta name="twitter:description" content="归并排序算法学习整理归并排序思路归并排序 (merge sort) 是一类与插入排序、交换排序、选择排序不同的另一种排序方法。归并的含 义是将两个或两个以上的有序表合并成一个新的有序表。归并排序有多路归并排序、两路归并排序 ,  可用于内排序，也可以用于外排序。这里仅对内排序的两路归并方法进行讨论。 步骤分而治之(divide - conquer);每个递归过程涉及三个步骤  第一, 分解: 把待">
 
 
 
@@ -115,7 +115,7 @@
 
   
   
-  <link rel="canonical" href="https://Cuipeng19970825.github.io/2019/05/11/数据结构与算法学习之单链表/">
+  <link rel="canonical" href="https://Cuipeng19970825.github.io/2019/05/19/归并排序/">
 
 
 
@@ -125,7 +125,7 @@
   };
 </script>
 
-  <title>一、线性结构—单链表 | Program Life</title>
+  <title>三、常见排序算法—归并排序 | Program Life</title>
   
 
 
@@ -328,7 +328,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://Cuipeng19970825.github.io/2019/05/11/数据结构与算法学习之单链表/">
+    <link itemprop="mainEntityOfPage" href="https://Cuipeng19970825.github.io/2019/05/19/归并排序/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="崔鹏">
@@ -345,7 +345,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">一、线性结构—单链表
+          <h1 class="post-title" itemprop="name headline">三、常见排序算法—归并排序
 
               
             
@@ -371,7 +371,7 @@
                 
               
 
-              <time title="创建时间：2019-05-11 21:19:55" itemprop="dateCreated datePublished" datetime="2019-05-11T21:19:55+08:00">2019-05-11</time>
+              <time title="创建时间：2019-05-19 15:29:55" itemprop="dateCreated datePublished" datetime="2019-05-19T15:29:55+08:00">2019-05-19</time>
             
 
             
@@ -388,7 +388,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-08-23 03:06:47" itemprop="dateModified" datetime="2019-08-23T03:06:47+08:00">2019-08-23</time>
+                <time title="修改时间：2019-08-23 16:38:58" itemprop="dateModified" datetime="2019-08-23T16:38:58+08:00">2019-08-23</time>
               
             
           </span>
@@ -440,144 +440,83 @@
       
 
       
-        <h1 id="单链表学习整理"><a href="#单链表学习整理" class="headerlink" title="单链表学习整理"></a>单链表学习整理</h1><h2 id="单链表"><a href="#单链表" class="headerlink" title="单链表"></a>单链表</h2><p>通过一个链子把多个结点（元素）连接起来，由数据和地址组成的一个元素，节点本身必须有一个</p>
-<p>地址值（就是下一个元素的地址值）链表的每个结点中只包含一个指针域，叫做单链表（即构成链</p>
-<p>表的每个节点只有一个指向直接后继结点的指针，且尾节点的指针为null）。</p>
-<h3 id="优点："><a href="#优点：" class="headerlink" title="优点："></a>优点：</h3><ol>
-<li><p>链表是很常用的一种数据结构，不需要初始化容量，可以任意加减元素；</p>
+        <h1 id="归并排序算法学习整理"><a href="#归并排序算法学习整理" class="headerlink" title="归并排序算法学习整理"></a>归并排序算法学习整理</h1><h2 id="归并排序"><a href="#归并排序" class="headerlink" title="归并排序"></a>归并排序</h2><h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><p>归并排序 (merge sort) 是一类与插入排序、交换排序、选择排序不同的另一种排序方法。归并的含</p>
+<p>义是将两个或两个以上的有序表合并成一个新的有序表。归并排序有多路归并排序、两路归并排序 , </p>
+<p>可用于内排序，也可以用于外排序。这里仅对内排序的两路归并方法进行讨论。</p>
+<h3 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h3><p>分而治之(divide - conquer);每个递归过程涉及三个步骤</p>
+<ol>
+<li><p>第一, 分解: 把待排序的 n 个元素的序列分解成两个子序列, 每个子序列包括 n/2 个元素.</p>
 </li>
-<li><p>添加或者删除元素时只需要改变前后两个元素结点的指针域指向地址即可，所以添加，</p>
+<li><p>第二, 治理: 对每个子序列分别调用归并排序MergeSort, 进行递归操作</p>
 </li>
-</ol>
-<p>删除很快； </p>
-<h3 id="缺点："><a href="#缺点：" class="headerlink" title="缺点："></a>缺点：</h3><ol>
-<li><p>因为含有大量的指针域，占用空间较大；</p>
-</li>
-<li><p>查找元素需要遍历链表来查找，非常耗时。</p>
+<li><p>第三, 合并: 合并两个排好序的子序列,生成排序结果.</p>
 </li>
 </ol>
-<h3 id="适用场景："><a href="#适用场景：" class="headerlink" title="适用场景："></a>适用场景：</h3><p>数据量较小，需要频繁增加，删除操作的场景。</p>
-<h4 id="基类的定义"><a href="#基类的定义" class="headerlink" title="基类的定义"></a>基类的定义</h4><ul>
-<li><p>定义一个节点类Node</p>
-</li>
-<li><p>append()方法,为当前节点追加节点</p>
-</li>
-<li><p>Next()方法，获取下一个节点</p>
-</li>
-<li><p>getData()方法，获取节点中的数据</p>
-</li>
-<li><p>isLast()方法，判断当前节点是否是最后一个节点</p>
-</li>
-<li><p>remove()方法，删除下一个节点</p>
-</li>
-<li><p>show()方法，显示所有节点信息</p>
-</li>
-<li><p>insert()方法，插入一个节点</p>
-</li>
-</ul>
-<h4 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h4><pre><code>package demoNode;
-public class Node {
-       //数据
-       private int data;
-       //下一个节点
-       private Node next;
+<h3 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h3><pre><code>package demoSort;
+import java.util.Arrays;
+public class DemoMergeSort {
+       public static void main(String[] args) {
+           int[] elements=new int[]{1,3,5,2,4,6,8,10};
+           System.out.println(Arrays.toString(elements));
+           mergesort(elements,0,elements.length-1);
+           System.out.println(Arrays.toString(elements));
 
-       //构造方法
-       public Node(int data){
-           this.data=data;
        }
 
-       //为当前节点追加节点
-       public Node append(Node node){
-           //当前节点
-           Node currentNode=this;
-           //循环查找
-           while(true){
-               //取出下一个节点
-               Node nextNode=currentNode.next;
-               //如果下一个节点为空，当前节点已经是最后一个节点
-               if(nextNode==null){
-                   break;
-               }
-               //赋值给当前节点
-               currentNode=nextNode;
+       //归并排序
+       public static void mergesort(int[] arr,int low,int high){
+           int middle=(low+high)/2;
+           if(low&lt;high){
+           //处理左边
+           mergesort(arr,low,middle);
+           //处理右边
+           mergesort(arr,middle+1,high);
+           //归并
+           merge(arr,low,middle,high);
            }
-           //把需要追加的节点追加到找到的当前节点的下一个节点
-           currentNode.next=node;
-           return this;
        }
 
-       //获取下一个节点
-       public Node Next(){
-           return this.next;
-       }
-
-       //获取节点中的数据
-       public int getData(){
-           return this.data;
-       }
-
-       //判断当前节点是否是最后一个节点
-       public boolean isLast(){
-           return next==null;
-       }
-
-       //删除下一个节点
-       public void remove(){
-           //取出下一个节点
-           Node newNext=next.next;
-           //把下下个节点设置为当前节点的下一个节点
-           this.next=newNext;
-
-       }
-
-       //显示所有节点信息
-       public void show(){
-           Node currentNode=this;
-           while(true){
-               System.out.print(currentNode.data+&quot; &quot;);
-               //取出下一个节点
-               currentNode=currentNode.next;
-               if(currentNode==null){
-                   break;
+       //归并有序数组
+       public static void merge(int[] arr,int low,int middle,int high){
+           //用于存储归并后的临时数组
+           int[] temp=new int[high-low+1];
+           //记录第一个数组中需要遍历的下标；
+           int i=low;
+           //记录第二个数组中需要遍历的下标；
+           int j=middle+1;
+           //用于记录在临时数组中存放的下标
+           int index=0;
+           //遍历两个数组取出小的数字放入临时数组中
+           while(i&lt;=middle&amp;&amp;j&lt;=high){
+               if(arr[i]&lt;=arr[j]){
+                   //把小的数据放入到临时数组中
+                   temp[index]=arr[i];
+                   //让下标向后移一位
+                   i++;
+               }else{
+                   temp[index]=arr[j];
+                   j++;
                }
+               index++;
            }
-           System.out.println();
-       }
+           //处理多余的数据
+           while(i&lt;=middle){
+               temp[index]=arr[i];
+               i++;
+               index++;
+           }
+           while(j&lt;=high){
+               temp[index]=arr[j];
+               j++;
+               index++;
+           }
+           //把临时数组中的数据重新放至到原数组
+           for(int k=0;k&lt;temp.length;k++){
+               arr[k+low]=temp[k];
+           }
 
-       //插入一个节点
-       public void insert(Node newNode){
-           Node currentNode=this;
-           newNode.next=currentNode.next;
-           currentNode.next=newNode;
        }
-
    }
-</code></pre><h4 id="测试代码"><a href="#测试代码" class="headerlink" title="测试代码"></a>测试代码</h4><pre><code> package demoNode;
- public class TestNode {
-    public static void main(String[] args) {
-        //创建节点对象
-        Node n1=new Node(1);
-        Node n2=new Node(2);
-        Node n3=new Node(3);
-        //用追加节点方法将相应的节点连成单链表
-        n1.append(n2).append(n3).append(new Node(4));
-        //取出下一个节点中的数据
-        System.out.println(n1.Next().Next().getData());
-        System.out.println(n1.isLast());
-        //显示所有节点信息
-        n1.show();
-        //删除某个节点的下一个节点
-        n1.remove();
-        n1.show();
-        //插入节点
-        n1.insert(n2);
-        //追加新节点
-        n1.append(new Node(5));
-        n1.show();
-        System.out.println(n2.getData());
-    }
-}
 </code></pre>
       
     </div>
@@ -614,8 +553,8 @@ public class Node {
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/05/11/数据结构与算法学习之队列/" rel="next" title="一、线性结构—队列">
-                <i class="fa fa-chevron-left"></i> 一、线性结构—队列
+              <a href="/2019/05/19/简单选择排序/" rel="next" title="三、常见排序算法—简单选择排序">
+                <i class="fa fa-chevron-left"></i> 三、常见排序算法—简单选择排序
               </a>
             
           </div>
@@ -624,8 +563,8 @@ public class Node {
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/05/11/数据结构与算法学习之循环链表/" rel="prev" title="一、线性结构—循环链表">
-                一、线性结构—循环链表 <i class="fa fa-chevron-right"></i>
+              <a href="/2019/05/20/堆排序/" rel="prev" title="三、常见排序算法—堆排序">
+                三、常见排序算法—堆排序 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -793,7 +732,7 @@ public class Node {
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#单链表学习整理"><span class="nav-number">1.</span> <span class="nav-text">单链表学习整理</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#单链表"><span class="nav-number">1.1.</span> <span class="nav-text">单链表</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#优点："><span class="nav-number">1.1.1.</span> <span class="nav-text">优点：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#缺点："><span class="nav-number">1.1.2.</span> <span class="nav-text">缺点：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#适用场景："><span class="nav-number">1.1.3.</span> <span class="nav-text">适用场景：</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#基类的定义"><span class="nav-number">1.1.3.1.</span> <span class="nav-text">基类的定义</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#代码实现"><span class="nav-number">1.1.3.2.</span> <span class="nav-text">代码实现</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#测试代码"><span class="nav-number">1.1.3.3.</span> <span class="nav-text">测试代码</span></a></li></ol></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#归并排序算法学习整理"><span class="nav-number">1.</span> <span class="nav-text">归并排序算法学习整理</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#归并排序"><span class="nav-number">1.1.</span> <span class="nav-text">归并排序</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#思路"><span class="nav-number">1.1.1.</span> <span class="nav-text">思路</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#步骤"><span class="nav-number">1.1.2.</span> <span class="nav-text">步骤</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#代码实现"><span class="nav-number">1.1.3.</span> <span class="nav-text">代码实现</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
