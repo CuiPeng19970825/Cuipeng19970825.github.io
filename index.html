@@ -763,6 +763,208 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://Cuipeng19970825.github.io/2019/05/16/冒泡排序/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="崔鹏">
+      <meta itemprop="description" content="个人博客">
+      <meta itemprop="image" content="https://raw.githubusercontent.com/CuiPeng19970825/blogimages/master/TouxiangImg/%E5%A4%B4%E5%83%8F.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Program Life">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/05/16/冒泡排序/" class="post-title-link" itemprop="url">三、常见排序算法—冒泡排序</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-05-16 14:14:36" itemprop="dateCreated datePublished" datetime="2019-05-16T14:14:36+08:00">2019-05-16</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-08-23 14:38:36" itemprop="dateModified" datetime="2019-08-23T14:38:36+08:00">2019-08-23</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/数据结构与算法/" itemprop="url" rel="index"><span itemprop="name">数据结构与算法</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="冒泡排序学习整理"><a href="#冒泡排序学习整理" class="headerlink" title="冒泡排序学习整理"></a>冒泡排序学习整理</h1><h2 id="冒泡排序"><a href="#冒泡排序" class="headerlink" title="冒泡排序"></a>冒泡排序</h2><h3 id="原理：每次比较两个相邻的元素，将较大的元素交换至右端。"><a href="#原理：每次比较两个相邻的元素，将较大的元素交换至右端。" class="headerlink" title="原理：每次比较两个相邻的元素，将较大的元素交换至右端。"></a>原理：每次比较两个相邻的元素，将较大的元素交换至右端。</h3><h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><p>依次比较相邻的两个数，将小数放在前面，大数放在后面，即在第一趟，首先比较第1</p>
+<p>个数和第2个数，将小数放前，大数放后，然后比较第2个数和第三个数，将小数放前，</p>
+<p>大数放后，如此继续，直至比较最后两个数，将小数放前，大数放后，重复第一趟步骤，</p>
+<p>直至全部排序完成。</p>
+<h3 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h3><pre><code>package demoSort;
+import java.util.Arrays;
+public class DemoBubbleSort {
+       public static void main(String[] args) {
+           int[] elements=new int[]{1,3,5,4,2,6,4,8,5,9,7};
+           System.out.println(Arrays.toString(elements));
+           bubblesort(elements);
+           System.out.println(Arrays.toString(elements));
+       }
+
+       //冒泡排序
+       public static void bubblesort(int[] arr){
+           //控制比较多少轮
+           for(int i=0;i&lt;arr.length-1;i++){
+               //控制比较多少次
+               for(int j=1;j&lt;arr.length-1-i;j++){
+                   if(arr[j]&gt;arr[j+1]){
+                       int temp;
+                       temp=arr[j];
+                       arr[j]=arr[j+1];
+                       arr[j+1]=temp;
+                   }
+               }
+           }
+       }
+   }
+</code></pre>
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://Cuipeng19970825.github.io/2019/05/14/数据结构与算法学习递归之汉诺塔问题/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -2391,265 +2593,6 @@ public class Queue {
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://Cuipeng19970825.github.io/2019/05/10/数据结构与算法学习之栈/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="崔鹏">
-      <meta itemprop="description" content="个人博客">
-      <meta itemprop="image" content="https://raw.githubusercontent.com/CuiPeng19970825/blogimages/master/TouxiangImg/%E5%A4%B4%E5%83%8F.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Program Life">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/05/10/数据结构与算法学习之栈/" class="post-title-link" itemprop="url">一、线性结构—栈</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2019-05-10 21:35:03" itemprop="dateCreated datePublished" datetime="2019-05-10T21:35:03+08:00">2019-05-10</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-08-23 03:05:57" itemprop="dateModified" datetime="2019-08-23T03:05:57+08:00">2019-08-23</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/数据结构与算法/" itemprop="url" rel="index"><span itemprop="name">数据结构与算法</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="栈学习整理"><a href="#栈学习整理" class="headerlink" title="栈学习整理"></a>栈学习整理</h1><h2 id="栈"><a href="#栈" class="headerlink" title="栈"></a>栈</h2><p>栈是一种只允许在一端进行插入或删除的线性表，也就是说先进后出。栈的操作端通常被称为栈顶，</p>
-<p>另一端被称为栈底，栈的插入操作称为压栈（push），栈删除操作称为出栈（pop）。压栈是把新元</p>
-<p>素放到栈顶元素的上面，使之成为新的栈顶元素；出栈则是把栈顶元素删除掉，使其相邻的元素成</p>
-<p>为新的栈顶元素。 </p>
-<h3 id="优点：提供后进先出的存取方式"><a href="#优点：提供后进先出的存取方式" class="headerlink" title="优点：提供后进先出的存取方式"></a>优点：提供后进先出的存取方式</h3><h3 id="缺点：存取其他项很慢"><a href="#缺点：存取其他项很慢" class="headerlink" title="缺点：存取其他项很慢"></a>缺点：存取其他项很慢</h3><h4 id="基类的定义"><a href="#基类的定义" class="headerlink" title="基类的定义"></a>基类的定义</h4><ul>
-<li><p>定义一个栈类Stack</p>
-</li>
-<li><p>push()方法，压入元素</p>
-</li>
-<li><p>pop()方法，取出栈顶元素</p>
-</li>
-<li><p>size()方法，显示栈的大小</p>
-</li>
-<li><p>show()方法，查看栈顶元素</p>
-</li>
-<li><p>isEmpty()方法，判断栈是否为空</p>
-</li>
-</ul>
-<h4 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h4><pre><code> package demoStack;
- public class Stack {
-        private int[] arr;
-        public Stack(){
-            arr=new int[0];
-        }
-
-        //压入元素
-        public void push(int element){
-            // 新创建一个数组
-            int[] newarr = new int[arr.length + 1];
-            // 将原数组中的元素复制到新数组中
-            for (int i = 0; i &lt; arr.length; i++) {
-                newarr[i] = arr[i];
-            }
-            // 将新增加的元素放入新数组中
-            newarr[arr.length] = element;
-            // 新数组替换原数组
-            arr = newarr;
-        }
-
-        //取出栈顶元素
-        public void pop(){
-            //新创建一个数组
-            int[] newarr=new int[arr.length-1];
-            //将原数组中的元素复制到新数组中
-            for(int i=0;i&lt;newarr.length;i++){
-                newarr[i]=arr[i];
-            }
-            //新数组替换原数组
-            arr=newarr; 
-        }
-
-        //显示栈的大小
-        public int size(){
-            return arr.length;
-        }
-
-        //查看栈顶元素
-        public void show(){
-            System.out.println(arr[arr.length-1]);
-        }
-
-        //判断栈是否为空
-        public boolean isEmpty(){
-            return arr.length==0;
-        }
-}
-</code></pre><h4 id="测试代码"><a href="#测试代码" class="headerlink" title="测试代码"></a>测试代码</h4><pre><code> package demoStack;
- public class TestStack {
-    public static void main(String[] args) {
-        //创建一个栈对象
-        Stack stack=new Stack();
-        //压入元素
-        stack.push(1);
-        stack.push(2);
-        stack.push(3);
-        stack.push(4);
-        stack.push(5);
-        System.out.println(stack.size());
-        //取出栈顶元素
-        stack.pop();
-        stack.pop();
-        stack.pop();
-        stack.show();
-        //判断栈是否为空
-        System.out.println(stack.isEmpty());
-    }
-}
-</code></pre>
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2698,7 +2641,7 @@ public class Queue {
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">17</span>
+                    <span class="site-state-item-count">18</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
