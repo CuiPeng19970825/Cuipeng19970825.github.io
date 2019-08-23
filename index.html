@@ -555,6 +555,298 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://Cuipeng19970825.github.io/2019/05/20/基数排序/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="崔鹏">
+      <meta itemprop="description" content="个人博客">
+      <meta itemprop="image" content="https://raw.githubusercontent.com/CuiPeng19970825/blogimages/master/TouxiangImg/%E5%A4%B4%E5%83%8F.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Program Life">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/05/20/基数排序/" class="post-title-link" itemprop="url">三、常见排序算法—基数排序</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-05-20 21:30:33" itemprop="dateCreated datePublished" datetime="2019-05-20T21:30:33+08:00">2019-05-20</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-08-23 17:00:31" itemprop="dateModified" datetime="2019-08-23T17:00:31+08:00">2019-08-23</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/数据结构与算法/" itemprop="url" rel="index"><span itemprop="name">数据结构与算法</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="基数排序算法学习整理"><a href="#基数排序算法学习整理" class="headerlink" title="基数排序算法学习整理"></a>基数排序算法学习整理</h1><h2 id="基数排序"><a href="#基数排序" class="headerlink" title="基数排序"></a>基数排序</h2><h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><p>基数排序(radix sort)又称桶排序（bucket sort），相对于常见的比较排序，基数排序是一种分</p>
+<p>配式排序，即通过将所有数字分配到应在的位置最后再覆盖到原数组完成排序的过程。</p>
+<h3 id="算法过程"><a href="#算法过程" class="headerlink" title="算法过程"></a>算法过程</h3><ol>
+<li>初始化：构造一个10*n的二维数组，一个长度为n的数组用于存储每次位排序时每个桶子里有多</li>
+</ol>
+<p>少个元素。</p>
+<ol start="2">
+<li>循环操作：从低位开始，将所有元素对应该位的数字存到相应的桶子里去（对应二维数组的那一</li>
+</ol>
+<p>列）。然后将所有桶子里的元素按照桶子标号从小到大取出，对于同一个桶子里的元素，先放进去的</p>
+<p>先取出，后放进去的后取出（保证排序稳定性）。这样原数组就按该位排序完毕了，继续下一位操作</p>
+<p>，直到最高位排序完成。</p>
+<h3 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h3><pre><code>package demoSort;
+import java.util.Arrays;
+public class DemoRadixSort {
+
+       public static void main(String[] args) {
+           int[] elements=new int[]{23,6,189,45,9,287,56,1,798,34,65,652,5};
+           radixsort(elements);
+           System.out.println(Arrays.toString(elements));
+       }
+
+       //基数排序
+       public static void radixsort(int[] arr){
+           //找到最大数的位数
+           int max=Integer.MIN_VALUE;
+           for(int i=0;i&lt;arr.length;i++){
+               if(arr[i]&gt;max){
+                   max=arr[i];
+               }
+           }
+           int maxLength=(max+&quot;&quot;).length();
+           //用于临时存储数据的数组
+           int[][] temp=new int[10][arr.length];
+           //用于记录在temp中相应的数组中存放的数字的数量
+           int[] counts=new int[10];
+           //根据最大数的位数决定比较的次数
+           for(int j=0,n=1;j&lt;maxLength;j++,n*=10){
+               //把数组中的每一个数字分别计算余数
+               for(int k=0;k&lt;arr.length;k++){
+                   //计算余数
+                   int ys=arr[k]/n%10;
+                   //把当前遍历的数据放入到指定的数组中
+                   temp[ys][counts[ys]]=arr[k];
+                   //记录数量
+                   counts[ys]++;
+               }
+               //记录取的元素需要放入的位置
+               int index=0;
+               //把数字取出来
+               for(int l=0;l&lt;counts.length;l++){
+                   //记录数量的数组中当前余数记录的数量不为0
+                   if(counts[l]!=0){
+                       //循环取出元素
+                       for(int g=0;g&lt;counts[l];g++){
+                           //取出元素
+                           arr[index]=temp[l][g];
+                           index++;
+                       }
+                       //把数量置为0
+                       counts[l]=0;
+                   }
+               }
+           }
+
+       }
+   }
+</code></pre><h3 id="算法优化"><a href="#算法优化" class="headerlink" title="算法优化"></a>算法优化</h3><p>使用队列作为临时存放数据的数组</p>
+<h3 id="代码实现-1"><a href="#代码实现-1" class="headerlink" title="代码实现"></a>代码实现</h3><pre><code>package demoSort;
+import java.util.Arrays;
+import demoQueue.Queue;
+public class DemoRadixQueueSort {   
+       public static void main(String[] args) {
+           int[] elements=new int[]{23,6,189,45,9,287,56,1,798,34,65,652,5};
+           radixsort(elements);
+           System.out.println(Arrays.toString(elements));
+       }
+
+       //基数排序
+       public static void radixsort(int[] arr){
+           //找到最大数的位数
+           int max=Integer.MIN_VALUE;
+           for(int i=0;i&lt;arr.length;i++){
+               if(arr[i]&gt;max){
+                   max=arr[i];
+               }
+           }
+           int maxLength=(max+&quot;&quot;).length();
+           //用于临时存储数据的队列的数组
+           Queue[] temp=new Queue[10];
+           //为队列数组赋值
+           for(int d=0;d&lt;temp.length;d++){
+               temp[d]=new Queue();
+           }
+           //根据最大数的位数决定比较的次数
+           for(int j=0,n=1;j&lt;maxLength;j++,n*=10){
+               //把数组中的每一个数字分别计算余数
+               for(int k=0;k&lt;arr.length;k++){
+                   //计算余数
+                   int ys=arr[k]/n%10;
+                   //把当前遍历的数据放入到指定的队列中
+                   temp[ys].add(arr[k]);
+               }
+               //记录取的元素需要放入的位置
+               int index=0;
+               //把所有队列中的数字取出来
+               for(int l=0;l&lt;temp.length;l++){
+                   //循环取出元素
+                   while(!temp[l].isEmpty()){
+                       //取出元素
+                       arr[index]=temp[l].poll();
+                       //记录下一个位置
+                       index++;
+                   }
+               }
+
+           }
+
+       }
+   }
+</code></pre>
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://Cuipeng19970825.github.io/2019/05/20/堆排序/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -728,7 +1020,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://Cuipeng19970825.github.io/2019/05/19/归并排序/">
+    <link itemprop="mainEntityOfPage" href="https://Cuipeng19970825.github.io/2019/05/20/归并排序/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="崔鹏">
@@ -748,7 +1040,7 @@
           <h1 class="post-title" itemprop="name headline">
                 
                 
-                <a href="/2019/05/19/归并排序/" class="post-title-link" itemprop="url">三、常见排序算法—归并排序</a>
+                <a href="/2019/05/20/归并排序/" class="post-title-link" itemprop="url">三、常见排序算法—归并排序</a>
               
             
           </h1>
@@ -773,7 +1065,7 @@
                 
               
 
-              <time title="创建时间：2019-05-19 15:29:55" itemprop="dateCreated datePublished" datetime="2019-05-19T15:29:55+08:00">2019-05-19</time>
+              <time title="创建时间：2019-05-20 15:29:55" itemprop="dateCreated datePublished" datetime="2019-05-20T15:29:55+08:00">2019-05-20</time>
             
 
             
@@ -790,7 +1082,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-08-23 16:38:58" itemprop="dateModified" datetime="2019-08-23T16:38:58+08:00">2019-08-23</time>
+                <time title="修改时间：2019-08-23 16:50:10" itemprop="dateModified" datetime="2019-08-23T16:50:10+08:00">2019-08-23</time>
               
             
           </span>
@@ -2236,203 +2528,6 @@ public class DemoBubbleSort {
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://Cuipeng19970825.github.io/2019/05/14/数据结构与算法学习递归之汉诺塔问题/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="崔鹏">
-      <meta itemprop="description" content="个人博客">
-      <meta itemprop="image" content="https://raw.githubusercontent.com/CuiPeng19970825/blogimages/master/TouxiangImg/%E5%A4%B4%E5%83%8F.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Program Life">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/05/14/数据结构与算法学习递归之汉诺塔问题/" class="post-title-link" itemprop="url">二、递归—汉诺塔问题</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2019-05-14 15:48:06" itemprop="dateCreated datePublished" datetime="2019-05-14T15:48:06+08:00">2019-05-14</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-08-23 03:11:16" itemprop="dateModified" datetime="2019-08-23T03:11:16+08:00">2019-08-23</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/数据结构与算法/" itemprop="url" rel="index"><span itemprop="name">数据结构与算法</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="汉诺塔问题学习整理"><a href="#汉诺塔问题学习整理" class="headerlink" title="汉诺塔问题学习整理"></a>汉诺塔问题学习整理</h1><h2 id="汉诺塔问题"><a href="#汉诺塔问题" class="headerlink" title="汉诺塔问题"></a>汉诺塔问题</h2><p>相传在古印度圣庙中，有一种被称为汉诺塔(Hanoi)的游戏。该游戏是在一块铜板装置上，有三根柱</p>
-<p>子（编号A、B、C），在A杆至上而下、由大到小按顺序放置64个金盘。游戏的目标：把A杆上的金盘全</p>
-<p>部移动到C杆子上，并仍保持原有顺序叠好。操作规则：每次只能移动一个盘子，并且在移动过程中</p>
-<p>三根杆上都始终保持大盘在下，小盘在上，操作过程中盘子可以置于A、B、C任一杆上。</p>
-<h3 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h3><pre><code>package demoRecursive;
-public class DemoHano {
-       public static void main(String[] args) {
-           hano(3,&apos;A&apos;,&apos;B&apos;,&apos;C&apos;);
-       }
-
-       public static void hano(int n,char from,char in,char to){
-           //只有一个盘子
-           if(n==1){
-               System.out.println(&quot;第1个盘子从&quot;+from+&quot;移到&quot;+to);
-           //无论有多少盘子，都认为只有两个，上面的所有盘子和最下面一个盘子
-           }else{
-               //移动上面的所有盘子到中间位置
-               hano(n-1,from,to,in);
-               //移动下面的盘子
-               System.out.println(&quot;第&quot;+n+&quot;个盘子从&quot;+from+&quot;移到&quot;+to);
-               //把上面的所有盘子从中间位置移到目标位置
-               hano(n-1,in,from,to);
-           }
-       }
-   }
-</code></pre>
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2481,7 +2576,7 @@ public class DemoHano {
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">24</span>
+                    <span class="site-state-item-count">25</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
