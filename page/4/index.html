@@ -327,6 +327,182 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://Cuipeng19970825.github.io/2018/03/05/Java中类的实例化顺序/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="崔鹏">
+      <meta itemprop="description" content="个人博客">
+      <meta itemprop="image" content="https://raw.githubusercontent.com/CuiPeng19970825/blogimages/master/TouxiangImg/%E5%A4%B4%E5%83%8F.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Program Life">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2018/03/05/Java中类的实例化顺序/" class="post-title-link" itemprop="url">Java中类的实例化顺序</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-03-05 17:05:40" itemprop="dateCreated datePublished" datetime="2018-03-05T17:05:40+08:00">2018-03-05</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-09-05 16:45:47" itemprop="dateModified" datetime="2019-09-05T16:45:47+08:00">2019-09-05</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><ol>
+<li>先静态、先父后子。 先静态：父静态 &gt; 子静态 。</li>
+<li>优先级：父类 &gt; 子类 ， 静态代码块 &gt; 非静态代码块 &gt; 构造函数。</li>
+</ol>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://Cuipeng19970825.github.io/2018/03/05/Java中ArrayList和LinkedList的区别/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -389,7 +565,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-09-05 16:28:17" itemprop="dateModified" datetime="2019-09-05T16:28:17+08:00">2019-09-05</time>
+                <time title="修改时间：2019-09-05 16:31:13" itemprop="dateModified" datetime="2019-09-05T16:31:13+08:00">2019-09-05</time>
               
             
           </span>
@@ -455,13 +631,21 @@
 <h1 id="二、总结"><a href="#二、总结" class="headerlink" title="二、总结"></a>二、总结</h1><p>ArrayList和LinkedList是两个集合类，用于存储一系列的对象引用(references)。例如我们</p>
 <p>可以用ArrayList来存储一系列的String或者Integer。那么ArrayList和LinkedList在性能上</p>
 <p>有什么差别呢？什么时候应该用ArrayList什么时候又该用LinkedList呢？</p>
-<p>1．对ArrayList和LinkedList而言，在列表末尾增加一个元素所花的开销都是固定的。对ArrayLi</p>
+<ol>
+<li>对ArrayList和LinkedList而言，在列表末尾增加一个元素所花的开销都是固定的。对ArrayLi</li>
+</ol>
 <p>st而言，主要是在内部数组中增加一项，指向所添加的元素，偶尔可能会导致对数组重新进行分配</p>
 <p>；而对LinkedList而言，这个开销是统一的，分配一个内部Entry对象。</p>
-<p>2．在ArrayList的中间插入或删除一个元素意味着这个列表中剩余的元素都会被移动；而在Linked</p>
+<ol start="2">
+<li>在ArrayList的中间插入或删除一个元素意味着这个列表中剩余的元素都会被移动；而在Linked</li>
+</ol>
 <p>List的中间插入或删除一个元素的开销是固定的。</p>
-<p>3．LinkedList不支持高效的随机元素访问。</p>
-<p>4．ArrayList的空间浪费主要体现在在list列表的结尾预留一定的容量空间，而LinkedList的空</p>
+<ol start="3">
+<li>LinkedList不支持高效的随机元素访问。</li>
+</ol>
+<ol start="4">
+<li>ArrayList的空间浪费主要体现在在list列表的结尾预留一定的容量空间，而LinkedList的空</li>
+</ol>
 <p>间花费则体现在它的每一个元素都需要消耗相当的空间</p>
 <p>可以这样说：当操作是在一列数据的后面添加数据而不是在前面或中间,并且需要随机地访问其中的</p>
 <p>元素时,使用ArrayList会提供比较好的性能；当你的操作是在一列数据的前面或中间添加或删除数</p>
@@ -1315,7 +1499,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">35</span>
+                    <span class="site-state-item-count">36</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
