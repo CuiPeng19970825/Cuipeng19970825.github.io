@@ -104,7 +104,7 @@
 <meta property="og:site_name" content="Program Life">
 <meta property="og:description" content="一、大致区别 ArrayList是实现了基于动态数组的数据结构，LinkedList基于链表的数据结构。 （LinkedList是双向链表，有next也有previous）  对于随机访问get和set，ArrayList觉得优于LinkedList，因为LinkedList要移动指针。  对于新增和删除操作add和remove，LinedList比较占优势，因为ArrayList要移动数据。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-09-05T08:31:13.918Z">
+<meta property="og:updated_time" content="2019-09-05T14:22:34.222Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java中ArrayList和LinkedList的区别">
 <meta name="twitter:description" content="一、大致区别 ArrayList是实现了基于动态数组的数据结构，LinkedList基于链表的数据结构。 （LinkedList是双向链表，有next也有previous）  对于随机访问get和set，ArrayList觉得优于LinkedList，因为LinkedList要移动指针。  对于新增和删除操作add和remove，LinedList比较占优势，因为ArrayList要移动数据。">
@@ -388,7 +388,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-09-05 16:31:13" itemprop="dateModified" datetime="2019-09-05T16:31:13+08:00">2019-09-05</time>
+                <time title="修改时间：2019-09-05 22:22:34" itemprop="dateModified" datetime="2019-09-05T22:22:34+08:00">2019-09-05</time>
               
             
           </span>
@@ -453,21 +453,24 @@
 <p>可以用ArrayList来存储一系列的String或者Integer。那么ArrayList和LinkedList在性能上</p>
 <p>有什么差别呢？什么时候应该用ArrayList什么时候又该用LinkedList呢？</p>
 <ol>
-<li>对ArrayList和LinkedList而言，在列表末尾增加一个元素所花的开销都是固定的。对ArrayLi</li>
+<li><p>对ArrayList和LinkedList而言，在列表末尾增加一个元素所花的开销都是固定的。对ArrayLi</p>
+<p>st而言，主要是在内部数组中增加一项，指向所添加的元素，偶尔可能会导致对数组重新进行分</p>
+<p>配；而对LinkedList而言，这个开销是统一的，分配一个内部Entry对象。</p>
+</li>
 </ol>
-<p>st而言，主要是在内部数组中增加一项，指向所添加的元素，偶尔可能会导致对数组重新进行分配</p>
-<p>；而对LinkedList而言，这个开销是统一的，分配一个内部Entry对象。</p>
 <ol start="2">
-<li>在ArrayList的中间插入或删除一个元素意味着这个列表中剩余的元素都会被移动；而在Linked</li>
-</ol>
+<li><p>在ArrayList的中间插入或删除一个元素意味着这个列表中剩余的元素都会被移动；而在Linked</p>
 <p>List的中间插入或删除一个元素的开销是固定的。</p>
+</li>
+</ol>
 <ol start="3">
 <li>LinkedList不支持高效的随机元素访问。</li>
 </ol>
 <ol start="4">
-<li>ArrayList的空间浪费主要体现在在list列表的结尾预留一定的容量空间，而LinkedList的空</li>
-</ol>
+<li><p>ArrayList的空间浪费主要体现在在list列表的结尾预留一定的容量空间，而LinkedList的空</p>
 <p>间花费则体现在它的每一个元素都需要消耗相当的空间</p>
+</li>
+</ol>
 <p>可以这样说：当操作是在一列数据的后面添加数据而不是在前面或中间,并且需要随机地访问其中的</p>
 <p>元素时,使用ArrayList会提供比较好的性能；当你的操作是在一列数据的前面或中间添加或删除数</p>
 <p>据,并且按照顺序访问其中的元素时,就应该使用LinkedList了。</p>
@@ -590,7 +593,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">36</span>
+                    <span class="site-state-item-count">37</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
