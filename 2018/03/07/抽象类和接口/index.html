@@ -96,18 +96,18 @@
 
 
 
-  <meta name="description" content="一、为什么会分栈内存和堆内存？因为栈内存中存储的值的大小是固定的，堆内存中存储值的大小是不固定的 二、栈内存和堆内存的主要区别 在Java中，栈（stack）是由编译器自动分配和释放的一块内存区域，主要用于存放一些基本类型   （如int、float等）的变量、指令代码、常量及对象句柄（也就是对象的引用地址）。引用类型存储 在堆内存中，栈内存存储的是堆内存中的地址，每次读取值时，先找到栈内存中的内">
+  <meta name="description" content="一、抽象类（abstract修饰符） abstract修饰的类为抽象类，此类不能有对象(无法对此类进行实例化，即不能new)； abstract修饰的方法为抽象方法，此方法不能有方法体(就是什么内容都不能有)； 有抽象方法的类一定是抽象类，但抽象类中不一定有抽象方法； 抽象类中的抽象方法必须在子类中被实现，子类实现方法必须含有相同或更低的访问级别，抽象类的子类具体实现父类的所有抽象方法，否则也是抽">
 <meta name="keywords" content="Java">
 <meta property="og:type" content="article">
-<meta property="og:title" content="内存解析">
-<meta property="og:url" content="https://Cuipeng19970825.github.io/2018/03/03/内存解析/index.html">
+<meta property="og:title" content="抽象类和接口">
+<meta property="og:url" content="https://Cuipeng19970825.github.io/2018/03/07/抽象类和接口/index.html">
 <meta property="og:site_name" content="Program Life">
-<meta property="og:description" content="一、为什么会分栈内存和堆内存？因为栈内存中存储的值的大小是固定的，堆内存中存储值的大小是不固定的 二、栈内存和堆内存的主要区别 在Java中，栈（stack）是由编译器自动分配和释放的一块内存区域，主要用于存放一些基本类型   （如int、float等）的变量、指令代码、常量及对象句柄（也就是对象的引用地址）。引用类型存储 在堆内存中，栈内存存储的是堆内存中的地址，每次读取值时，先找到栈内存中的内">
+<meta property="og:description" content="一、抽象类（abstract修饰符） abstract修饰的类为抽象类，此类不能有对象(无法对此类进行实例化，即不能new)； abstract修饰的方法为抽象方法，此方法不能有方法体(就是什么内容都不能有)； 有抽象方法的类一定是抽象类，但抽象类中不一定有抽象方法； 抽象类中的抽象方法必须在子类中被实现，子类实现方法必须含有相同或更低的访问级别，抽象类的子类具体实现父类的所有抽象方法，否则也是抽">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-09-05T05:50:10.788Z">
+<meta property="og:updated_time" content="2019-09-10T16:22:10.549Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="内存解析">
-<meta name="twitter:description" content="一、为什么会分栈内存和堆内存？因为栈内存中存储的值的大小是固定的，堆内存中存储值的大小是不固定的 二、栈内存和堆内存的主要区别 在Java中，栈（stack）是由编译器自动分配和释放的一块内存区域，主要用于存放一些基本类型   （如int、float等）的变量、指令代码、常量及对象句柄（也就是对象的引用地址）。引用类型存储 在堆内存中，栈内存存储的是堆内存中的地址，每次读取值时，先找到栈内存中的内">
+<meta name="twitter:title" content="抽象类和接口">
+<meta name="twitter:description" content="一、抽象类（abstract修饰符） abstract修饰的类为抽象类，此类不能有对象(无法对此类进行实例化，即不能new)； abstract修饰的方法为抽象方法，此方法不能有方法体(就是什么内容都不能有)； 有抽象方法的类一定是抽象类，但抽象类中不一定有抽象方法； 抽象类中的抽象方法必须在子类中被实现，子类实现方法必须含有相同或更低的访问级别，抽象类的子类具体实现父类的所有抽象方法，否则也是抽">
 
 
 
@@ -115,7 +115,7 @@
 
   
   
-  <link rel="canonical" href="https://Cuipeng19970825.github.io/2018/03/03/内存解析/">
+  <link rel="canonical" href="https://Cuipeng19970825.github.io/2018/03/07/抽象类和接口/">
 
 
 
@@ -125,7 +125,7 @@
   };
 </script>
 
-  <title>内存解析 | Program Life</title>
+  <title>抽象类和接口 | Program Life</title>
   
 
 
@@ -328,7 +328,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://Cuipeng19970825.github.io/2018/03/03/内存解析/">
+    <link itemprop="mainEntityOfPage" href="https://Cuipeng19970825.github.io/2018/03/07/抽象类和接口/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="崔鹏">
@@ -345,7 +345,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">内存解析
+          <h1 class="post-title" itemprop="name headline">抽象类和接口
 
               
             
@@ -371,7 +371,7 @@
                 
               
 
-              <time title="创建时间：2018-03-03 08:05:40" itemprop="dateCreated datePublished" datetime="2018-03-03T08:05:40+08:00">2018-03-03</time>
+              <time title="创建时间：2018-03-07 09:15:30" itemprop="dateCreated datePublished" datetime="2018-03-07T09:15:30+08:00">2018-03-07</time>
             
 
             
@@ -388,7 +388,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-09-05 13:50:10" itemprop="dateModified" datetime="2019-09-05T13:50:10+08:00">2019-09-05</time>
+                <time title="修改时间：2019-09-11 00:22:10" itemprop="dateModified" datetime="2019-09-11T00:22:10+08:00">2019-09-11</time>
               
             
           </span>
@@ -440,26 +440,34 @@
       
 
       
-        <h1 id="一、为什么会分栈内存和堆内存？"><a href="#一、为什么会分栈内存和堆内存？" class="headerlink" title="一、为什么会分栈内存和堆内存？"></a>一、为什么会分栈内存和堆内存？</h1><p>因为栈内存中存储的值的大小是固定的，堆内存中存储值的大小是不固定的</p>
-<h1 id="二、栈内存和堆内存的主要区别"><a href="#二、栈内存和堆内存的主要区别" class="headerlink" title="二、栈内存和堆内存的主要区别"></a>二、栈内存和堆内存的主要区别</h1><ol>
-<li><p>在Java中，栈（stack）是由编译器自动分配和释放的一块内存区域，主要用于存放一些基本类型</p>
-</li>
+        <h1 id="一、抽象类（abstract修饰符）"><a href="#一、抽象类（abstract修饰符）" class="headerlink" title="一、抽象类（abstract修饰符）"></a>一、抽象类（abstract修饰符）</h1><ol>
+<li>abstract修饰的类为抽象类，此类不能有对象(无法对此类进行实例化，即不能new)；</li>
+<li>abstract修饰的方法为抽象方法，此方法不能有方法体(就是什么内容都不能有)；</li>
+<li>有抽象方法的类一定是抽象类，但抽象类中不一定有抽象方法；</li>
+<li>抽象类中的抽象方法必须在子类中被实现，子类实现方法必须含有相同或更低的访问级别，<br>抽象类的子类具体实现父类的所有抽象方法，否则也是抽象类；</li>
 </ol>
-<p>（如int、float等）的变量、指令代码、常量及对象句柄（也就是对象的引用地址）。引用类型存储</p>
-<p>在堆内存中，栈内存存储的是堆内存中的地址，每次读取值时，先找到栈内存中的内存地址，再通</p>
-<p>过内存地址，找到在堆内存中的对应的对象；</p>
-<p>2.</p>
-<p>栈内存的操作方式类似于数据结构中的栈（仅在表尾进行插入或删除操作的线性表）。栈的优势在于</p>
-<p>它的存取速度比较快，仅次于寄存器，栈中的数据还可以共享。其缺点表现在，存在栈中的数据大小</p>
-<p>与生存期必须是确定的，缺乏灵活性；</p>
-<p>3.</p>
-<p>堆（heap）是一个程序运行动态分配的内存区域，在Java中，构建对象时所需要的内存从堆中分配</p>
-<p>，这些对象通过new指令“显式”建立，这种分配方式类似于数据结构中的链表。堆内存在使用完毕后</p>
-<p>，是由垃圾回收（Garbage Collection,GC）器“隐式”回收的。</p>
-<p>4.</p>
-<p>堆的优势是在于动态地分配内存大小，可以“按需分配”，其生存期也不必事先告诉编译器，在使用</p>
-<p>完毕后，Java的垃圾收集器会自动收走这些不再使用的内存块。其缺点为，由于要在运动时才动态分</p>
-<p>配内存，相比于栈内存，它的存取速度较慢。</p>
+<h1 id="二、接口-interface"><a href="#二、接口-interface" class="headerlink" title="二、接口(interface)"></a>二、接口(interface)</h1><ol>
+<li>接口中的所有属性默认为:public static final; </li>
+<li>接口中的所有方法默认为：public abstract;</li>
+<li>接口不能被实例化；</li>
+<li>接口只能包含方法声明；</li>
+<li>接口的成员包括方法、属性、索引器、事件；</li>
+<li>接口中不能包含常量、字段(域)、构造函数、析构函数、静态成员； </li>
+<li>接口不再像类一样用关键字extend去”继承”，而是用implements去”实现”;</li>
+<li>一个类可以实现多个接口，但只能继承于一个类，所以可以通过这种方式来实现多继承；</li>
+</ol>
+<h1 id="三、接口和抽象类的区别"><a href="#三、接口和抽象类的区别" class="headerlink" title="三、接口和抽象类的区别"></a>三、接口和抽象类的区别</h1><ol>
+<li>抽象类描述的是”是不是”的问题，而接口描述的是”有没有”的问题；</li>
+<li>接口强调特定功能的实现，而抽象类强调所属关系；</li>
+<li>抽象类中可以有构造方法，接口中不能有构造方法；</li>
+<li>接口可以被多重实现，抽象类只能被单一继承；</li>
+</ol>
+<h1 id="四、接口和抽象类的相同点"><a href="#四、接口和抽象类的相同点" class="headerlink" title="四、接口和抽象类的相同点"></a>四、接口和抽象类的相同点</h1><ol>
+<li>都可以被”继承/实现”</li>
+<li>都不能被实例化</li>
+<li>都可以包含方法声明</li>
+<li>派生类必须实现未实现方法</li>
+</ol>
 
       
     </div>
@@ -496,14 +504,18 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2018/03/06/面向对象的设计思想/" rel="next" title="面向对象的设计思想">
+                <i class="fa fa-chevron-left"></i> 面向对象的设计思想
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/03/04/Java的8种基本数据类型/" rel="prev" title="Java的8种基本数据类型">
-                Java的8种基本数据类型 <i class="fa fa-chevron-right"></i>
+              <a href="/2019/04/22/Markdown/" rel="prev" title="Markdown基础语法简介">
+                Markdown基础语法简介 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -675,7 +687,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#一、为什么会分栈内存和堆内存？"><span class="nav-number">1.</span> <span class="nav-text">一、为什么会分栈内存和堆内存？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二、栈内存和堆内存的主要区别"><span class="nav-number">2.</span> <span class="nav-text">二、栈内存和堆内存的主要区别</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#一、抽象类（abstract修饰符）"><span class="nav-number">1.</span> <span class="nav-text">一、抽象类（abstract修饰符）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二、接口-interface"><span class="nav-number">2.</span> <span class="nav-text">二、接口(interface)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#三、接口和抽象类的区别"><span class="nav-number">3.</span> <span class="nav-text">三、接口和抽象类的区别</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#四、接口和抽象类的相同点"><span class="nav-number">4.</span> <span class="nav-text">四、接口和抽象类的相同点</span></a></li></ol></div>
             
 
           </div>
