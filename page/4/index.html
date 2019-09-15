@@ -389,7 +389,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-09-15 15:55:37" itemprop="dateModified" datetime="2019-09-15T15:55:37+08:00">2019-09-15</time>
+                <time title="修改时间：2019-09-15 16:25:33" itemprop="dateModified" datetime="2019-09-15T16:25:33+08:00">2019-09-15</time>
               
             
           </span>
@@ -454,7 +454,7 @@
 <li>CheckedException(检查异常)是RuntimeException以外的异常，类型上都属于Exception类及其子类。从程序语法角度讲是必须进行处理的异常，如果不处理，程序就不能编译通过。</li>
 </ol>
 </li>
-<li><p>如果要自定义异常类，则扩展Exception类即可，因此这样的自定义异常都属于检查异常（chec<br>ked exception）。如果要自定义非检查异常，则扩展自RuntimeException。<br>按照国际惯例，自定义的异常应该总是包含如下的构造函数：</p>
+<li><p>用户自定义异常：如果要自定义异常类，则扩展Exception类即可，因此这样的自定义异常都属<br>于检查异常（CheckedException）。如果要自定义非检查异常，则扩展自RuntimeException。<br>按照国际惯例，自定义的异常应该总是包含如下的构造函数：</p>
 <ul>
 <li>一个无参构造函数</li>
 <li>一个带有String参数的构造函数，并传递给父类的构造函数。</li>
@@ -462,6 +462,19 @@
 <li>一个带有Throwable参数的构造函数，并传递给父类的构造函数。</li>
 </ul>
 </li>
+</ol>
+<h2 id="2、五个关键字"><a href="#2、五个关键字" class="headerlink" title="2、五个关键字"></a>2、五个关键字</h2><ol>
+<li>throws:用来标明一个成员函数可能抛出的各种”异常”。</li>
+<li>throw:用来明确地抛出一个”异常”。</li>
+<li>try:包含可能导致异常的保护代码。</li>
+<li>catch:捕获保护代码的异常。</li>
+<li>finally:确保一段代码不管发生什么”异常”都被执行一段代码。</li>
+</ol>
+<h2 id="3、先逮小的，再逮大的"><a href="#3、先逮小的，再逮大的" class="headerlink" title="3、先逮小的，再逮大的"></a>3、先逮小的，再逮大的</h2><p>即当捕获异常时，父类异常的捕获语句不可以写在子类异常的捕获语句的上面。</p>
+<h2 id="4、异常和重写的关系"><a href="#4、异常和重写的关系" class="headerlink" title="4、异常和重写的关系"></a>4、异常和重写的关系</h2><ol>
+<li>父类没有声明异常，那么子类也不能声明异常；</li>
+<li>重写的方法不能比被重写的方法抛出更宽泛的异常；</li>
+<li>抛出异常类型的数目不可以比原有的方法抛出还多；</li>
 </ol>
 
           
