@@ -327,6 +327,204 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://Cuipeng19970825.github.io/2018/03/08/Java中的equals和hashCode方法介绍/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="崔鹏">
+      <meta itemprop="description" content="个人博客">
+      <meta itemprop="image" content="https://raw.githubusercontent.com/CuiPeng19970825/blogimages/master/TouxiangImg/%E5%A4%B4%E5%83%8F.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Program Life">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2018/03/08/Java中的equals和hashCode方法介绍/" class="post-title-link" itemprop="url">Java中的equals和hashCode方法介绍</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-03-08 10:10:30" itemprop="dateCreated datePublished" datetime="2018-03-08T10:10:30+08:00">2018-03-08</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-10-01 17:50:12" itemprop="dateModified" datetime="2019-10-01T17:50:12+08:00">2019-10-01</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="一、equals-方法和hashCode-方法"><a href="#一、equals-方法和hashCode-方法" class="headerlink" title="一、equals()方法和hashCode()方法"></a>一、equals()方法和hashCode()方法</h1><p>Java中的equals()方法和hashCode()方法都是类Object中的方法。其中equals()方法用于检测一</p>
+<p>个对象是否等于另外一个对象，默认是比较两个对象是否具有相同的引用。hashCode()方法是返回</p>
+<p>该对象的散列码，默认是对象的存储地址。</p>
+<h1 id="二、equals方法具有的特性："><a href="#二、equals方法具有的特性：" class="headerlink" title="二、equals方法具有的特性："></a>二、equals方法具有的特性：</h1><ol>
+<li><p>自反性:对于任何非空引用x,x.equals(x)应该返回true</p>
+</li>
+<li><p>对称性:对于任何引用x,y,当且仅当x.equals(y) 返回true，那么y.equals(x)也应该返回true</p>
+</li>
+<li><p>传递性：对于任何引用x,y,z;如果x.equals(y)返回true,y.equals(z)返回true,那么x.equals(z)也应该返回true</p>
+</li>
+<li><p>一致性:如果x和y引用的对象没有变化，那么x.equals(y)返回值永远不变</p>
+</li>
+<li><p>对于任何非空引用x,x.equals(null)都应返回false</p>
+</li>
+</ol>
+<h1 id="三、hashCode方法"><a href="#三、hashCode方法" class="headerlink" title="三、hashCode方法"></a>三、hashCode方法</h1><p>使用hashCode()方法查找一个集合中是否包含有某个对象时，不需要你的程序对集合中大量的元素</p>
+<p>进行逐一比较，例如：当从HashSet集合中查找某个对象时，Java系统首先调用对象的hashCode()</p>
+<p>方法获得该对象的哈希码表，然后根据哈希码找到相应的存储区域，最后取得该存储区域内的每个</p>
+<p>元素与该对象进行equals()方法比较，从而提高了查找效率。</p>
+<h1 id="四、equals-方法和hashCode-方法之间的联系"><a href="#四、equals-方法和hashCode-方法之间的联系" class="headerlink" title="四、equals()方法和hashCode()方法之间的联系"></a>四、equals()方法和hashCode()方法之间的联系</h1><h2 id="1-如果两个对象是相等的，那么他们的hashCode必须是相同的。"><a href="#1-如果两个对象是相等的，那么他们的hashCode必须是相同的。" class="headerlink" title="1. 如果两个对象是相等的，那么他们的hashCode必须是相同的。"></a>1. 如果两个对象是相等的，那么他们的hashCode必须是相同的。</h2><h2 id="2-如果两个对象具有相同的hashCode，它们可以相等，也可以不相等。"><a href="#2-如果两个对象具有相同的hashCode，它们可以相等，也可以不相等。" class="headerlink" title="2. 如果两个对象具有相同的hashCode，它们可以相等，也可以不相等。"></a>2. 如果两个对象具有相同的hashCode，它们可以相等，也可以不相等。</h2><h2 id="举例："><a href="#举例：" class="headerlink" title="举例："></a>举例：</h2><p>hashCode就好比字典里每个字的索引，equals()好比是字典里同一个字下的不同词语。就好像在字</p>
+<p>典里查“自”这个字下的两个词语“自己”、“自发”，如果用equals()判断查询的词语相等那么就是同</p>
+<p>一个词语，比如equals()比较的两个词语都是“自己”，那么此时hashCode()方法得到的值也肯定</p>
+<p>相等；如果用equals()方法比较的是“自己”和“自发”这两个词语，那么得到结果是不想等，但是这</p>
+<p>两个词都属于“自”这个字下的词语所以在查索引时相同，即：hashCode()相同。如果用equals()比</p>
+<p>较的是“自己”和“他们”这两个词语的话那么得到的结果也是不同的，此时hashCode() 得到也是不</p>
+<p>同的。</p>
+<h2 id="注意：如果重写了某类的equals-方法，那么肯定也需要重写该类的hashCode-方法，而且两"><a href="#注意：如果重写了某类的equals-方法，那么肯定也需要重写该类的hashCode-方法，而且两" class="headerlink" title="注意：如果重写了某类的equals()方法，那么肯定也需要重写该类的hashCode()方法，而且两"></a>注意：如果重写了某类的equals()方法，那么肯定也需要重写该类的hashCode()方法，而且两</h2><h2 id="个对象的equals-返回值相等的情况下，这两个对象的hashCode-方法的返回值也必须相等。"><a href="#个对象的equals-返回值相等的情况下，这两个对象的hashCode-方法的返回值也必须相等。" class="headerlink" title="个对象的equals()返回值相等的情况下，这两个对象的hashCode()方法的返回值也必须相等。"></a>个对象的equals()返回值相等的情况下，这两个对象的hashCode()方法的返回值也必须相等。</h2>
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://Cuipeng19970825.github.io/2018/03/07/Map类/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -2032,266 +2230,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://Cuipeng19970825.github.io/2018/03/05/Java中类的实例化顺序/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="崔鹏">
-      <meta itemprop="description" content="个人博客">
-      <meta itemprop="image" content="https://raw.githubusercontent.com/CuiPeng19970825/blogimages/master/TouxiangImg/%E5%A4%B4%E5%83%8F.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Program Life">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2018/03/05/Java中类的实例化顺序/" class="post-title-link" itemprop="url">Java中类的实例化顺序</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2018-03-05 17:05:40" itemprop="dateCreated datePublished" datetime="2018-03-05T17:05:40+08:00">2018-03-05</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-09-13 23:39:10" itemprop="dateModified" datetime="2019-09-13T23:39:10+08:00">2019-09-13</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><ol>
-<li>先静态、先父后子。 先静态：父静态 &gt; 子静态 。</li>
-<li>优先级：父类 &gt; 子类 ， 静态代码块 &gt; 非静态代码块 &gt; 构造函数。</li>
-</ol>
-<h2 id="例题分析-数字为执行顺序"><a href="#例题分析-数字为执行顺序" class="headerlink" title="例题分析(数字为执行顺序)"></a>例题分析(数字为执行顺序)</h2><h3 id="例一："><a href="#例一：" class="headerlink" title="例一："></a>例一：</h3><pre><code>    package Servlet.day0811.am;
-    public class StaticTest {
-    /*1、静态代码块先加载，当new一个新对象时调用构造方法且该类的非静态代码块要执行一次
-    注意：(静态代码块与非静态代码块的区别，静态代码块只在第一次new的时候执行一次,
-        而非静态代码块在每次new的时候都要执行一次)*/
-    static StaticTest st=new StaticTest();  
-    //5、按顺序执行静态代码块 
-    static{
-        System.out.println(&quot;静态代码块&quot;);
-    }
-    //3、构造方法执行
-    public StaticTest(){
-        System.out.println(&quot;构造器&quot;);
-        System.out.println(st);
-        m1();
-    } 
-    //4、m1方法被调用  7、m1方法再次被调用
-    public static void m1(){
-        System.out.println(&quot;m1静态方法&quot;);
-        //执行到顺序7时，构造方法已经完全执行完，即st对象被实例化
-        System.out.println(st);
-    }
-    {
-        //2、此非静态代码块执行(因为非静态构造方法的优先级高于构造方法)
-        System.out.println(&quot;普通代码块&quot;);
-    }
-    //6、按顺序执行静态代码块
-    public static void main(String[] args) {
-        System.out.println(&quot;main开始&quot;);
-        StaticTest.m1();
-        //8、按顺序执行
-        System.out.println(&quot;main结束&quot;);
-    }
-}
-</code></pre><h3 id="输出结果"><a href="#输出结果" class="headerlink" title="输出结果"></a>输出结果</h3><p>普通代码块    （先加载普通代码块）<br>构造器        （再加载构造器）<br>null          （输出构造器中的st，此时并未加载静态属性，所以输出null）<br>m1静态方法    （构造器中的m1方法，输出m1静态方法）<br>null          （m1方法中的st，此时st仍然未被加载）<br>静态代码块    （加载静态代码块）<br>main开始      （main方法开始，st在这时候被加载（分配内存））<br>m1静态方法    （调用静态方法m1）<br>Servlet.day0811.am.StaticTest@d1f24bb  （st已经被加载过了，所以为对象对应的地址）<br>main结束      （main方法结束）</p>
-<h3 id="例二："><a href="#例二：" class="headerlink" title="例二："></a>例二：</h3><pre><code>    public class Dervied extends Base{
-    private String name=&quot;dervied&quot;;
-    public Dervied(){
-        //4、执行构造方法，此时new了一个父类的对象，调用父类构造方法
-        System.out.println(new Base().i);//8、按顺序继续执行输出i的值
-        tellName();
-        printName();
-    }
-    static{
-        //2、子类静态代码块再执行
-        System.out.println(&quot;子类静态代码块&quot;);
-    }
-    //9、子类构造函数调用tellName和printName函数
-    public void tellName(){
-        System.out.println(&quot;Dervied tell name : &quot;+name);
-    } 
-    public void printName(){
-        System.out.println(&quot;Dervied print name : &quot;+name);
-    }
-    public static void main(String[] args) {
-        //3、子类静态代码块按顺序执行，此时调用子类的构造方法
-        new Dervied();
-    }
-}
-    class Base{
-        public int i=99;
-        private String name=&quot;111&quot;;
-        static{
-            //1、父类静态代码块先执行
-            System.out.println(&quot;父类静态代码块&quot;);
-        }
-        {
-            //5、当new一个父类对象时非静态代码块就要执行一次
-            System.out.println(&quot;父类非静态代码块&quot;);
-        }
-        //6、执行父类构造函数
-        public Base(){
-            tellName();
-            printName();
-        }
-        //7、父类构造函数调用tellName和printName函数
-        public void tellName(){
-            System.out.println(&quot;Base tell name : &quot;+name);
-        } 
-        public void printName(){
-            System.out.println(&quot;Base print name : &quot;+name);
-        }
-    }
-</code></pre><h3 id="输出结果-1"><a href="#输出结果-1" class="headerlink" title="输出结果"></a>输出结果</h3><p>父类静态代码块<br>子类静态代码块<br>父类非静态代码块<br>Dervied tell name : null<br>Dervied print name : null<br>父类非静态代码块<br>Base tell name : 111<br>Base print name : 111<br>99<br>Dervied tell name : dervied<br>Dervied print name : dervied</p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2340,7 +2278,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">45</span>
+                    <span class="site-state-item-count">46</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
