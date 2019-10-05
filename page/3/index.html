@@ -327,316 +327,6 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://Cuipeng19970825.github.io/2019/05/11/数据结构与算法学习之单链表/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="崔鹏">
-      <meta itemprop="description" content="个人博客">
-      <meta itemprop="image" content="https://raw.githubusercontent.com/CuiPeng19970825/blogimages/master/TouxiangImg/%E5%A4%B4%E5%83%8F.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Program Life">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/05/11/数据结构与算法学习之单链表/" class="post-title-link" itemprop="url">一、线性结构—单链表</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2019-05-11 21:19:55" itemprop="dateCreated datePublished" datetime="2019-05-11T21:19:55+08:00">2019-05-11</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-08-23 03:06:47" itemprop="dateModified" datetime="2019-08-23T03:06:47+08:00">2019-08-23</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/数据结构与算法/" itemprop="url" rel="index"><span itemprop="name">数据结构与算法</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="单链表学习整理"><a href="#单链表学习整理" class="headerlink" title="单链表学习整理"></a>单链表学习整理</h1><h2 id="单链表"><a href="#单链表" class="headerlink" title="单链表"></a>单链表</h2><p>通过一个链子把多个结点（元素）连接起来，由数据和地址组成的一个元素，节点本身必须有一个</p>
-<p>地址值（就是下一个元素的地址值）链表的每个结点中只包含一个指针域，叫做单链表（即构成链</p>
-<p>表的每个节点只有一个指向直接后继结点的指针，且尾节点的指针为null）。</p>
-<h3 id="优点："><a href="#优点：" class="headerlink" title="优点："></a>优点：</h3><ol>
-<li><p>链表是很常用的一种数据结构，不需要初始化容量，可以任意加减元素；</p>
-</li>
-<li><p>添加或者删除元素时只需要改变前后两个元素结点的指针域指向地址即可，所以添加，</p>
-</li>
-</ol>
-<p>删除很快； </p>
-<h3 id="缺点："><a href="#缺点：" class="headerlink" title="缺点："></a>缺点：</h3><ol>
-<li><p>因为含有大量的指针域，占用空间较大；</p>
-</li>
-<li><p>查找元素需要遍历链表来查找，非常耗时。</p>
-</li>
-</ol>
-<h3 id="适用场景："><a href="#适用场景：" class="headerlink" title="适用场景："></a>适用场景：</h3><p>数据量较小，需要频繁增加，删除操作的场景。</p>
-<h4 id="基类的定义"><a href="#基类的定义" class="headerlink" title="基类的定义"></a>基类的定义</h4><ul>
-<li><p>定义一个节点类Node</p>
-</li>
-<li><p>append()方法,为当前节点追加节点</p>
-</li>
-<li><p>Next()方法，获取下一个节点</p>
-</li>
-<li><p>getData()方法，获取节点中的数据</p>
-</li>
-<li><p>isLast()方法，判断当前节点是否是最后一个节点</p>
-</li>
-<li><p>remove()方法，删除下一个节点</p>
-</li>
-<li><p>show()方法，显示所有节点信息</p>
-</li>
-<li><p>insert()方法，插入一个节点</p>
-</li>
-</ul>
-<h4 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h4><pre><code>package demoNode;
-public class Node {
-       //数据
-       private int data;
-       //下一个节点
-       private Node next;
-
-       //构造方法
-       public Node(int data){
-           this.data=data;
-       }
-
-       //为当前节点追加节点
-       public Node append(Node node){
-           //当前节点
-           Node currentNode=this;
-           //循环查找
-           while(true){
-               //取出下一个节点
-               Node nextNode=currentNode.next;
-               //如果下一个节点为空，当前节点已经是最后一个节点
-               if(nextNode==null){
-                   break;
-               }
-               //赋值给当前节点
-               currentNode=nextNode;
-           }
-           //把需要追加的节点追加到找到的当前节点的下一个节点
-           currentNode.next=node;
-           return this;
-       }
-
-       //获取下一个节点
-       public Node Next(){
-           return this.next;
-       }
-
-       //获取节点中的数据
-       public int getData(){
-           return this.data;
-       }
-
-       //判断当前节点是否是最后一个节点
-       public boolean isLast(){
-           return next==null;
-       }
-
-       //删除下一个节点
-       public void remove(){
-           //取出下一个节点
-           Node newNext=next.next;
-           //把下下个节点设置为当前节点的下一个节点
-           this.next=newNext;
-
-       }
-
-       //显示所有节点信息
-       public void show(){
-           Node currentNode=this;
-           while(true){
-               System.out.print(currentNode.data+&quot; &quot;);
-               //取出下一个节点
-               currentNode=currentNode.next;
-               if(currentNode==null){
-                   break;
-               }
-           }
-           System.out.println();
-       }
-
-       //插入一个节点
-       public void insert(Node newNode){
-           Node currentNode=this;
-           newNode.next=currentNode.next;
-           currentNode.next=newNode;
-       }
-
-   }
-</code></pre><h4 id="测试代码"><a href="#测试代码" class="headerlink" title="测试代码"></a>测试代码</h4><pre><code> package demoNode;
- public class TestNode {
-    public static void main(String[] args) {
-        //创建节点对象
-        Node n1=new Node(1);
-        Node n2=new Node(2);
-        Node n3=new Node(3);
-        //用追加节点方法将相应的节点连成单链表
-        n1.append(n2).append(n3).append(new Node(4));
-        //取出下一个节点中的数据
-        System.out.println(n1.Next().Next().getData());
-        System.out.println(n1.isLast());
-        //显示所有节点信息
-        n1.show();
-        //删除某个节点的下一个节点
-        n1.remove();
-        n1.show();
-        //插入节点
-        n1.insert(n2);
-        //追加新节点
-        n1.append(new Node(5));
-        n1.show();
-        System.out.println(n2.getData());
-    }
-}
-</code></pre>
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://Cuipeng19970825.github.io/2019/05/11/数据结构与算法学习之队列/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -3277,6 +2967,289 @@ _ _ _ _ _ _
 
 
     
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://Cuipeng19970825.github.io/2018/03/08/Java线程/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="崔鹏">
+      <meta itemprop="description" content="个人博客">
+      <meta itemprop="image" content="https://raw.githubusercontent.com/CuiPeng19970825/blogimages/master/TouxiangImg/%E5%A4%B4%E5%83%8F.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Program Life">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2018/03/08/Java线程/" class="post-title-link" itemprop="url">Java线程</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-03-08 15:15:05" itemprop="dateCreated datePublished" datetime="2018-03-08T15:15:05+08:00">2018-03-08</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-10-05 23:20:43" itemprop="dateModified" datetime="2019-10-05T23:20:43+08:00">2019-10-05</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="一、进程、线程概念"><a href="#一、进程、线程概念" class="headerlink" title="一、进程、线程概念"></a>一、进程、线程概念</h1><ol>
+<li><p>进程：是计算机中的程序关于某数据集合上的一次运行活动，是系统进行资源分配和调度的基本单位；</p>
+</li>
+<li><p>线程：简单的说就是一个进程中不同的执行路径，是操作系统能够进行运算调度的最小单位。</p>
+</li>
+</ol>
+<h1 id="二、线程的创建和启动"><a href="#二、线程的创建和启动" class="headerlink" title="二、线程的创建和启动"></a>二、线程的创建和启动</h1><h2 id="1-继承Thread类和重写run-方法"><a href="#1-继承Thread类和重写run-方法" class="headerlink" title="1. 继承Thread类和重写run()方法"></a>1. 继承Thread类和重写run()方法</h2><h2 id="2-实现Runnable接口"><a href="#2-实现Runnable接口" class="headerlink" title="2. 实现Runnable接口"></a>2. 实现Runnable接口</h2><p><img src="https://raw.githubusercontent.com/CuiPeng19970825/blogimages/master/JavaImg/%E7%BA%BF%E7%A8%8B%E7%9A%84%E5%88%9B%E5%BB%BA%E5%92%8C%E5%90%AF%E5%8A%A8.JPG" alt="线程的创建和启动"></p>
+<h1 id="三、线程的状态转换"><a href="#三、线程的状态转换" class="headerlink" title="三、线程的状态转换"></a>三、线程的状态转换</h1><p><img src="https://raw.githubusercontent.com/CuiPeng19970825/blogimages/master/JavaImg/%E7%BA%BF%E7%A8%8B%E7%8A%B6%E6%80%81%E8%BD%AC%E6%8D%A2.JPG" alt="线程状态转换"></p>
+<h1 id="四、线程控制基本方法"><a href="#四、线程控制基本方法" class="headerlink" title="四、线程控制基本方法"></a>四、线程控制基本方法</h1><p><img src="https://raw.githubusercontent.com/CuiPeng19970825/blogimages/master/JavaImg/%E7%BA%BF%E7%A8%8B%E6%8E%A7%E5%88%B6%E5%9F%BA%E6%9C%AC%E6%96%B9%E6%B3%95.JPG" alt="线程控制基本方法"></p>
+<h1 id="五、线程的优先级"><a href="#五、线程的优先级" class="headerlink" title="五、线程的优先级"></a>五、线程的优先级</h1><p><img src="https://raw.githubusercontent.com/CuiPeng19970825/blogimages/master/JavaImg/%E7%BA%BF%E7%A8%8B%E7%9A%84%E4%BC%98%E5%85%88%E7%BA%A7.JPG" alt="线程的优先级"></p>
+<h1 id="六、生产者消费者问题"><a href="#六、生产者消费者问题" class="headerlink" title="六、生产者消费者问题"></a>六、生产者消费者问题</h1><pre><code>//1、馒头类
+package pcDemo;
+public class WoTo {
+    int id;
+    public WoTo(int id) {
+        this.id=id;
+    }
+    @Override
+    public String toString() {
+        return &quot;WoTo[&quot;+ id +&quot;]&quot;;
+    }
+}
+
+//2、篮子类
+package pcDemo;
+public class SyncStack {
+    WoTo[] arrstack=new WoTo[6];
+    int index=0;
+
+    public synchronized void push(WoTo w) {
+        while(index==arrstack.length) {
+            try {
+                this.wait();
+            }catch(InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+        this.notify();
+        arrstack[index]=w;
+        index++;
+    }
+
+    public synchronized WoTo pop() {
+        while(index==0) {
+            try {
+                this.wait();
+            }catch(InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+        this.notify();
+        index--;
+        return arrstack[index];
+    }
+}
+
+//3、生产者类
+package pcDemo;
+public class Producer implements Runnable{
+    SyncStack ss=null;
+    public Producer(SyncStack ss) {
+        this.ss=ss;
+    }
+    @Override
+    public void run() {
+        for(int i=0;i&lt;20;i++) {
+            WoTo w=new WoTo(i);
+            ss.push(w);
+            System.out.println(&quot;生产了&quot;+w);
+        }
+        try {
+            Thread.sleep((int)(Math.random()*1000));
+        }catch(InterruptedException e) {
+            e.printStackTrace();
+        }
+
+    }
+}
+
+//4、消费者类
+package pcDemo;
+public class Consumer implements Runnable{
+    SyncStack ss=null;
+    public Consumer(SyncStack ss) {
+        this.ss=ss;
+    }
+    @Override
+    public void run() {
+        for(int i=0;i&lt;20;i++) {
+            WoTo w=ss.pop();
+            System.out.println(&quot;消费了&quot;+w);
+        }
+        try {
+            Thread.sleep((int)(Math.random()*1000));
+        }catch(InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+}
+
+//5、测试类
+package pcDemo;
+public class TestPC {
+    public static void main(String[] args) {
+        SyncStack ss=new SyncStack();
+        Producer p=new Producer(ss);
+        Consumer c=new Consumer(ss);
+        new Thread(p).start();
+        new Thread(c).start();
+    }
+}
+</code></pre>
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
   </section>
 
   
@@ -3325,7 +3298,7 @@ _ _ _ _ _ _
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">49</span>
+                    <span class="site-state-item-count">50</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>

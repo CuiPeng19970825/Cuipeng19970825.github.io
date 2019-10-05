@@ -327,289 +327,6 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://Cuipeng19970825.github.io/2018/03/08/Java线程/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="崔鹏">
-      <meta itemprop="description" content="个人博客">
-      <meta itemprop="image" content="https://raw.githubusercontent.com/CuiPeng19970825/blogimages/master/TouxiangImg/%E5%A4%B4%E5%83%8F.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Program Life">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2018/03/08/Java线程/" class="post-title-link" itemprop="url">Java线程</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2018-03-08 15:15:05" itemprop="dateCreated datePublished" datetime="2018-03-08T15:15:05+08:00">2018-03-08</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-10-03 14:18:05" itemprop="dateModified" datetime="2019-10-03T14:18:05+08:00">2019-10-03</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="一、进程、线程概念"><a href="#一、进程、线程概念" class="headerlink" title="一、进程、线程概念"></a>一、进程、线程概念</h1><ol>
-<li><p>进程：是计算机中的程序关于某数据集合上的一次运行活动，是系统进行资源分配和调度的基本单位；</p>
-</li>
-<li><p>线程：简单的说就是一个进程中不同的执行路径，是操作系统能够进行运算调度的最小单位。</p>
-</li>
-</ol>
-<h1 id="二、线程的创建和启动"><a href="#二、线程的创建和启动" class="headerlink" title="二、线程的创建和启动"></a>二、线程的创建和启动</h1><h2 id="1-继承Thread类和重写run-方法"><a href="#1-继承Thread类和重写run-方法" class="headerlink" title="1. 继承Thread类和重写run()方法"></a>1. 继承Thread类和重写run()方法</h2><h2 id="2-实现Runnable接口"><a href="#2-实现Runnable接口" class="headerlink" title="2. 实现Runnable接口"></a>2. 实现Runnable接口</h2><p><img src="https://raw.githubusercontent.com/CuiPeng19970825/blogimages/master/JavaImg/%E7%BA%BF%E7%A8%8B%E7%9A%84%E5%88%9B%E5%BB%BA%E5%92%8C%E5%90%AF%E5%8A%A8.JPG" alt="线程的创建和启动"></p>
-<h1 id="三、线程的状态转换"><a href="#三、线程的状态转换" class="headerlink" title="三、线程的状态转换"></a>三、线程的状态转换</h1><p><img src="https://raw.githubusercontent.com/CuiPeng19970825/blogimages/master/JavaImg/%E7%BA%BF%E7%A8%8B%E7%8A%B6%E6%80%81%E8%BD%AC%E6%8D%A2.JPG" alt="线程状态转换"></p>
-<h1 id="四、线程控制基本方法"><a href="#四、线程控制基本方法" class="headerlink" title="四、线程控制基本方法"></a>四、线程控制基本方法</h1><p><img src="https://raw.githubusercontent.com/CuiPeng19970825/blogimages/master/JavaImg/%E7%BA%BF%E7%A8%8B%E6%8E%A7%E5%88%B6%E5%9F%BA%E6%9C%AC%E6%96%B9%E6%B3%95.JPG" alt="线程控制基本方法"></p>
-<h1 id="五、线程的优先级"><a href="#五、线程的优先级" class="headerlink" title="五、线程的优先级"></a>五、线程的优先级</h1><p><img src="https://raw.githubusercontent.com/CuiPeng19970825/blogimages/master/JavaImg/%E7%BA%BF%E7%A8%8B%E7%9A%84%E4%BC%98%E5%85%88%E7%BA%A7.JPG" alt="线程的优先级"></p>
-<h1 id="六、生产者消费者问题"><a href="#六、生产者消费者问题" class="headerlink" title="六、生产者消费者问题"></a>六、生产者消费者问题</h1><pre><code>//1、馒头类
-package pcDemo;
-public class WoTo {
-    int id;
-    public WoTo(int id) {
-        this.id=id;
-    }
-    @Override
-    public String toString() {
-        return &quot;WoTo[&quot;+ id +&quot;]&quot;;
-    }
-}
-
-//2、篮子类
-package pcDemo;
-public class SyncStack {
-    WoTo[] arrstack=new WoTo[6];
-    int index=0;
-
-    public synchronized void push(WoTo w) {
-        while(index==arrstack.length) {
-            try {
-                this.wait();
-            }catch(InterruptedException e) {
-                e.printStackTrace();
-            }
-        }
-        this.notify();
-        arrstack[index]=w;
-        index++;
-    }
-
-    public synchronized WoTo pop() {
-        while(index==0) {
-            try {
-                this.wait();
-            }catch(InterruptedException e) {
-                e.printStackTrace();
-            }
-        }
-        this.notify();
-        index--;
-        return arrstack[index];
-    }
-}
-
-//3、生产者类
-package pcDemo;
-public class Producer implements Runnable{
-    SyncStack ss=null;
-    public Producer(SyncStack ss) {
-        this.ss=ss;
-    }
-    @Override
-    public void run() {
-        for(int i=0;i&lt;20;i++) {
-            WoTo w=new WoTo(i);
-            ss.push(w);
-            System.out.println(&quot;生产了&quot;+w);
-        }
-        try {
-            Thread.sleep((int)(Math.random()*1000));
-        }catch(InterruptedException e) {
-            e.printStackTrace();
-        }
-
-    }
-}
-
-//4、消费者类
-package pcDemo;
-public class Consumer implements Runnable{
-    SyncStack ss=null;
-    public Consumer(SyncStack ss) {
-        this.ss=ss;
-    }
-    @Override
-    public void run() {
-        for(int i=0;i&lt;20;i++) {
-            WoTo w=ss.pop();
-            System.out.println(&quot;消费了&quot;+w);
-        }
-        try {
-            Thread.sleep((int)(Math.random()*1000));
-        }catch(InterruptedException e) {
-            e.printStackTrace();
-        }
-    }
-}
-
-//5、测试类
-package pcDemo;
-public class TestPC {
-    public static void main(String[] args) {
-        SyncStack ss=new SyncStack();
-        Producer p=new Producer(ss);
-        Consumer c=new Consumer(ss);
-        new Thread(p).start();
-        new Thread(c).start();
-    }
-}
-</code></pre>
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://Cuipeng19970825.github.io/2018/03/08/Java中常见的流类/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -2397,6 +2114,190 @@ public class TestPC {
 
 
     
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://Cuipeng19970825.github.io/2018/03/06/Java基础之this和super关键字用法/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="崔鹏">
+      <meta itemprop="description" content="个人博客">
+      <meta itemprop="image" content="https://raw.githubusercontent.com/CuiPeng19970825/blogimages/master/TouxiangImg/%E5%A4%B4%E5%83%8F.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Program Life">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2018/03/06/Java基础之this和super关键字用法/" class="post-title-link" itemprop="url">Java基础之this和super关键字用法</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-03-06 15:10:40" itemprop="dateCreated datePublished" datetime="2018-03-06T15:10:40+08:00">2018-03-06</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-09-10 00:36:01" itemprop="dateModified" datetime="2019-09-10T00:36:01+08:00">2019-09-10</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="一、this关键字"><a href="#一、this关键字" class="headerlink" title="一、this关键字"></a>一、this关键字</h1><ol>
+<li>引用当前类的实例变量</li>
+<li>调用当前类方法</li>
+<li>调用当前类的构造函数</li>
+<li>作为参数传递给方法或构造方法</li>
+<li>用来返回当前类的实例</li>
+</ol>
+<h1 id="二、super关键字"><a href="#二、super关键字" class="headerlink" title="二、super关键字"></a>二、super关键字</h1><ol>
+<li>引用直接父类实例变量</li>
+<li>调用父类方法</li>
+<li>调用父类构造函数</li>
+</ol>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
   </section>
 
   
@@ -2445,7 +2346,7 @@ public class TestPC {
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">49</span>
+                    <span class="site-state-item-count">50</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
