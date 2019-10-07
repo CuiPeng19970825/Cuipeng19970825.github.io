@@ -3044,7 +3044,7 @@ _ _ _ _ _ _
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-10-07 22:55:49" itemprop="dateModified" datetime="2019-10-07T22:55:49+08:00">2019-10-07</time>
+                <time title="修改时间：2019-10-07 22:59:53" itemprop="dateModified" datetime="2019-10-07T22:59:53+08:00">2019-10-07</time>
               
             
           </span>
@@ -3245,11 +3245,11 @@ public ThreadPoolExecutor(int corePoolSize,int maximumPoolSize,long keepAliveTim
 3.ThreadPoolExecutor.DiscardOldestPolicy：丢弃队列最前面的任务，然后重新尝试执行任务（重复此过程）
 4.ThreadPoolExecutor.CallerRunsPolicy：由调用线程处理该任务 
 </code></pre><h2 id="4、线程池状态转换图"><a href="#4、线程池状态转换图" class="headerlink" title="4、线程池状态转换图"></a>4、线程池状态转换图</h2><p><img src="https://raw.githubusercontent.com/CuiPeng19970825/blogimages/master/JavaImg/%E7%BA%BF%E7%A8%8B%E6%B1%A0%E7%8A%B6%E6%80%81%E8%BD%AC%E6%8D%A2%E5%9B%BE.JPG" alt="线程池状态转换图"></p>
-<p>###1.RUNNING<br>(1) 状态说明：线程池处在RUNNING状态时，能够接收新任务，以及对已添加的任务进行处理。<br>(2) 状态切换：线程池的初始化状态是RUNNING。换句话说，线程池被一旦被创建，就处于RUNNING状态，并且线程池中的任务数为0！</p>
-<p>###2.SHUTDOWN<br>(1) 状态说明：线程池处在SHUTDOWN状态时，不接收新任务，但能处理已添加的任务。<br>(2) 状态切换：调用线程池的shutdown()接口时，线程池由RUNNING -&gt; SHUTDOWN。</p>
-<p>###3.STOP<br>(1) 状态说明：线程池处在STOP状态时，不接收新任务，不处理已添加的任务，并且会中断正在处理的任务。<br>(2) 状态切换：调用线程池的shutdownNow()接口时，线程池由(RUNNING or SHUTDOWN ) -&gt; STOP。</p>
-<p>###4.TIDYING<br>(1) 状态说明：当所有的任务已终止，ctl记录的”任务数量”为0，线程池会变为TIDYING状态。当线程池变为TIDYING状态时，会执行钩子函数terminated()。terminated()在ThreadPoolExecutor类中是空的，若用户想在线程池变为TIDYING时，进行相应的处理；可以通过重载terminated()函数来实现。<br>(2) 状态切换：当线程池在SHUTDOWN状态下，阻塞队列为空并且线程池中执行的任务也为空时，<br>就会由 SHUTDOWN -&gt; TIDYING。 当线程池在STOP状态下，线程池中执行的任务为空时，就会由<br>STOP -&gt; TIDYING。</p>
-<p>###5.TERMINATED<br>(1) 状态说明：线程池彻底终止，就变成TERMINATED状态。<br>(2) 状态切换：线程池处在TIDYING状态时，执行完terminated()之后，就会由 TIDYING -&gt; TERMINATED。</p>
+<h3 id="1-RUNNING"><a href="#1-RUNNING" class="headerlink" title="(1).RUNNING"></a>(1).RUNNING</h3><p>(1) 状态说明：线程池处在RUNNING状态时，能够接收新任务，以及对已添加的任务进行处理。<br>(2) 状态切换：线程池的初始化状态是RUNNING。换句话说，线程池被一旦被创建，就处于RUNNING状态，并且线程池中的任务数为0！</p>
+<h3 id="2-SHUTDOWN"><a href="#2-SHUTDOWN" class="headerlink" title="(2).SHUTDOWN"></a>(2).SHUTDOWN</h3><p>(1) 状态说明：线程池处在SHUTDOWN状态时，不接收新任务，但能处理已添加的任务。<br>(2) 状态切换：调用线程池的shutdown()接口时，线程池由RUNNING -&gt; SHUTDOWN。</p>
+<h3 id="3-STOP"><a href="#3-STOP" class="headerlink" title="(3).STOP"></a>(3).STOP</h3><p>(1) 状态说明：线程池处在STOP状态时，不接收新任务，不处理已添加的任务，并且会中断正在处理的任务。<br>(2) 状态切换：调用线程池的shutdownNow()接口时，线程池由(RUNNING or SHUTDOWN ) -&gt; STOP。</p>
+<h3 id="4-TIDYING"><a href="#4-TIDYING" class="headerlink" title="(4).TIDYING"></a>(4).TIDYING</h3><p>(1) 状态说明：当所有的任务已终止，ctl记录的”任务数量”为0，线程池会变为TIDYING状态。当线程池变为TIDYING状态时，会执行钩子函数terminated()。terminated()在ThreadPoolExecutor类中是空的，若用户想在线程池变为TIDYING时，进行相应的处理；可以通过重载terminated()函数来实现。<br>(2) 状态切换：当线程池在SHUTDOWN状态下，阻塞队列为空并且线程池中执行的任务也为空时，<br>就会由 SHUTDOWN -&gt; TIDYING。 当线程池在STOP状态下，线程池中执行的任务为空时，就会由<br>STOP -&gt; TIDYING。</p>
+<h3 id="5-TERMINATED"><a href="#5-TERMINATED" class="headerlink" title="(5).TERMINATED"></a>(5).TERMINATED</h3><p>(1) 状态说明：线程池彻底终止，就变成TERMINATED状态。<br>(2) 状态切换：线程池处在TIDYING状态时，执行完terminated()之后，就会由 TIDYING -&gt; TERMINATED。</p>
 
           
         
