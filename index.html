@@ -771,460 +771,6 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://Cuipeng19970825.github.io/2019/05/22/2.链式存储的二叉树/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="崔鹏">
-      <meta itemprop="description" content="个人博客">
-      <meta itemprop="image" content="https://raw.githubusercontent.com/CuiPeng19970825/blogimages/master/TouxiangImg/%E5%A4%B4%E5%83%8F.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Program Life">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/05/22/2.链式存储的二叉树/" class="post-title-link" itemprop="url">四、树结构—2.链式存储的二叉树</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2019-05-22 21:07:31" itemprop="dateCreated datePublished" datetime="2019-05-22T21:07:31+08:00">2019-05-22</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-08-26 22:17:03" itemprop="dateModified" datetime="2019-08-26T22:17:03+08:00">2019-08-26</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/数据结构与算法/" itemprop="url" rel="index"><span itemprop="name">数据结构与算法</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="二叉树的设计和实现"><a href="#二叉树的设计和实现" class="headerlink" title="二叉树的设计和实现"></a>二叉树的设计和实现</h1><h2 id="二叉树的存储结构"><a href="#二叉树的存储结构" class="headerlink" title="二叉树的存储结构"></a>二叉树的存储结构</h2><h3 id="1-链式存储的二叉树"><a href="#1-链式存储的二叉树" class="headerlink" title="1.链式存储的二叉树"></a>1.链式存储的二叉树</h3><h4 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h4><p>首先创建一个节点类</p>
-<pre><code> package treeDemo1;
- public class TreeNode {
-    //节点的权
-    int value;
-    //左子节点
-    TreeNode LeftNode;
-    //右子节点
-    TreeNode RightNode;
-
-    public TreeNode(int value){
-        this.value=value;
-    }
-
-    //设置左子节点
-    public void setLeftNode(TreeNode leftNode) {
-        this.LeftNode = leftNode;
-    }
-
-    //设置右子节点
-    public void setRightNode(TreeNode rightNode) {
-        RightNode = rightNode;
-    }
-
-    //前序遍历
-    public void frontshow() {
-        //先遍历当前节点的内容
-        System.out.println(value);
-        //遍历左节点
-        if(LeftNode!=null){
-            LeftNode.frontshow();
-        }
-        //遍历右节点
-        if(RightNode!=null){
-            RightNode.frontshow();
-        }
-
-    }
-
-    //中序遍历树
-    public void middleshow() {
-        //遍历左节点
-        if(LeftNode!=null){
-            LeftNode.middleshow();
-        }
-
-        //遍历当前节点
-        System.out.println(value);
-
-        //遍历右节点
-        if(RightNode!=null){
-            RightNode.middleshow();
-        }
-
-    }
-
-    //后序遍历树
-    public void aftershow() {
-        //遍历左节点
-        if(LeftNode!=null){
-            LeftNode.aftershow();
-        }
-
-        //遍历右节点
-        if(RightNode!=null){
-            RightNode.aftershow();
-        }
-
-        //遍历当前节点
-        System.out.println(value);
-
-    }
-
-    //前序查找
-    public TreeNode frontSearch(int i) {
-        TreeNode target=null;
-        //对比当前节点的值
-        if(this.value==i){
-            return this;
-        //当前查找的值不是当前的节点
-        }else {
-            //查找左子节点
-            if(LeftNode!=null){
-            //有可能查到，也可以查不到，如果查不到的话，target还是一个null
-                target=LeftNode.frontSearch(i);
-            }
-            //如果不为空，说明在左子节点中已经找到
-            if(target!=null){
-                return target;
-            }
-            //查找右子节点
-            if(RightNode!=null){
-                target=RightNode.frontSearch(i);
-            }
-        }
-        return target;
-
-    }
-
-    //中序查找
-    public TreeNode middleSearch(int i) {
-        TreeNode target=null;
-        //查找左子节点
-        if(LeftNode!=null){
-        //有可能查到，也可以查不到，如果查不到的话，target还是一个null
-            target=LeftNode.middleSearch(i);
-        }
-        //如果不为空，说明在左子节点中已经找到
-        if(target!=null){
-            return target;
-        }
-        //查找当前节点
-        else if(this.value==i){
-            return this;
-        }
-        //查找右子节点
-        else if(RightNode!=null){
-            target=RightNode.middleSearch(i);
-        }
-        return target;
-    }
-
-    //后序查找
-    public TreeNode afterSearch(int i) {
-        TreeNode target=null;
-        //查找左子节点
-        if(LeftNode!=null){
-        //有可能查到，也可以查不到，如果查不到的话，target还是一个null
-            target=LeftNode.afterSearch(i);
-        }
-        //如果不为空，说明在左子节点中已经找到
-        if (target != null) {
-            return target;
-        }
-        //查找右子节点
-        else if(RightNode!=null){
-            target=RightNode.afterSearch(i);
-        }
-        //查找当前节点
-        else if(this.value==i){
-            return this;
-        }
-        return target;
-    }
-
-    //删除一个子树
-    public void delete(int i) {
-        TreeNode parent=this;
-        //判断左子节点
-        if(parent.LeftNode!=null&amp;&amp;parent.LeftNode.value==i){
-            parent.LeftNode=null;
-            return;
-        }
-        //判断右子节点
-        if(parent.RightNode!=null&amp;&amp;parent.RightNode.value==i){
-            parent.RightNode=null;
-            return;
-        }
-        //递归检查并删除左子节点
-        parent=LeftNode;
-        if(parent!=null){
-            parent.delete(i);
-        }
-        //递归检查并删除右子节点
-        parent=RightNode;
-        if(parent!=null){
-            parent.delete(i);
-        }
-
-    }
-}
-</code></pre><p>再创建一个二叉树类</p>
-<pre><code> package treeDemo1;
- public class BinaryTree {
-     //根节点
-     TreeNode rootNode;
-
-     //设置根节点
-     public void setRootNode(TreeNode rootNode) {
-        this.rootNode = rootNode;
-    }
-
-     //获取根节点
-     public TreeNode getRootNode() {
-        return rootNode;
-    }
-
-    //前序遍历树
-    public void frontshow() {
-        if(rootNode!=null){
-            rootNode.frontshow();
-        }
-    }
-
-    //中序遍历树
-    public void middleshow() {
-        if(rootNode!=null){
-            rootNode.middleshow();
-        }
-    }
-
-    //后序遍历树
-    public void aftershow() {
-        if(rootNode!=null){
-            rootNode.aftershow();
-        }   
-    }
-
-    //前序查找
-    public TreeNode frontSearch(int i) {
-        return rootNode.frontSearch(i);
-    }
-
-    //中序查找
-    public TreeNode middleSearch(int i) {
-        return rootNode.middleSearch(i);
-    }
-
-    //后序查找
-    public TreeNode afterSearch(int i) {
-        return rootNode.afterSearch(i);
-    }
-
-    //删除一个子树
-    public void delete(int i) {
-        if(rootNode.value==i){
-            rootNode=null;
-        }else{
-            rootNode.delete(i);
-        }
-
-    }
-
-}
-</code></pre><p>测试代码</p>
-<pre><code> package treeDemo1;
- public class TestBinaryTree {
-    public static void main(String[] args) {
-        //创建一棵树
-        BinaryTree binTree=new BinaryTree();
-        //创建一个根节点
-        TreeNode rootNode=new TreeNode(1);
-        //将根节点赋给树
-        binTree.setRootNode(rootNode);
-        //创建一个左节点
-        TreeNode rootL=new TreeNode(2);
-        //把新创建的节点设置为根节点的左子节点
-        rootNode.setLeftNode(rootL);
-        //创建一个右子节点
-        TreeNode rootR=new TreeNode(3);
-        //把新创建的子节点设置为根节点的右子节点
-        rootNode.setRightNode(rootR);
-        //为第二层的左节点创建两个子节点
-        rootL.setLeftNode(new TreeNode(4));
-        rootL.setRightNode(new TreeNode(5));
-        //为第二层的右节点创建两个子节点
-        rootR.setLeftNode(new TreeNode(6));
-        rootR.setRightNode(new TreeNode(7));
-        //前序遍历树
-        binTree.frontshow();
-        System.out.println(&quot;----------------------------&quot;);
-        //中序遍历树
-        binTree.middleshow();
-        System.out.println(&quot;----------------------------&quot;);
-        //后序遍历树
-        binTree.aftershow();
-        System.out.println(&quot;----------------------------&quot;);
-        //前序查找
-        TreeNode result=binTree.frontSearch(5);
-        System.out.println(result);
-        //中序查找
-        TreeNode result1=binTree.middleSearch(5);
-        System.out.println(result1);
-        //后序查找
-        TreeNode result2=binTree.afterSearch(5);
-        System.out.println(result2);
-        System.out.println(&quot;----------------------------&quot;);
-        //删除一个子树
-        binTree.delete(2);
-        binTree.frontshow();
-    }
-}
-</code></pre>
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://Cuipeng19970825.github.io/2019/05/22/二叉树/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1679,7 +1225,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://Cuipeng19970825.github.io/2019/05/22/二叉树学习1/">
+    <link itemprop="mainEntityOfPage" href="https://Cuipeng19970825.github.io/2019/05/22/2.链式存储的二叉树/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="崔鹏">
@@ -1699,7 +1245,461 @@
           <h1 class="post-title" itemprop="name headline">
                 
                 
-                <a href="/2019/05/22/二叉树学习1/" class="post-title-link" itemprop="url">四、树结构—1.二叉树概念</a>
+                <a href="/2019/05/22/2.链式存储的二叉树/" class="post-title-link" itemprop="url">四、树结构—2.链式存储的二叉树</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-05-22 21:07:31" itemprop="dateCreated datePublished" datetime="2019-05-22T21:07:31+08:00">2019-05-22</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-08-26 22:17:03" itemprop="dateModified" datetime="2019-08-26T22:17:03+08:00">2019-08-26</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/数据结构与算法/" itemprop="url" rel="index"><span itemprop="name">数据结构与算法</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="二叉树的设计和实现"><a href="#二叉树的设计和实现" class="headerlink" title="二叉树的设计和实现"></a>二叉树的设计和实现</h1><h2 id="二叉树的存储结构"><a href="#二叉树的存储结构" class="headerlink" title="二叉树的存储结构"></a>二叉树的存储结构</h2><h3 id="1-链式存储的二叉树"><a href="#1-链式存储的二叉树" class="headerlink" title="1.链式存储的二叉树"></a>1.链式存储的二叉树</h3><h4 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h4><p>首先创建一个节点类</p>
+<pre><code> package treeDemo1;
+ public class TreeNode {
+    //节点的权
+    int value;
+    //左子节点
+    TreeNode LeftNode;
+    //右子节点
+    TreeNode RightNode;
+
+    public TreeNode(int value){
+        this.value=value;
+    }
+
+    //设置左子节点
+    public void setLeftNode(TreeNode leftNode) {
+        this.LeftNode = leftNode;
+    }
+
+    //设置右子节点
+    public void setRightNode(TreeNode rightNode) {
+        RightNode = rightNode;
+    }
+
+    //前序遍历
+    public void frontshow() {
+        //先遍历当前节点的内容
+        System.out.println(value);
+        //遍历左节点
+        if(LeftNode!=null){
+            LeftNode.frontshow();
+        }
+        //遍历右节点
+        if(RightNode!=null){
+            RightNode.frontshow();
+        }
+
+    }
+
+    //中序遍历树
+    public void middleshow() {
+        //遍历左节点
+        if(LeftNode!=null){
+            LeftNode.middleshow();
+        }
+
+        //遍历当前节点
+        System.out.println(value);
+
+        //遍历右节点
+        if(RightNode!=null){
+            RightNode.middleshow();
+        }
+
+    }
+
+    //后序遍历树
+    public void aftershow() {
+        //遍历左节点
+        if(LeftNode!=null){
+            LeftNode.aftershow();
+        }
+
+        //遍历右节点
+        if(RightNode!=null){
+            RightNode.aftershow();
+        }
+
+        //遍历当前节点
+        System.out.println(value);
+
+    }
+
+    //前序查找
+    public TreeNode frontSearch(int i) {
+        TreeNode target=null;
+        //对比当前节点的值
+        if(this.value==i){
+            return this;
+        //当前查找的值不是当前的节点
+        }else {
+            //查找左子节点
+            if(LeftNode!=null){
+            //有可能查到，也可以查不到，如果查不到的话，target还是一个null
+                target=LeftNode.frontSearch(i);
+            }
+            //如果不为空，说明在左子节点中已经找到
+            if(target!=null){
+                return target;
+            }
+            //查找右子节点
+            if(RightNode!=null){
+                target=RightNode.frontSearch(i);
+            }
+        }
+        return target;
+
+    }
+
+    //中序查找
+    public TreeNode middleSearch(int i) {
+        TreeNode target=null;
+        //查找左子节点
+        if(LeftNode!=null){
+        //有可能查到，也可以查不到，如果查不到的话，target还是一个null
+            target=LeftNode.middleSearch(i);
+        }
+        //如果不为空，说明在左子节点中已经找到
+        if(target!=null){
+            return target;
+        }
+        //查找当前节点
+        else if(this.value==i){
+            return this;
+        }
+        //查找右子节点
+        else if(RightNode!=null){
+            target=RightNode.middleSearch(i);
+        }
+        return target;
+    }
+
+    //后序查找
+    public TreeNode afterSearch(int i) {
+        TreeNode target=null;
+        //查找左子节点
+        if(LeftNode!=null){
+        //有可能查到，也可以查不到，如果查不到的话，target还是一个null
+            target=LeftNode.afterSearch(i);
+        }
+        //如果不为空，说明在左子节点中已经找到
+        if (target != null) {
+            return target;
+        }
+        //查找右子节点
+        else if(RightNode!=null){
+            target=RightNode.afterSearch(i);
+        }
+        //查找当前节点
+        else if(this.value==i){
+            return this;
+        }
+        return target;
+    }
+
+    //删除一个子树
+    public void delete(int i) {
+        TreeNode parent=this;
+        //判断左子节点
+        if(parent.LeftNode!=null&amp;&amp;parent.LeftNode.value==i){
+            parent.LeftNode=null;
+            return;
+        }
+        //判断右子节点
+        if(parent.RightNode!=null&amp;&amp;parent.RightNode.value==i){
+            parent.RightNode=null;
+            return;
+        }
+        //递归检查并删除左子节点
+        parent=LeftNode;
+        if(parent!=null){
+            parent.delete(i);
+        }
+        //递归检查并删除右子节点
+        parent=RightNode;
+        if(parent!=null){
+            parent.delete(i);
+        }
+
+    }
+}
+</code></pre><p>再创建一个二叉树类</p>
+<pre><code> package treeDemo1;
+ public class BinaryTree {
+     //根节点
+     TreeNode rootNode;
+
+     //设置根节点
+     public void setRootNode(TreeNode rootNode) {
+        this.rootNode = rootNode;
+    }
+
+     //获取根节点
+     public TreeNode getRootNode() {
+        return rootNode;
+    }
+
+    //前序遍历树
+    public void frontshow() {
+        if(rootNode!=null){
+            rootNode.frontshow();
+        }
+    }
+
+    //中序遍历树
+    public void middleshow() {
+        if(rootNode!=null){
+            rootNode.middleshow();
+        }
+    }
+
+    //后序遍历树
+    public void aftershow() {
+        if(rootNode!=null){
+            rootNode.aftershow();
+        }   
+    }
+
+    //前序查找
+    public TreeNode frontSearch(int i) {
+        return rootNode.frontSearch(i);
+    }
+
+    //中序查找
+    public TreeNode middleSearch(int i) {
+        return rootNode.middleSearch(i);
+    }
+
+    //后序查找
+    public TreeNode afterSearch(int i) {
+        return rootNode.afterSearch(i);
+    }
+
+    //删除一个子树
+    public void delete(int i) {
+        if(rootNode.value==i){
+            rootNode=null;
+        }else{
+            rootNode.delete(i);
+        }
+
+    }
+
+}
+</code></pre><p>测试代码</p>
+<pre><code> package treeDemo1;
+ public class TestBinaryTree {
+    public static void main(String[] args) {
+        //创建一棵树
+        BinaryTree binTree=new BinaryTree();
+        //创建一个根节点
+        TreeNode rootNode=new TreeNode(1);
+        //将根节点赋给树
+        binTree.setRootNode(rootNode);
+        //创建一个左节点
+        TreeNode rootL=new TreeNode(2);
+        //把新创建的节点设置为根节点的左子节点
+        rootNode.setLeftNode(rootL);
+        //创建一个右子节点
+        TreeNode rootR=new TreeNode(3);
+        //把新创建的子节点设置为根节点的右子节点
+        rootNode.setRightNode(rootR);
+        //为第二层的左节点创建两个子节点
+        rootL.setLeftNode(new TreeNode(4));
+        rootL.setRightNode(new TreeNode(5));
+        //为第二层的右节点创建两个子节点
+        rootR.setLeftNode(new TreeNode(6));
+        rootR.setRightNode(new TreeNode(7));
+        //前序遍历树
+        binTree.frontshow();
+        System.out.println(&quot;----------------------------&quot;);
+        //中序遍历树
+        binTree.middleshow();
+        System.out.println(&quot;----------------------------&quot;);
+        //后序遍历树
+        binTree.aftershow();
+        System.out.println(&quot;----------------------------&quot;);
+        //前序查找
+        TreeNode result=binTree.frontSearch(5);
+        System.out.println(result);
+        //中序查找
+        TreeNode result1=binTree.middleSearch(5);
+        System.out.println(result1);
+        //后序查找
+        TreeNode result2=binTree.afterSearch(5);
+        System.out.println(result2);
+        System.out.println(&quot;----------------------------&quot;);
+        //删除一个子树
+        binTree.delete(2);
+        binTree.frontshow();
+    }
+}
+</code></pre>
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://Cuipeng19970825.github.io/2019/05/22/1.二叉树概念/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="崔鹏">
+      <meta itemprop="description" content="个人博客">
+      <meta itemprop="image" content="https://raw.githubusercontent.com/CuiPeng19970825/blogimages/master/TouxiangImg/%E5%A4%B4%E5%83%8F.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Program Life">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/05/22/1.二叉树概念/" class="post-title-link" itemprop="url">四、树结构—1.二叉树概念</a>
               
             
           </h1>
@@ -1741,7 +1741,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-08-26 22:21:13" itemprop="dateModified" datetime="2019-08-26T22:21:13+08:00">2019-08-26</time>
+                <time title="修改时间：2019-08-26 22:13:20" itemprop="dateModified" datetime="2019-08-26T22:13:20+08:00">2019-08-26</time>
               
             
           </span>
@@ -1888,7 +1888,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://Cuipeng19970825.github.io/2019/05/22/1.二叉树概念/">
+    <link itemprop="mainEntityOfPage" href="https://Cuipeng19970825.github.io/2019/05/22/二叉树学习1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="崔鹏">
@@ -1908,7 +1908,7 @@
           <h1 class="post-title" itemprop="name headline">
                 
                 
-                <a href="/2019/05/22/1.二叉树概念/" class="post-title-link" itemprop="url">四、树结构—1.二叉树概念</a>
+                <a href="/2019/05/22/二叉树学习1/" class="post-title-link" itemprop="url">四、树结构—1.二叉树概念</a>
               
             
           </h1>
@@ -1950,7 +1950,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-08-26 22:13:20" itemprop="dateModified" datetime="2019-08-26T22:13:20+08:00">2019-08-26</time>
+                <time title="修改时间：2019-08-26 22:21:13" itemprop="dateModified" datetime="2019-08-26T22:21:13+08:00">2019-08-26</time>
               
             
           </span>
@@ -3097,7 +3097,7 @@ public class DemoShellSort {
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">51</span>
+                    <span class="site-state-item-count">53</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>

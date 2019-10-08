@@ -1232,535 +1232,6 @@ public class TestArr {
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://Cuipeng19970825.github.io/2019/05/02/员工部门练习题/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="崔鹏">
-      <meta itemprop="description" content="个人博客">
-      <meta itemprop="image" content="https://raw.githubusercontent.com/CuiPeng19970825/blogimages/master/TouxiangImg/%E5%A4%B4%E5%83%8F.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Program Life">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/05/02/员工部门练习题/" class="post-title-link" itemprop="url">员工部门练习题</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2019-05-02 23:19:59" itemprop="dateCreated datePublished" datetime="2019-05-02T23:19:59+08:00">2019-05-02</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-08-23 03:03:07" itemprop="dateModified" datetime="2019-08-23T03:03:07+08:00">2019-08-23</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/数据库/" itemprop="url" rel="index"><span itemprop="name">数据库</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="前言：SQL语句小练习，数据库参考员工部门—-中文版"><a href="#前言：SQL语句小练习，数据库参考员工部门—-中文版" class="headerlink" title="前言：SQL语句小练习，数据库参考员工部门—-中文版"></a>前言：SQL语句小练习，数据库参考<a href="https://cuipeng19970825.github.io/2019/08/09/%E5%91%98%E5%B7%A5%E9%83%A8%E9%97%A8%E7%BB%83%E4%B9%A0%E9%A2%98/">员工部门—-中文版</a></h1><h2 id="USE-test"><a href="#USE-test" class="headerlink" title="USE test"></a>USE test</h2><h2 id="单表查询"><a href="#单表查询" class="headerlink" title="单表查询"></a>单表查询</h2><pre><code>-- 选择部门30中的所有员工
-                select ename from emp where deptno=30
-
--- 列出所有办事员的姓名，编号和部门编号
-                select ename,empno,deptno from emp where job=&quot;办事员&quot;
-
--- 找出佣金高于薪金的员工
-                select ename from emp where comm&gt;sal
-
--- 找出没有佣金的员工
-                select ename from emp where comm is null or comm=0
-
--- 找出佣金高于薪金的60%的员工
-                select ename from emp where comm&gt;0.6*sal
-
--- 找出部门10中所有人事部长和部门20中所有办事员的详细资料
-                select * from emp where (deptno=10 and job=&quot;人事部长&quot;) or (deptno=20 and job=&quot;办事员&quot;)
-
--- 找出收取佣金的员工
-                 select ename from emp where comm&gt;0
-
--- 找出不收取佣金或收取的佣金低于100的员工
-                 select ename from emp where comm is null or comm&lt;100
-
--- 找出姓李的员工的信息
-                 select * from emp where ename like &apos;李%&apos;
-
--- 显示员工的姓名和受雇日期,新的员工排在最前面
-                select ename,hiredate from emp order by hiredate desc
-
--- 按工资降序排序,若工资相同则按佣金降序排序
-                 select ename,sal,comm from emp order by sal desc,comm desc
-</code></pre><h2 id="多表查询"><a href="#多表查询" class="headerlink" title="多表查询"></a>多表查询</h2><pre><code>-- 1.查询出每一位雇员的编号、姓名、职位、部门名称、位置
-                   select e.empno,e.ename,e.job,d.dname,d.loc
-                   from dept d,emp e
-                   where d.deptno=e.deptno
-
--- 2.要求查询出每一位雇员的姓名、职位、领导的姓名
-                   select e.ename,e.job,m.ename
-                   from emp e,emp m
-                   where e.mgr=m.empno
-
--- 3.查询出每个雇员的编号、姓名、基本工资、职位、领导的姓名、部门名称及位置。
-                   select e.empno,e.ename,e.sal,e.job,m.ename,d.dname,d.loc
-                   from emp e,emp m,dept d
-                   where e.mgr=m.empno and e.deptno=d.deptno
-</code></pre><h2 id="分组函数查询"><a href="#分组函数查询" class="headerlink" title="分组函数查询"></a>分组函数查询</h2><pre><code>-- 按照部门编号分组，求出每个部的人数，平均工资。
-                 select d.deptno,count(e.empno),avg(e.sal)
-                 from dept d,emp e
-                 where d.deptno=e.deptno group by d.deptno
-
--- 按照职位分组，求出每个职位的最高和最低工资。
-                 select job,max(sal),min(sal)
-                 from emp
-                 group by job
-
--- 计算出每个各职位的平均工资。
-                select job,avg(sal)
-                from emp
-                group by job
-
--- 查询出每个部门的名称、部门的人数、平均工资。
-                select d.dname 部门名称,count(e.deptno) 部门人数,avg(e.sal) 平均工资
-                from dept d,emp e
-                where d.deptno=e.deptno
-                group by d.dname
-
--- 要求统计出每个部门的详细信息，并且要求这些部门的平均工资高于2000。
-                select  d.deptno,d.dname,avg(e.sal) a,d.loc
-                from dept d,emp e
-                where d.deptno=e.deptno
-                group by d.dname
-                having a&gt;1500
-
--- 要求查询出工资比华仔还要高的全部雇员信息。
-                select *
-                from emp
-                where sal&gt;(select sal from emp where ename=&apos;华仔&apos; limit 1)  //限制子查询的结果为一个
-
--- 要求查询出高于公司平均工资的全部雇员信息。
-                select *
-                from emp
-                where sal&gt;(select avg(sal) from emp)
-
--- 查询出每个部门的编号、名称、位置、部门人数、平均工资。
-                select d.deptno,d.dname,d.loc,count(e.deptno),avg(e.sal)
-                from dept d,emp e
-                where d.deptno=e.deptno
-                group by d.dname
-</code></pre>
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://Cuipeng19970825.github.io/2019/05/02/员工部门---中文版/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="崔鹏">
-      <meta itemprop="description" content="个人博客">
-      <meta itemprop="image" content="https://raw.githubusercontent.com/CuiPeng19970825/blogimages/master/TouxiangImg/%E5%A4%B4%E5%83%8F.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Program Life">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/05/02/员工部门---中文版/" class="post-title-link" itemprop="url">员工部门——中文版</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2019-05-02 16:51:00" itemprop="dateCreated datePublished" datetime="2019-05-02T16:51:00+08:00">2019-05-02</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-08-23 03:02:50" itemprop="dateModified" datetime="2019-08-23T03:02:50+08:00">2019-08-23</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/数据库/" itemprop="url" rel="index"><span itemprop="name">数据库</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="use-test"><a href="#use-test" class="headerlink" title="use test;"></a>use test;</h2><pre><code>/*
-     dept：部门表
-
-  deptno：     部门编号；  
-  dname：      部门名称； 
-  loc：        地理位置；
-*/
-
-create table dept (
-  deptno int (2) not null,
-  dname varchar (14),
-  loc varchar (13) 
-);
-
--- 添加主键
--- alter table 表 add primary key (主键字段名);
-alter table dept add primary key (deptno);
-
-insert into dept (deptno,dname,loc)values (10,&apos;财务部&apos;,&apos;高新四路&apos;);
-insert into dept (deptno,dname,loc)values (20,&apos;人事部&apos;,&apos;科技二路&apos;);
-insert into dept (deptno,dname,loc)values (30,&apos;销售部&apos;,&apos;长安区&apos;);
-insert into dept (deptno,dname,loc)values (40,&apos;运输部&apos;,&apos;雁塔区&apos;);
-</code></pre><hr>
-<pre><code>/*
-  emp：员工表
-
-  empno：       员工编号；  
-  ename：       员工名字；  
-  job：         职位； 
-  mgr:          上司； 
-  hiredate：    入职时间；
-  sal：         基本工资；  
-  comm：        补贴；      
-  deptno：      所属部门编号；
-*/
-
-  create table emp(
-      empno int(4) not null,
-      ename varchar(10),
-      job varchar(9),
-      mgr int(4),
-      hiredate date,
-      sal int(7 ),
-      comm int(7 ),
-      deptno int(2)
-  )
-
-  -- 添加主键
-  -- alter table 表 add primary key (主键字段名);
-  alter table emp add primary key (empno);
-  desc emp;
-
-  -- 添加外键约束
-  /*
-  alter table 从表 add constraint 自己建的外键名 
-  foreign key (从表里的外键字段) 
-  references 主表(映射主表中的主键字段);
-  */
-  alter table emp add constraint f_ed_key
-  foreign key (deptno) 
-  references dept(deptno)
-
-  INSERT INTO `emp` (`empno`, `ename`, `job`, `mgr`, `hiredate`, `sal`, `comm`, `deptno`) VALUES(&apos;7369&apos;,&apos;张倩&apos;,&apos;办事员&apos;,&apos;7902&apos;,&apos;2019-12-17&apos;,&apos;820&apos;,NULL,&apos;20&apos;);
-  INSERT INTO `emp` (`empno`, `ename`, `job`, `mgr`, `hiredate`, `sal`, `comm`, `deptno`) VALUES(&apos;7499&apos;,&apos;刘博&apos;,&apos;售货员&apos;,&apos;7698&apos;,&apos;1981-02-20&apos;,&apos;1900&apos;,&apos;300&apos;,&apos;30&apos;);
-  INSERT INTO `emp` (`empno`, `ename`, `job`, `mgr`, `hiredate`, `sal`, `comm`, `deptno`) VALUES(&apos;7521&apos;,&apos;李兴&apos;,&apos;售货员&apos;,&apos;7698&apos;,&apos;1981-02-22&apos;,&apos;1250&apos;,&apos;500&apos;,&apos;30&apos;);
-  INSERT INTO `emp` (`empno`, `ename`, `job`, `mgr`, `hiredate`, `sal`, `comm`, `deptno`) VALUES(&apos;7566&apos;,&apos;小曲&apos;,&apos;人事部长&apos;,&apos;7839&apos;,&apos;1981-04-02&apos;,&apos;2975&apos;,NULL,&apos;20&apos;);
-  INSERT INTO `emp` (`empno`, `ename`, `job`, `mgr`, `hiredate`, `sal`, `comm`, `deptno`) VALUES(&apos;7654&apos;,&apos;刘浩&apos;,&apos;售货员&apos;,&apos;7698&apos;,&apos;1981-09-28&apos;,&apos;1250&apos;,&apos;1400&apos;,&apos;30&apos;);
-  INSERT INTO `emp` (`empno`, `ename`, `job`, `mgr`, `hiredate`, `sal`, `comm`, `deptno`) VALUES(&apos;7698&apos;,&apos;刘涛&apos;,&apos;销售部长&apos;,&apos;7839&apos;,&apos;1981-05-01&apos;,&apos;2850&apos;,NULL,&apos;30&apos;);
-  INSERT INTO `emp` (`empno`, `ename`, `job`, `mgr`, `hiredate`, `sal`, `comm`, `deptno`) VALUES(&apos;7782&apos;,&apos;华仔&apos;,&apos;人事部长&apos;,&apos;7839&apos;,&apos;1981-06-09&apos;,&apos;2450&apos;,NULL,&apos;10&apos;);
-  INSERT INTO `emp` (`empno`, `ename`, `job`, `mgr`, `hiredate`, `sal`, `comm`, `deptno`) VALUES(&apos;7788&apos;,&apos;张飞&apos;,&apos;人事专员&apos;,&apos;7566&apos;,&apos;1987-04-19&apos;,&apos;3000&apos;,NULL,&apos;20&apos;);
-  INSERT INTO `emp` (`empno`, `ename`, `job`, `mgr`, `hiredate`, `sal`, `comm`, `deptno`) VALUES(&apos;7839&apos;,&apos;马晓云&apos;,&apos;董事长&apos;,NULL,&apos;1981-11-17&apos;,&apos;5000&apos;,NULL,&apos;10&apos;);
-  INSERT INTO `emp` (`empno`, `ename`, `job`, `mgr`, `hiredate`, `sal`, `comm`, `deptno`) VALUES(&apos;7844&apos;,&apos;马琪&apos;,&apos;售货员&apos;,&apos;7698&apos;,&apos;1981-09-08&apos;,&apos;1500&apos;,&apos;0&apos;,&apos;30&apos;);
-  INSERT INTO `emp` (`empno`, `ename`, `job`, `mgr`, `hiredate`, `sal`, `comm`, `deptno`) VALUES(&apos;7876&apos;,&apos;李涵&apos;,&apos;办事员&apos;,&apos;7788&apos;,&apos;1987-05-23&apos;,&apos;1100&apos;,NULL,&apos;20&apos;);
-  INSERT INTO `emp` (`empno`, `ename`, `job`, `mgr`, `hiredate`, `sal`, `comm`, `deptno`) VALUES(&apos;7900&apos;,&apos;李涵&apos;,&apos;销售员&apos;,&apos;7698&apos;,&apos;1981-12-03&apos;,&apos;950&apos;,NULL,&apos;30&apos;);
-  INSERT INTO `emp` (`empno`, `ename`, `job`, `mgr`, `hiredate`, `sal`, `comm`, `deptno`) VALUES(&apos;7902&apos;,&apos;汪涵&apos;,&apos;人事组长&apos;,&apos;7566&apos;,&apos;1981-12-03&apos;,&apos;3000&apos;,NULL,&apos;20&apos;);
-  INSERT INTO `emp` (`empno`, `ename`, `job`, `mgr`, `hiredate`, `sal`, `comm`, `deptno`) VALUES(&apos;7934&apos;,&apos;黄晓明&apos;,&apos;人事长&apos;,&apos;7782&apos;,&apos;1982-01-23&apos;,&apos;1300&apos;,NULL,&apos;10&apos;);
-</code></pre><hr>
-<pre><code>/*
-salgrade：工资等级
-
-grade：      工资等级；  
-losal：      最低限额；  
-hisal：      最高限额；
-*/
-
-create table salgrade(
-grade int (10),
-losal int (10),
-hisal int (10)
-)
-
-insert into salgrade (grade, losal, hisal)values (1, 700, 1200);
-insert into salgrade (grade, losal, hisal)values (2, 1201, 1400);
-insert into salgrade (grade, losal, hisal)values (3, 1401, 2000);
-insert into salgrade (grade, losal, hisal)values (4, 2001, 3000);
-insert into salgrade (grade, losal, hisal)values (5, 3001, 9999);
-</code></pre>
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://Cuipeng19970825.github.io/2019/04/30/git教程/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -2982,6 +2453,447 @@ _ _ _ _ _ _
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://Cuipeng19970825.github.io/2019/01/03/SQL的四种连接查询/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="崔鹏">
+      <meta itemprop="description" content="个人博客">
+      <meta itemprop="image" content="https://raw.githubusercontent.com/CuiPeng19970825/blogimages/master/TouxiangImg/%E5%A4%B4%E5%83%8F.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Program Life">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/01/03/SQL的四种连接查询/" class="post-title-link" itemprop="url">SQL的四种连接查询</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-01-03 14:05:20" itemprop="dateCreated datePublished" datetime="2019-01-03T14:05:20+08:00">2019-01-03</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-10-08 15:04:53" itemprop="dateModified" datetime="2019-10-08T15:04:53+08:00">2019-10-08</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/数据库/" itemprop="url" rel="index"><span itemprop="name">数据库</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="一、内连接"><a href="#一、内连接" class="headerlink" title="一、内连接"></a>一、内连接</h1><p><strong>1.内连接（inner join 或 join）</strong><br>     内连接是等值连接，它使用“=、&gt;、&lt;、&lt;&gt;”等运算符根据每个表共有的列的值匹配两个表中的行<br>  查询语句：<br>    select * from T_Person inner join T_Card on T_Person.CardId = T_Card.CardId</p>
+<p><img src="https://raw.githubusercontent.com/CuiPeng19970825/blogimages/master/SQLImg/%E5%86%85%E8%BF%9E%E6%8E%A5.JPG" alt="内连接"></p>
+<h1 id="二、外连接"><a href="#二、外连接" class="headerlink" title="二、外连接"></a>二、外连接</h1><p><strong>2.左连接（left join 或 left outer join）</strong><br>     左连接又称左向外连接，查询的结果集包括SQL语句中左表的所有行，右表中匹配的行。如果<br>     左表的某行在右表中没有匹配行，则用空值表示。<br>  查询语句：<br>    select * from T_Person left join T_Card on T_Person.CardId = T_Card.CardId</p>
+<p><img src="https://raw.githubusercontent.com/CuiPeng19970825/blogimages/master/SQLImg/%E5%B7%A6%E8%BF%9E%E6%8E%A5.JPG" alt="左连接"></p>
+<p><strong>3.右连接（right join 或 right outer join）</strong><br>     右连接也称右向外连接，查询的结果集包括SQL语句中右表的所有行，左表中匹配的行。如果<br>     右表的某行在左表中没有匹配的行，则用空值表示<br>   查询语句：<br>    select * from T_Person right join T_Card on T_Person.CardId = T_Card.CardId</p>
+<p><img src="https://raw.githubusercontent.com/CuiPeng19970825/blogimages/master/SQLImg/%E5%8F%B3%E8%BF%9E%E6%8E%A5.JPG" alt="右连接"></p>
+<p><strong>4.完全外连接（full join 或 full outer join）</strong><br>      完全外连接，查询的结果集包括SQL语句中左表和右表的所有行。如果某行在另一个表中没有<br>      匹配行时，则用空值表示。<br>    查询语句：<br>     select * from T_Person full join T_Card on T_Person.CardId = T_Card.CardId</p>
+<p><img src="https://raw.githubusercontent.com/CuiPeng19970825/blogimages/master/SQLImg/%E5%85%A8%E8%BF%9E%E6%8E%A5.JPG" alt="完全外连接"></p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://Cuipeng19970825.github.io/2019/01/02/员工部门练习题/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="崔鹏">
+      <meta itemprop="description" content="个人博客">
+      <meta itemprop="image" content="https://raw.githubusercontent.com/CuiPeng19970825/blogimages/master/TouxiangImg/%E5%A4%B4%E5%83%8F.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Program Life">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/01/02/员工部门练习题/" class="post-title-link" itemprop="url">员工部门练习题</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-01-02 20:19:59" itemprop="dateCreated datePublished" datetime="2019-01-02T20:19:59+08:00">2019-01-02</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-10-08 14:46:50" itemprop="dateModified" datetime="2019-10-08T14:46:50+08:00">2019-10-08</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/数据库/" itemprop="url" rel="index"><span itemprop="name">数据库</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="前言：SQL语句小练习，数据库参考员工部门—-中文版"><a href="#前言：SQL语句小练习，数据库参考员工部门—-中文版" class="headerlink" title="前言：SQL语句小练习，数据库参考员工部门—-中文版"></a>前言：SQL语句小练习，数据库参考<a href="https://cuipeng19970825.github.io/2019/08/09/%E5%91%98%E5%B7%A5%E9%83%A8%E9%97%A8%E7%BB%83%E4%B9%A0%E9%A2%98/">员工部门—-中文版</a></h1><h2 id="USE-test"><a href="#USE-test" class="headerlink" title="USE test"></a>USE test</h2><h2 id="单表查询"><a href="#单表查询" class="headerlink" title="单表查询"></a>单表查询</h2><pre><code>-- 选择部门30中的所有员工
+                select ename from emp where deptno=30
+
+-- 列出所有办事员的姓名，编号和部门编号
+                select ename,empno,deptno from emp where job=&quot;办事员&quot;
+
+-- 找出佣金高于薪金的员工
+                select ename from emp where comm&gt;sal
+
+-- 找出没有佣金的员工
+                select ename from emp where comm is null or comm=0
+
+-- 找出佣金高于薪金的60%的员工
+                select ename from emp where comm&gt;0.6*sal
+
+-- 找出部门10中所有人事部长和部门20中所有办事员的详细资料
+                select * from emp where (deptno=10 and job=&quot;人事部长&quot;) or (deptno=20 and job=&quot;办事员&quot;)
+
+-- 找出收取佣金的员工
+                 select ename from emp where comm&gt;0
+
+-- 找出不收取佣金或收取的佣金低于100的员工
+                 select ename from emp where comm is null or comm&lt;100
+
+-- 找出姓李的员工的信息
+                 select * from emp where ename like &apos;李%&apos;
+
+-- 显示员工的姓名和受雇日期,新的员工排在最前面
+                select ename,hiredate from emp order by hiredate desc
+
+-- 按工资降序排序,若工资相同则按佣金降序排序
+                 select ename,sal,comm from emp order by sal desc,comm desc
+</code></pre><h2 id="多表查询"><a href="#多表查询" class="headerlink" title="多表查询"></a>多表查询</h2><pre><code>-- 1.查询出每一位雇员的编号、姓名、职位、部门名称、位置
+                   select e.empno,e.ename,e.job,d.dname,d.loc
+                   from dept d,emp e
+                   where d.deptno=e.deptno
+
+-- 2.要求查询出每一位雇员的姓名、职位、领导的姓名
+                   select e.ename,e.job,m.ename
+                   from emp e,emp m
+                   where e.mgr=m.empno
+
+-- 3.查询出每个雇员的编号、姓名、基本工资、职位、领导的姓名、部门名称及位置。
+                   select e.empno,e.ename,e.sal,e.job,m.ename,d.dname,d.loc
+                   from emp e,emp m,dept d
+                   where e.mgr=m.empno and e.deptno=d.deptno
+</code></pre><h2 id="分组函数查询"><a href="#分组函数查询" class="headerlink" title="分组函数查询"></a>分组函数查询</h2><pre><code>-- 按照部门编号分组，求出每个部的人数，平均工资。
+                 select d.deptno,count(e.empno),avg(e.sal)
+                 from dept d,emp e
+                 where d.deptno=e.deptno group by d.deptno
+
+-- 按照职位分组，求出每个职位的最高和最低工资。
+                 select job,max(sal),min(sal)
+                 from emp
+                 group by job
+
+-- 计算出每个各职位的平均工资。
+                select job,avg(sal)
+                from emp
+                group by job
+
+-- 查询出每个部门的名称、部门的人数、平均工资。
+                select d.dname 部门名称,count(e.deptno) 部门人数,avg(e.sal) 平均工资
+                from dept d,emp e
+                where d.deptno=e.deptno
+                group by d.dname
+
+-- 要求统计出每个部门的详细信息，并且要求这些部门的平均工资高于2000。
+                select  d.deptno,d.dname,avg(e.sal) a,d.loc
+                from dept d,emp e
+                where d.deptno=e.deptno
+                group by d.dname
+                having a&gt;1500
+
+-- 要求查询出工资比华仔还要高的全部雇员信息。
+                select *
+                from emp
+                where sal&gt;(select sal from emp where ename=&apos;华仔&apos; limit 1)  //限制子查询的结果为一个
+
+-- 要求查询出高于公司平均工资的全部雇员信息。
+                select *
+                from emp
+                where sal&gt;(select avg(sal) from emp)
+
+-- 查询出每个部门的编号、名称、位置、部门人数、平均工资。
+                select d.deptno,d.dname,d.loc,count(e.deptno),avg(e.sal)
+                from dept d,emp e
+                where d.deptno=e.deptno
+                group by d.dname
+</code></pre>
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://Cuipeng19970825.github.io/2018/03/08/Java线程/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -3339,7 +3251,7 @@ public ThreadPoolExecutor(int corePoolSize,int maximumPoolSize,long keepAliveTim
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">51</span>
+                    <span class="site-state-item-count">53</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>

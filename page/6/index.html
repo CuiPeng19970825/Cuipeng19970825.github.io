@@ -540,6 +540,473 @@
 
 
     
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://Cuipeng19970825.github.io/2018/01/02/员工部门---中文版/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="崔鹏">
+      <meta itemprop="description" content="个人博客">
+      <meta itemprop="image" content="https://raw.githubusercontent.com/CuiPeng19970825/blogimages/master/TouxiangImg/%E5%A4%B4%E5%83%8F.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Program Life">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2018/01/02/员工部门---中文版/" class="post-title-link" itemprop="url">员工部门——中文版</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-01-02 16:51:00" itemprop="dateCreated datePublished" datetime="2018-01-02T16:51:00+08:00">2018-01-02</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-10-08 14:46:47" itemprop="dateModified" datetime="2019-10-08T14:46:47+08:00">2019-10-08</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/数据库/" itemprop="url" rel="index"><span itemprop="name">数据库</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="use-test"><a href="#use-test" class="headerlink" title="use test;"></a>use test;</h2><pre><code>/*
+     dept：部门表
+
+  deptno：     部门编号；  
+  dname：      部门名称； 
+  loc：        地理位置；
+*/
+
+create table dept (
+  deptno int (2) not null,
+  dname varchar (14),
+  loc varchar (13) 
+);
+
+-- 添加主键
+-- alter table 表 add primary key (主键字段名);
+alter table dept add primary key (deptno);
+
+insert into dept (deptno,dname,loc)values (10,&apos;财务部&apos;,&apos;高新四路&apos;);
+insert into dept (deptno,dname,loc)values (20,&apos;人事部&apos;,&apos;科技二路&apos;);
+insert into dept (deptno,dname,loc)values (30,&apos;销售部&apos;,&apos;长安区&apos;);
+insert into dept (deptno,dname,loc)values (40,&apos;运输部&apos;,&apos;雁塔区&apos;);
+</code></pre><hr>
+<pre><code>/*
+  emp：员工表
+
+  empno：       员工编号；  
+  ename：       员工名字；  
+  job：         职位； 
+  mgr:          上司； 
+  hiredate：    入职时间；
+  sal：         基本工资；  
+  comm：        补贴；      
+  deptno：      所属部门编号；
+*/
+
+  create table emp(
+      empno int(4) not null,
+      ename varchar(10),
+      job varchar(9),
+      mgr int(4),
+      hiredate date,
+      sal int(7 ),
+      comm int(7 ),
+      deptno int(2)
+  )
+
+  -- 添加主键
+  -- alter table 表 add primary key (主键字段名);
+  alter table emp add primary key (empno);
+  desc emp;
+
+  -- 添加外键约束
+  /*
+  alter table 从表 add constraint 自己建的外键名 
+  foreign key (从表里的外键字段) 
+  references 主表(映射主表中的主键字段);
+  */
+  alter table emp add constraint f_ed_key
+  foreign key (deptno) 
+  references dept(deptno)
+
+  INSERT INTO `emp` (`empno`, `ename`, `job`, `mgr`, `hiredate`, `sal`, `comm`, `deptno`) VALUES(&apos;7369&apos;,&apos;张倩&apos;,&apos;办事员&apos;,&apos;7902&apos;,&apos;2019-12-17&apos;,&apos;820&apos;,NULL,&apos;20&apos;);
+  INSERT INTO `emp` (`empno`, `ename`, `job`, `mgr`, `hiredate`, `sal`, `comm`, `deptno`) VALUES(&apos;7499&apos;,&apos;刘博&apos;,&apos;售货员&apos;,&apos;7698&apos;,&apos;1981-02-20&apos;,&apos;1900&apos;,&apos;300&apos;,&apos;30&apos;);
+  INSERT INTO `emp` (`empno`, `ename`, `job`, `mgr`, `hiredate`, `sal`, `comm`, `deptno`) VALUES(&apos;7521&apos;,&apos;李兴&apos;,&apos;售货员&apos;,&apos;7698&apos;,&apos;1981-02-22&apos;,&apos;1250&apos;,&apos;500&apos;,&apos;30&apos;);
+  INSERT INTO `emp` (`empno`, `ename`, `job`, `mgr`, `hiredate`, `sal`, `comm`, `deptno`) VALUES(&apos;7566&apos;,&apos;小曲&apos;,&apos;人事部长&apos;,&apos;7839&apos;,&apos;1981-04-02&apos;,&apos;2975&apos;,NULL,&apos;20&apos;);
+  INSERT INTO `emp` (`empno`, `ename`, `job`, `mgr`, `hiredate`, `sal`, `comm`, `deptno`) VALUES(&apos;7654&apos;,&apos;刘浩&apos;,&apos;售货员&apos;,&apos;7698&apos;,&apos;1981-09-28&apos;,&apos;1250&apos;,&apos;1400&apos;,&apos;30&apos;);
+  INSERT INTO `emp` (`empno`, `ename`, `job`, `mgr`, `hiredate`, `sal`, `comm`, `deptno`) VALUES(&apos;7698&apos;,&apos;刘涛&apos;,&apos;销售部长&apos;,&apos;7839&apos;,&apos;1981-05-01&apos;,&apos;2850&apos;,NULL,&apos;30&apos;);
+  INSERT INTO `emp` (`empno`, `ename`, `job`, `mgr`, `hiredate`, `sal`, `comm`, `deptno`) VALUES(&apos;7782&apos;,&apos;华仔&apos;,&apos;人事部长&apos;,&apos;7839&apos;,&apos;1981-06-09&apos;,&apos;2450&apos;,NULL,&apos;10&apos;);
+  INSERT INTO `emp` (`empno`, `ename`, `job`, `mgr`, `hiredate`, `sal`, `comm`, `deptno`) VALUES(&apos;7788&apos;,&apos;张飞&apos;,&apos;人事专员&apos;,&apos;7566&apos;,&apos;1987-04-19&apos;,&apos;3000&apos;,NULL,&apos;20&apos;);
+  INSERT INTO `emp` (`empno`, `ename`, `job`, `mgr`, `hiredate`, `sal`, `comm`, `deptno`) VALUES(&apos;7839&apos;,&apos;马晓云&apos;,&apos;董事长&apos;,NULL,&apos;1981-11-17&apos;,&apos;5000&apos;,NULL,&apos;10&apos;);
+  INSERT INTO `emp` (`empno`, `ename`, `job`, `mgr`, `hiredate`, `sal`, `comm`, `deptno`) VALUES(&apos;7844&apos;,&apos;马琪&apos;,&apos;售货员&apos;,&apos;7698&apos;,&apos;1981-09-08&apos;,&apos;1500&apos;,&apos;0&apos;,&apos;30&apos;);
+  INSERT INTO `emp` (`empno`, `ename`, `job`, `mgr`, `hiredate`, `sal`, `comm`, `deptno`) VALUES(&apos;7876&apos;,&apos;李涵&apos;,&apos;办事员&apos;,&apos;7788&apos;,&apos;1987-05-23&apos;,&apos;1100&apos;,NULL,&apos;20&apos;);
+  INSERT INTO `emp` (`empno`, `ename`, `job`, `mgr`, `hiredate`, `sal`, `comm`, `deptno`) VALUES(&apos;7900&apos;,&apos;李涵&apos;,&apos;销售员&apos;,&apos;7698&apos;,&apos;1981-12-03&apos;,&apos;950&apos;,NULL,&apos;30&apos;);
+  INSERT INTO `emp` (`empno`, `ename`, `job`, `mgr`, `hiredate`, `sal`, `comm`, `deptno`) VALUES(&apos;7902&apos;,&apos;汪涵&apos;,&apos;人事组长&apos;,&apos;7566&apos;,&apos;1981-12-03&apos;,&apos;3000&apos;,NULL,&apos;20&apos;);
+  INSERT INTO `emp` (`empno`, `ename`, `job`, `mgr`, `hiredate`, `sal`, `comm`, `deptno`) VALUES(&apos;7934&apos;,&apos;黄晓明&apos;,&apos;人事长&apos;,&apos;7782&apos;,&apos;1982-01-23&apos;,&apos;1300&apos;,NULL,&apos;10&apos;);
+</code></pre><hr>
+<pre><code>/*
+salgrade：工资等级
+
+grade：      工资等级；  
+losal：      最低限额；  
+hisal：      最高限额；
+*/
+
+create table salgrade(
+grade int (10),
+losal int (10),
+hisal int (10)
+)
+
+insert into salgrade (grade, losal, hisal)values (1, 700, 1200);
+insert into salgrade (grade, losal, hisal)values (2, 1201, 1400);
+insert into salgrade (grade, losal, hisal)values (3, 1401, 2000);
+insert into salgrade (grade, losal, hisal)values (4, 2001, 3000);
+insert into salgrade (grade, losal, hisal)values (5, 3001, 9999);
+</code></pre>
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://Cuipeng19970825.github.io/2018/01/01/数据库设计三大范式/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="崔鹏">
+      <meta itemprop="description" content="个人博客">
+      <meta itemprop="image" content="https://raw.githubusercontent.com/CuiPeng19970825/blogimages/master/TouxiangImg/%E5%A4%B4%E5%83%8F.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Program Life">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2018/01/01/数据库设计三大范式/" class="post-title-link" itemprop="url">数据库设计三大范式</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-01-01 12:51:00" itemprop="dateCreated datePublished" datetime="2018-01-01T12:51:00+08:00">2018-01-01</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-10-08 14:46:34" itemprop="dateModified" datetime="2019-10-08T14:46:34+08:00">2019-10-08</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/数据库/" itemprop="url" rel="index"><span itemprop="name">数据库</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="一、什么是范式"><a href="#一、什么是范式" class="headerlink" title="一、什么是范式"></a>一、什么是范式</h1><p>规范的的数据库是需要满足一些规范的，来优化数据存储方式。在关系型数据库中这些规范就可以称</p>
+<p>为范式。各种范式呈递次规范，越高的范式数据库冗余越小。但是有些时候一昧的追求范式减少冗余</p>
+<p>，反而会降低数据读写的效率，这个时候就要反范式，利用空间来换时间。</p>
+<h1 id="二、关系数据库中的范式"><a href="#二、关系数据库中的范式" class="headerlink" title="二、关系数据库中的范式"></a>二、关系数据库中的范式</h1><p>目前关系数据库有六种范式：第一范式（1NF）、第二范式（2NF）、第三范式（3NF）、巴斯-科德范</p>
+<p>式（BCNF）、第四范式(4NF）和第五范式（5NF，又称完美范式）。满足最低要求的范式是第一范式</p>
+<p>（1NF）。在第一范式的基础上进一步满足更多规范要求的称为第二范式（2NF），其余范式依次类推</p>
+<p>。一般说来，数据库只需满足第三范式(3NF）就行了。所以这里就只记录三范式相关的知识。</p>
+<h1 id="三、三范式"><a href="#三、三范式" class="headerlink" title="三、三范式"></a>三、三范式</h1><h2 id="1NF-字段不可分"><a href="#1NF-字段不可分" class="headerlink" title="1NF:字段不可分;"></a>1NF:字段不可分;</h2><h2 id="2NF-有主键，非主键字段依赖主键"><a href="#2NF-有主键，非主键字段依赖主键" class="headerlink" title="2NF:有主键，非主键字段依赖主键;"></a>2NF:有主键，非主键字段依赖主键;</h2><h2 id="3NF-非主键字段不能相互依赖"><a href="#3NF-非主键字段不能相互依赖" class="headerlink" title="3NF:非主键字段不能相互依赖;"></a>3NF:非主键字段不能相互依赖;</h2><h2 id="解释"><a href="#解释" class="headerlink" title="解释:"></a>解释:</h2><h2 id="1NF-原子性-字段不可再分-否则就不是关系数据库"><a href="#1NF-原子性-字段不可再分-否则就不是关系数据库" class="headerlink" title="1NF:原子性 字段不可再分,否则就不是关系数据库;"></a>1NF:原子性 字段不可再分,否则就不是关系数据库;</h2><h2 id="2NF-唯一性-一个表只说明一个事物"><a href="#2NF-唯一性-一个表只说明一个事物" class="headerlink" title="2NF:唯一性 一个表只说明一个事物;"></a>2NF:唯一性 一个表只说明一个事物;</h2><h2 id="3NF-每列都与主键有直接关系，不存在传递依赖"><a href="#3NF-每列都与主键有直接关系，不存在传递依赖" class="headerlink" title="3NF:每列都与主键有直接关系，不存在传递依赖;"></a>3NF:每列都与主键有直接关系，不存在传递依赖;</h2><h3 id="第一范式-1NF"><a href="#第一范式-1NF" class="headerlink" title="第一范式(1NF)"></a>第一范式(1NF)</h3><p>即表的列的具有原子性,不可再分解，即列的信息，不能分解, 只要数据库是关系型数据库(mysql/</p>
+<p>oracle/db2/informix/sysbase/sql server)，就自动的满足1NF。数据库表的每一列都是不可分</p>
+<p>割的原子数据项，而不能是集合，数组，记录等非原子数据项。如果实体中的某个属性有多个值时，</p>
+<p>必须拆分为不同的属性 。通俗理解即一个字段只存储一项信息。</p>
+<h3 id="第二范式-2NF"><a href="#第二范式-2NF" class="headerlink" title="第二范式(2NF)"></a>第二范式(2NF)</h3><p>第二范式（2NF）是在第一范式（1NF）的基础上建立起来的，即满足第二范式（2NF）必须先满足第</p>
+<p>一范式（1NF）。第二范式（2NF）要求数据库表中的每个实例或行必须可以被惟一地区分。为实现区</p>
+<p>分通常需要我们设计一个主键来实现(这里的主键不包含业务逻辑)。</p>
+<p>即满足第一范式前提，当存在多个主键的时候，才会发生不符合第二范式的情况。比如有两个主键，</p>
+<p>不能存在这样的属性，它只依赖于其中一个主键，这就是不符合第二范式。通俗理解是任意一个字段</p>
+<p>都只依赖表中的同一个字段。（涉及到表的拆分）</p>
+<h3 id="第三范式-3NF"><a href="#第三范式-3NF" class="headerlink" title="第三范式(3NF)"></a>第三范式(3NF)</h3><p>满足第三范式（3NF）必须先满足第二范式（2NF）。简而言之，第三范式（3NF）要求一个数据库表</p>
+<p>中不包含已在其它表中已包含的非主键字段。就是说:表的信息，如果能够被推导出来，就不应该单</p>
+<p>独的设计一个字段来存放(能尽量外键join就用外键join)。很多时候，我们为了满足第三范式往往</p>
+<p>会把一张表分成多张表。</p>
+<p>即满足第二范式前提，如果某一属性依赖于其他非主键属性，而其他非主键属性又依赖于主键，那</p>
+<p>么这个属性就是间接依赖于主键，这被称作传递依赖于主属性。通俗解释就是一张表最多只存两层同</p>
+<p>类型信息。</p>
+<h1 id="四、总结"><a href="#四、总结" class="headerlink" title="四、总结"></a>四、总结</h1><p>三大范式只是一般设计数据库的基本理念，可以建立冗余较小、结构合理的数据库。如果有特殊情况</p>
+<p>，当然要特殊对待，数据库设计最重要的是看需求跟性能，需求&gt;性能&gt;表结构。所以不能一味的去追</p>
+<p>求范式建立数据库。</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
   </section>
 
   
@@ -588,7 +1055,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">51</span>
+                    <span class="site-state-item-count">53</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
