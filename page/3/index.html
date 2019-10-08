@@ -2453,6 +2453,234 @@ _ _ _ _ _ _
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://Cuipeng19970825.github.io/2019/01/03/事务/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="崔鹏">
+      <meta itemprop="description" content="个人博客">
+      <meta itemprop="image" content="https://raw.githubusercontent.com/CuiPeng19970825/blogimages/master/TouxiangImg/%E5%A4%B4%E5%83%8F.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Program Life">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/01/03/事务/" class="post-title-link" itemprop="url">事务</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-01-03 20:20:10" itemprop="dateCreated datePublished" datetime="2019-01-03T20:20:10+08:00">2019-01-03</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-10-08 18:07:30" itemprop="dateModified" datetime="2019-10-08T18:07:30+08:00">2019-10-08</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/数据库/" itemprop="url" rel="index"><span itemprop="name">数据库</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="一、什么是数据库事务"><a href="#一、什么是数据库事务" class="headerlink" title="一、什么是数据库事务"></a>一、什么是数据库事务</h1><h2 id="1、定义-数据库事务是构成单一逻辑工作单元的操作集合"><a href="#1、定义-数据库事务是构成单一逻辑工作单元的操作集合" class="headerlink" title="1、定义:数据库事务是构成单一逻辑工作单元的操作集合"></a>1、定义:数据库事务是构成单一逻辑工作单元的操作集合</h2><h2 id="2、关于定义的解释："><a href="#2、关于定义的解释：" class="headerlink" title="2、关于定义的解释："></a>2、关于定义的解释：</h2><ol>
+<li>数据库事务可以包含一个或多个数据库操作,但这些操作构成一个逻辑上的整体。</li>
+<li>构成逻辑整体的这些数据库操作,要么全部执行成功,要么全部不执行。</li>
+<li>构成事务的所有操作,要么全都对数据库产生影响,要么全都不产生影响,即不管事务是否执行成<br>功,数据库总能保持一致性状态。</li>
+<li>以上即使在数据库出现故障以及并发事务存在的情况下依然成立。</li>
+</ol>
+<h1 id="二、事务控制语句："><a href="#二、事务控制语句：" class="headerlink" title="二、事务控制语句："></a>二、事务控制语句：</h1><ol>
+<li><p>BEGIN 或 START TRANSACTION 显式地开启一个事务；</p>
+</li>
+<li><p>COMMIT 也可以使用 COMMIT WORK，不过二者是等价的。COMMIT 会提交事务，并使已对数据<br>库进行的所有修改成为永久性的；</p>
+</li>
+<li><p>ROLLBACK 也可以使用 ROLLBACK WORK，不过二者是等价的。回滚会结束用户的事务，并撤销<br>正在进行的所有未提交的修改；</p>
+</li>
+<li><p>SAVEPOINT identifier，SAVEPOINT 允许在事务中创建一个保存点，一个事务中可以有多个<br>SAVEPOINT；</p>
+</li>
+<li><p>RELEASE SAVEPOINT identifier 删除一个事务的保存点，当没有指定的保存点时，执行该语<br>句会抛出一个异常；</p>
+</li>
+<li><p>ROLLBACK TO identifier 把事务回滚到标记点；</p>
+</li>
+<li><p>SET TRANSACTION 用来设置事务的隔离级别。InnoDB 存储引擎提供事务的隔离级别有READ<br>UNCOMMITTED、READ COMMITTED、REPEATABLE READ 和 SERIALIZABLE。</p>
+</li>
+</ol>
+<h2 id="MYSQL-事务处理主要有两种方法："><a href="#MYSQL-事务处理主要有两种方法：" class="headerlink" title="MYSQL 事务处理主要有两种方法："></a>MYSQL 事务处理主要有两种方法：</h2><p>1、用 BEGIN, ROLLBACK, COMMIT来实现<br>    BEGIN 开始一个事务<br>    ROLLBACK 事务回滚<br>    COMMIT 事务确认<br>2、直接用 SET 来改变 MySQL 的自动提交模式:<br>    SET AUTOCOMMIT=0 禁止自动提交<br>    SET AUTOCOMMIT=1 开启自动提交</p>
+<h1 id="三、事务的ACID特性"><a href="#三、事务的ACID特性" class="headerlink" title="三、事务的ACID特性"></a>三、事务的ACID特性</h1><p>一般来说，事务是必须满足4个条件（ACID）：原子性（Atomicity，或称不可分割性）、一致性（Consistency）、隔离性（Isolation，又称独立性）、持久性（Durability）。</p>
+<p>  1.原子性：一个事务（transaction）中的所有操作，要么全部完成，要么全部不完成，不会结束在中间某个环节。事务在执行过程中发生错误，会被回滚（Rollback）到事务开始前的状态，就像这个事务从来没有执行过一样。</p>
+<p>  2.一致性：在事务开始之前和事务结束以后，数据库的完整性没有被破坏。比如转账前后两个账户的金额总和应该保持不变。</p>
+<p>  3.隔离性：数据库允许多个并发事务同时对其数据进行读写和修改的能力，并发执行的事务不会相互影响,其对数据库的影响和它们串行执行时一样。比如多个用户同时往一个账户转账,最后账户的结果应该和他们按先后次序转账的结果一样。事务隔离分为不同级别，包括读未提交（Read uncommitted）、读提交（read committed）、可重复读（repeatable read）和串行化<br> （Serializable）。</p>
+<p>  4.持久性：事务处理结束后，对数据的修改就是永久的，即便系统故障也不会丢失。</p>
+<p>在 MySQL 命令行的默认设置下，事务都是自动提交的，即执行 SQL 语句后就会马上执行COMMIT<br>操作。因此要显式地开启一个事务务须使用命令 BEGIN 或 START TRANSACTION，或者执行命令 SET AUTOCOMMIT=0，用来禁止使用当前会话的自动提交。</p>
+<h2 id="隔离级别分析"><a href="#隔离级别分析" class="headerlink" title="隔离级别分析"></a>隔离级别分析</h2><ol>
+<li><p>读未提交（Read uncommitted）——<strong>脏读</strong>：是指一个事务读取了另一个事务未提交的数据</p>
+<p>  <img src="https://raw.githubusercontent.com/CuiPeng19970825/blogimages/master/SQLImg/%E8%84%8F%E8%AF%BB.JPG" alt="脏读"></p>
+<p>在事务1对A的处理过程中,事务2读取了A的值,但之后事务1回滚,导致事务2读取的A是未提交的脏数据。</p>
+</li>
+<li><p>读提交(read committed)——<strong>不可重复读</strong>:是指一个事务对同一数据的读取结果前后不一致。</p>
+<p>  <img src="https://raw.githubusercontent.com/CuiPeng19970825/blogimages/master/SQLImg/%E4%B8%8D%E5%8F%AF%E9%87%8D%E5%A4%8D%E8%AF%BB.JPG" alt="不可重复读"></p>
+<p>由于事务2对A的已提交修改,事务1前后两次读取的结果不一致。</p>
+</li>
+<li><p>可重复读(repeatable read)——<strong>幻读</strong><br>是指事务读取某个范围的数据时，因为其他事务的操作导致前后两次读取的结果不一致。幻读和不可重复读的区别在于,不可重复读是针对确定的某一行数据而言,而幻读是针对不确定的多行数据。因而幻读通常出现在带有查询条件的范围查询中,比如下面这种情况:</p>
+<p> <img src="https://raw.githubusercontent.com/CuiPeng19970825/blogimages/master/SQLImg/%E5%B9%BB%E8%AF%BB.JPG" alt="幻读"></p>
+<p>事务1查询A&lt;5的数据,由于事务2插入了一条A=4的数据,导致事务1两次查询得到的结果不一样</p>
+</li>
+<li><p>串行化(Serializable)<br>当一个事务提交之后，另一个事务才可以执行，串行化可以避免所有可能出现的并发异常,但是会极大的降低系统的并发处理能力。</p>
+</li>
+</ol>
+<h2 id="级别由低到高依次为Readuncommitted、Readcommitted、Repeatableread、Serializable。"><a href="#级别由低到高依次为Readuncommitted、Readcommitted、Repeatableread、Serializable。" class="headerlink" title="级别由低到高依次为Readuncommitted、Readcommitted、Repeatableread、Serializable。"></a>级别由低到高依次为Readuncommitted、Readcommitted、Repeatableread、Serializable。</h2><p><img src="https://raw.githubusercontent.com/CuiPeng19970825/blogimages/master/SQLImg/%E5%8F%AF%E8%83%BD%E5%8F%91%E7%94%9F%E7%9A%84%E5%B9%B6%E5%8F%91%E5%BC%82%E5%B8%B8.JPG" alt="可能发生的异常"></p>
+<h2 id="其他常见的数据库并发异常"><a href="#其他常见的数据库并发异常" class="headerlink" title="其他常见的数据库并发异常"></a>其他常见的数据库并发异常</h2><ol>
+<li><p><strong>脏写</strong>：是指事务回滚了其他事务对数据项的已提交修改,比如下面这种情况</p>
+<p><img src="https://raw.githubusercontent.com/CuiPeng19970825/blogimages/master/SQLImg/%E8%84%8F%E5%86%99.JPG" alt="脏写"></p>
+<p>在事务1对数据A的回滚,导致事务2对A的已提交修改也被回滚了。</p>
+</li>
+<li><p><strong>丢失更新</strong><br>丢失更新是指事务覆盖了其他事务对数据的已提交修改,导致这些修改好像丢失了一样。</p>
+<p><img src="https://raw.githubusercontent.com/CuiPeng19970825/blogimages/master/SQLImg/%E4%B8%A2%E5%A4%B1%E6%9B%B4%E6%96%B0.JPG" alt="丢失更新"></p>
+<p>事务1和事务2读取A的值都为10,事务2先将A加上10并提交修改,之后事务2将A减少10并提交修改,A的值最后为0,导致事务2对A的修改好像丢失了一样</p>
+</li>
+</ol>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://Cuipeng19970825.github.io/2019/01/03/SQL的四种连接查询/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -2879,330 +3107,6 @@ _ _ _ _ _ _
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://Cuipeng19970825.github.io/2018/03/08/Java线程/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="崔鹏">
-      <meta itemprop="description" content="个人博客">
-      <meta itemprop="image" content="https://raw.githubusercontent.com/CuiPeng19970825/blogimages/master/TouxiangImg/%E5%A4%B4%E5%83%8F.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Program Life">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2018/03/08/Java线程/" class="post-title-link" itemprop="url">Java线程</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2018-03-08 15:15:05" itemprop="dateCreated datePublished" datetime="2018-03-08T15:15:05+08:00">2018-03-08</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-10-07 22:59:53" itemprop="dateModified" datetime="2019-10-07T22:59:53+08:00">2019-10-07</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="一、进程、线程概念"><a href="#一、进程、线程概念" class="headerlink" title="一、进程、线程概念"></a>一、进程、线程概念</h1><ol>
-<li><p>进程：是计算机中的程序关于某数据集合上的一次运行活动，是系统进行资源分配和调度的基本单位；</p>
-</li>
-<li><p>线程：简单的说就是一个进程中不同的执行路径，是操作系统能够进行运算调度的最小单位。</p>
-</li>
-</ol>
-<p><strong>3. 线程的本质：将代码送给CPU执行。</strong></p>
-<h1 id="二、线程的创建和启动"><a href="#二、线程的创建和启动" class="headerlink" title="二、线程的创建和启动"></a>二、线程的创建和启动</h1><h2 id="1-继承Thread类和重写run-方法"><a href="#1-继承Thread类和重写run-方法" class="headerlink" title="1. 继承Thread类和重写run()方法"></a>1. 继承Thread类和重写run()方法</h2><h2 id="2-实现Runnable接口"><a href="#2-实现Runnable接口" class="headerlink" title="2. 实现Runnable接口"></a>2. 实现Runnable接口</h2><p><img src="https://raw.githubusercontent.com/CuiPeng19970825/blogimages/master/JavaImg/%E7%BA%BF%E7%A8%8B%E7%9A%84%E5%88%9B%E5%BB%BA%E5%92%8C%E5%90%AF%E5%8A%A8.JPG" alt="线程的创建和启动"></p>
-<h2 id="3-扩展：实现Callable接口，需要和线程池结合。"><a href="#3-扩展：实现Callable接口，需要和线程池结合。" class="headerlink" title="3. 扩展：实现Callable接口，需要和线程池结合。"></a>3. 扩展：实现Callable接口，需要和线程池结合。</h2><h1 id="三、线程的生命周期"><a href="#三、线程的生命周期" class="headerlink" title="三、线程的生命周期"></a>三、线程的生命周期</h1><p>1.线程的生命周期<br><img src="https://raw.githubusercontent.com/CuiPeng19970825/blogimages/master/JavaImg/%E7%BA%BF%E7%A8%8B%E7%9A%84%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F.JPG" alt="线程的生命周期"></p>
-<p>2.线程的生命周期状态转换图<br><img src="https://raw.githubusercontent.com/CuiPeng19970825/blogimages/master/JavaImg/%E7%BA%BF%E7%A8%8B%E7%9A%84%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E7%8A%B6%E6%80%81%E8%BD%AC%E6%8D%A2%E5%9B%BE.JPG" alt="线程的生命周期状态转换图"></p>
-<h1 id="四、线程控制基本方法"><a href="#四、线程控制基本方法" class="headerlink" title="四、线程控制基本方法"></a>四、线程控制基本方法</h1><p><img src="https://raw.githubusercontent.com/CuiPeng19970825/blogimages/master/JavaImg/%E7%BA%BF%E7%A8%8B%E6%8E%A7%E5%88%B6%E5%9F%BA%E6%9C%AC%E6%96%B9%E6%B3%95.JPG" alt="线程控制基本方法"></p>
-<h1 id="五、线程的优先级"><a href="#五、线程的优先级" class="headerlink" title="五、线程的优先级"></a>五、线程的优先级</h1><p><img src="https://raw.githubusercontent.com/CuiPeng19970825/blogimages/master/JavaImg/%E7%BA%BF%E7%A8%8B%E7%9A%84%E4%BC%98%E5%85%88%E7%BA%A7.JPG" alt="线程的优先级"></p>
-<h1 id="六、生产者消费者问题"><a href="#六、生产者消费者问题" class="headerlink" title="六、生产者消费者问题"></a>六、生产者消费者问题</h1><pre><code>//1、馒头类
-package pcDemo;
-public class WoTo {
-    int id;
-    public WoTo(int id) {
-        this.id=id;
-    }
-    @Override
-    public String toString() {
-        return &quot;WoTo[&quot;+ id +&quot;]&quot;;
-    }
-}
-
-//2、篮子类
-package pcDemo;
-public class SyncStack {
-    WoTo[] arrstack=new WoTo[6];
-    int index=0;
-
-    public synchronized void push(WoTo w) {
-        while(index==arrstack.length) {
-            try {
-                this.wait();
-            }catch(InterruptedException e) {
-                e.printStackTrace();
-            }
-        }
-        this.notify();
-        arrstack[index]=w;
-        index++;
-    }
-
-    public synchronized WoTo pop() {
-        while(index==0) {
-            try {
-                this.wait();
-            }catch(InterruptedException e) {
-                e.printStackTrace();
-            }
-        }
-        this.notify();
-        index--;
-        return arrstack[index];
-    }
-}
-
-//3、生产者类
-package pcDemo;
-public class Producer implements Runnable{
-    SyncStack ss=null;
-    public Producer(SyncStack ss) {
-        this.ss=ss;
-    }
-    @Override
-    public void run() {
-        for(int i=0;i&lt;20;i++) {
-            WoTo w=new WoTo(i);
-            ss.push(w);
-            System.out.println(&quot;生产了&quot;+w);
-        }
-        try {
-            Thread.sleep((int)(Math.random()*1000));
-        }catch(InterruptedException e) {
-            e.printStackTrace();
-        }
-
-    }
-}
-
-//4、消费者类
-package pcDemo;
-public class Consumer implements Runnable{
-    SyncStack ss=null;
-    public Consumer(SyncStack ss) {
-        this.ss=ss;
-    }
-    @Override
-    public void run() {
-        for(int i=0;i&lt;20;i++) {
-            WoTo w=ss.pop();
-            System.out.println(&quot;消费了&quot;+w);
-        }
-        try {
-            Thread.sleep((int)(Math.random()*1000));
-        }catch(InterruptedException e) {
-            e.printStackTrace();
-        }
-    }
-}
-
-//5、测试类
-package pcDemo;
-public class TestPC {
-    public static void main(String[] args) {
-        SyncStack ss=new SyncStack();
-        Producer p=new Producer(ss);
-        Consumer c=new Consumer(ss);
-        new Thread(p).start();
-        new Thread(c).start();
-    }
-}
-</code></pre><h1 id="七、线程池"><a href="#七、线程池" class="headerlink" title="七、线程池"></a>七、线程池</h1><p>##1、为什么要使用线程池</p>
-<p>程序启动一个新线程成本是比较高的，因为它涉及到要与操作系统进行交互。而使用线程池可以很好</p>
-<p>的提高性能，尤其是当程序中要创建大量生存期很短的线程时，更应该考虑线程池。</p>
-<p>##2、线程池特点</p>
-<p>线程池里的每一个线程代码结束后，并不会死亡，而是再次回到线程池中成为空闲状态，等待下一</p>
-<p>个对象来使用。</p>
-<p>##3、线程池创建</p>
-<p>线程池的最上层接口是Executor，这个接口定义了一个核心方法execute(Runnabel command)，这个方法最后被ThreadPoolExecutor类实现，这个方法是用来传入任务的。而且ThreadPoolExecutor是线程池的核心类，此类的构造方法如下：</p>
-<pre><code> public ThreadPoolExecutor(int corePoolSize,int maximumPoolSize,long keepAliveTime,TimeUnit unit,
-        BlockingQueue&lt;Runnable&gt; workQueue);
-
-public ThreadPoolExecutor(int corePoolSize,int maximumPoolSize,long keepAliveTime,TimeUnit unit,
-        BlockingQueue&lt;Runnable&gt; workQueue,ThreadFactory threadFactory);
-
-public ThreadPoolExecutor(int corePoolSize,int maximumPoolSize,long keepAliveTime,TimeUnit unit,
-        BlockingQueue&lt;Runnable&gt; workQueue,RejectedExecutionHandler handler);
-
-public ThreadPoolExecutor(int corePoolSize,int maximumPoolSize,long keepAliveTime,TimeUnit unit,
-    BlockingQueue&lt;Runnable&gt; workQueue,ThreadFactory threadFactory,RejectedExecutionHandler handler);
-</code></pre><p>corePoolSize：核心线程池的大小，如果核心线程池有空闲位置，这是新的任务就会被核心线程池新建一个线程执行，执行完毕后不会销毁线程，线程会进入缓存队列等待再次被运行。</p>
-<p>maximunPoolSize：线程池能创建最大的线程数量。如果核心线程池和缓存队列都已经满了，新的任务进来就会创建新的线程来执行。但是数量不能超过maximunPoolSize，否侧会采取拒绝接受任务策略，我们下面会具体分析。</p>
-<p>keepAliveTime：非核心线程能够空闲的最长时间，超过时间，线程终止。这个参数默认只有在线程数量超过核心线程池大小时才会起作用。只要线程数量不超过核心线程大小，就不会起作用。</p>
-<p>unit：时间单位，和keepAliveTime配合使用。</p>
-<p>workQueue：缓存队列，用来存放等待被执行的任务。</p>
-<p>threadFactory：线程工厂，用来创建线程，一般有三种选择策略。</p>
-<pre><code>1.ArrayBlockingQueue;
-2.LinkedBlockingQueue;
-3.SynchronousQueue;
-</code></pre><p>handler：拒绝处理策略，线程数量大于最大线程数就会采用拒绝处理策略，四种策略为</p>
-<pre><code>1.ThreadPoolExecutor.AbortPolicy:丢弃任务并抛出RejectedExecutionException异常
-2.ThreadPoolExecutor.DiscardPolicy：也是丢弃任务，但是不抛出异常。 
-3.ThreadPoolExecutor.DiscardOldestPolicy：丢弃队列最前面的任务，然后重新尝试执行任务（重复此过程）
-4.ThreadPoolExecutor.CallerRunsPolicy：由调用线程处理该任务 
-</code></pre><h2 id="4、线程池状态转换图"><a href="#4、线程池状态转换图" class="headerlink" title="4、线程池状态转换图"></a>4、线程池状态转换图</h2><p><img src="https://raw.githubusercontent.com/CuiPeng19970825/blogimages/master/JavaImg/%E7%BA%BF%E7%A8%8B%E6%B1%A0%E7%8A%B6%E6%80%81%E8%BD%AC%E6%8D%A2%E5%9B%BE.JPG" alt="线程池状态转换图"></p>
-<h3 id="1-RUNNING"><a href="#1-RUNNING" class="headerlink" title="(1).RUNNING"></a>(1).RUNNING</h3><p>(1) 状态说明：线程池处在RUNNING状态时，能够接收新任务，以及对已添加的任务进行处理。<br>(2) 状态切换：线程池的初始化状态是RUNNING。换句话说，线程池被一旦被创建，就处于RUNNING状态，并且线程池中的任务数为0！</p>
-<h3 id="2-SHUTDOWN"><a href="#2-SHUTDOWN" class="headerlink" title="(2).SHUTDOWN"></a>(2).SHUTDOWN</h3><p>(1) 状态说明：线程池处在SHUTDOWN状态时，不接收新任务，但能处理已添加的任务。<br>(2) 状态切换：调用线程池的shutdown()接口时，线程池由RUNNING -&gt; SHUTDOWN。</p>
-<h3 id="3-STOP"><a href="#3-STOP" class="headerlink" title="(3).STOP"></a>(3).STOP</h3><p>(1) 状态说明：线程池处在STOP状态时，不接收新任务，不处理已添加的任务，并且会中断正在处理的任务。<br>(2) 状态切换：调用线程池的shutdownNow()接口时，线程池由(RUNNING or SHUTDOWN ) -&gt; STOP。</p>
-<h3 id="4-TIDYING"><a href="#4-TIDYING" class="headerlink" title="(4).TIDYING"></a>(4).TIDYING</h3><p>(1) 状态说明：当所有的任务已终止，ctl记录的”任务数量”为0，线程池会变为TIDYING状态。当线程池变为TIDYING状态时，会执行钩子函数terminated()。terminated()在ThreadPoolExecutor类中是空的，若用户想在线程池变为TIDYING时，进行相应的处理；可以通过重载terminated()函数来实现。<br>(2) 状态切换：当线程池在SHUTDOWN状态下，阻塞队列为空并且线程池中执行的任务也为空时，<br>就会由 SHUTDOWN -&gt; TIDYING。 当线程池在STOP状态下，线程池中执行的任务为空时，就会由<br>STOP -&gt; TIDYING。</p>
-<h3 id="5-TERMINATED"><a href="#5-TERMINATED" class="headerlink" title="(5).TERMINATED"></a>(5).TERMINATED</h3><p>(1) 状态说明：线程池彻底终止，就变成TERMINATED状态。<br>(2) 状态切换：线程池处在TIDYING状态时，执行完terminated()之后，就会由 TIDYING -&gt; TERMINATED。</p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -3251,7 +3155,7 @@ public ThreadPoolExecutor(int corePoolSize,int maximumPoolSize,long keepAliveTim
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">53</span>
+                    <span class="site-state-item-count">54</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>

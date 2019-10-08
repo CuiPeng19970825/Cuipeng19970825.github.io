@@ -327,6 +327,330 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://Cuipeng19970825.github.io/2018/03/08/Java线程/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="崔鹏">
+      <meta itemprop="description" content="个人博客">
+      <meta itemprop="image" content="https://raw.githubusercontent.com/CuiPeng19970825/blogimages/master/TouxiangImg/%E5%A4%B4%E5%83%8F.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Program Life">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2018/03/08/Java线程/" class="post-title-link" itemprop="url">Java线程</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-03-08 15:15:05" itemprop="dateCreated datePublished" datetime="2018-03-08T15:15:05+08:00">2018-03-08</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-10-07 22:59:53" itemprop="dateModified" datetime="2019-10-07T22:59:53+08:00">2019-10-07</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="一、进程、线程概念"><a href="#一、进程、线程概念" class="headerlink" title="一、进程、线程概念"></a>一、进程、线程概念</h1><ol>
+<li><p>进程：是计算机中的程序关于某数据集合上的一次运行活动，是系统进行资源分配和调度的基本单位；</p>
+</li>
+<li><p>线程：简单的说就是一个进程中不同的执行路径，是操作系统能够进行运算调度的最小单位。</p>
+</li>
+</ol>
+<p><strong>3. 线程的本质：将代码送给CPU执行。</strong></p>
+<h1 id="二、线程的创建和启动"><a href="#二、线程的创建和启动" class="headerlink" title="二、线程的创建和启动"></a>二、线程的创建和启动</h1><h2 id="1-继承Thread类和重写run-方法"><a href="#1-继承Thread类和重写run-方法" class="headerlink" title="1. 继承Thread类和重写run()方法"></a>1. 继承Thread类和重写run()方法</h2><h2 id="2-实现Runnable接口"><a href="#2-实现Runnable接口" class="headerlink" title="2. 实现Runnable接口"></a>2. 实现Runnable接口</h2><p><img src="https://raw.githubusercontent.com/CuiPeng19970825/blogimages/master/JavaImg/%E7%BA%BF%E7%A8%8B%E7%9A%84%E5%88%9B%E5%BB%BA%E5%92%8C%E5%90%AF%E5%8A%A8.JPG" alt="线程的创建和启动"></p>
+<h2 id="3-扩展：实现Callable接口，需要和线程池结合。"><a href="#3-扩展：实现Callable接口，需要和线程池结合。" class="headerlink" title="3. 扩展：实现Callable接口，需要和线程池结合。"></a>3. 扩展：实现Callable接口，需要和线程池结合。</h2><h1 id="三、线程的生命周期"><a href="#三、线程的生命周期" class="headerlink" title="三、线程的生命周期"></a>三、线程的生命周期</h1><p>1.线程的生命周期<br><img src="https://raw.githubusercontent.com/CuiPeng19970825/blogimages/master/JavaImg/%E7%BA%BF%E7%A8%8B%E7%9A%84%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F.JPG" alt="线程的生命周期"></p>
+<p>2.线程的生命周期状态转换图<br><img src="https://raw.githubusercontent.com/CuiPeng19970825/blogimages/master/JavaImg/%E7%BA%BF%E7%A8%8B%E7%9A%84%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E7%8A%B6%E6%80%81%E8%BD%AC%E6%8D%A2%E5%9B%BE.JPG" alt="线程的生命周期状态转换图"></p>
+<h1 id="四、线程控制基本方法"><a href="#四、线程控制基本方法" class="headerlink" title="四、线程控制基本方法"></a>四、线程控制基本方法</h1><p><img src="https://raw.githubusercontent.com/CuiPeng19970825/blogimages/master/JavaImg/%E7%BA%BF%E7%A8%8B%E6%8E%A7%E5%88%B6%E5%9F%BA%E6%9C%AC%E6%96%B9%E6%B3%95.JPG" alt="线程控制基本方法"></p>
+<h1 id="五、线程的优先级"><a href="#五、线程的优先级" class="headerlink" title="五、线程的优先级"></a>五、线程的优先级</h1><p><img src="https://raw.githubusercontent.com/CuiPeng19970825/blogimages/master/JavaImg/%E7%BA%BF%E7%A8%8B%E7%9A%84%E4%BC%98%E5%85%88%E7%BA%A7.JPG" alt="线程的优先级"></p>
+<h1 id="六、生产者消费者问题"><a href="#六、生产者消费者问题" class="headerlink" title="六、生产者消费者问题"></a>六、生产者消费者问题</h1><pre><code>//1、馒头类
+package pcDemo;
+public class WoTo {
+    int id;
+    public WoTo(int id) {
+        this.id=id;
+    }
+    @Override
+    public String toString() {
+        return &quot;WoTo[&quot;+ id +&quot;]&quot;;
+    }
+}
+
+//2、篮子类
+package pcDemo;
+public class SyncStack {
+    WoTo[] arrstack=new WoTo[6];
+    int index=0;
+
+    public synchronized void push(WoTo w) {
+        while(index==arrstack.length) {
+            try {
+                this.wait();
+            }catch(InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+        this.notify();
+        arrstack[index]=w;
+        index++;
+    }
+
+    public synchronized WoTo pop() {
+        while(index==0) {
+            try {
+                this.wait();
+            }catch(InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+        this.notify();
+        index--;
+        return arrstack[index];
+    }
+}
+
+//3、生产者类
+package pcDemo;
+public class Producer implements Runnable{
+    SyncStack ss=null;
+    public Producer(SyncStack ss) {
+        this.ss=ss;
+    }
+    @Override
+    public void run() {
+        for(int i=0;i&lt;20;i++) {
+            WoTo w=new WoTo(i);
+            ss.push(w);
+            System.out.println(&quot;生产了&quot;+w);
+        }
+        try {
+            Thread.sleep((int)(Math.random()*1000));
+        }catch(InterruptedException e) {
+            e.printStackTrace();
+        }
+
+    }
+}
+
+//4、消费者类
+package pcDemo;
+public class Consumer implements Runnable{
+    SyncStack ss=null;
+    public Consumer(SyncStack ss) {
+        this.ss=ss;
+    }
+    @Override
+    public void run() {
+        for(int i=0;i&lt;20;i++) {
+            WoTo w=ss.pop();
+            System.out.println(&quot;消费了&quot;+w);
+        }
+        try {
+            Thread.sleep((int)(Math.random()*1000));
+        }catch(InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+}
+
+//5、测试类
+package pcDemo;
+public class TestPC {
+    public static void main(String[] args) {
+        SyncStack ss=new SyncStack();
+        Producer p=new Producer(ss);
+        Consumer c=new Consumer(ss);
+        new Thread(p).start();
+        new Thread(c).start();
+    }
+}
+</code></pre><h1 id="七、线程池"><a href="#七、线程池" class="headerlink" title="七、线程池"></a>七、线程池</h1><p>##1、为什么要使用线程池</p>
+<p>程序启动一个新线程成本是比较高的，因为它涉及到要与操作系统进行交互。而使用线程池可以很好</p>
+<p>的提高性能，尤其是当程序中要创建大量生存期很短的线程时，更应该考虑线程池。</p>
+<p>##2、线程池特点</p>
+<p>线程池里的每一个线程代码结束后，并不会死亡，而是再次回到线程池中成为空闲状态，等待下一</p>
+<p>个对象来使用。</p>
+<p>##3、线程池创建</p>
+<p>线程池的最上层接口是Executor，这个接口定义了一个核心方法execute(Runnabel command)，这个方法最后被ThreadPoolExecutor类实现，这个方法是用来传入任务的。而且ThreadPoolExecutor是线程池的核心类，此类的构造方法如下：</p>
+<pre><code> public ThreadPoolExecutor(int corePoolSize,int maximumPoolSize,long keepAliveTime,TimeUnit unit,
+        BlockingQueue&lt;Runnable&gt; workQueue);
+
+public ThreadPoolExecutor(int corePoolSize,int maximumPoolSize,long keepAliveTime,TimeUnit unit,
+        BlockingQueue&lt;Runnable&gt; workQueue,ThreadFactory threadFactory);
+
+public ThreadPoolExecutor(int corePoolSize,int maximumPoolSize,long keepAliveTime,TimeUnit unit,
+        BlockingQueue&lt;Runnable&gt; workQueue,RejectedExecutionHandler handler);
+
+public ThreadPoolExecutor(int corePoolSize,int maximumPoolSize,long keepAliveTime,TimeUnit unit,
+    BlockingQueue&lt;Runnable&gt; workQueue,ThreadFactory threadFactory,RejectedExecutionHandler handler);
+</code></pre><p>corePoolSize：核心线程池的大小，如果核心线程池有空闲位置，这是新的任务就会被核心线程池新建一个线程执行，执行完毕后不会销毁线程，线程会进入缓存队列等待再次被运行。</p>
+<p>maximunPoolSize：线程池能创建最大的线程数量。如果核心线程池和缓存队列都已经满了，新的任务进来就会创建新的线程来执行。但是数量不能超过maximunPoolSize，否侧会采取拒绝接受任务策略，我们下面会具体分析。</p>
+<p>keepAliveTime：非核心线程能够空闲的最长时间，超过时间，线程终止。这个参数默认只有在线程数量超过核心线程池大小时才会起作用。只要线程数量不超过核心线程大小，就不会起作用。</p>
+<p>unit：时间单位，和keepAliveTime配合使用。</p>
+<p>workQueue：缓存队列，用来存放等待被执行的任务。</p>
+<p>threadFactory：线程工厂，用来创建线程，一般有三种选择策略。</p>
+<pre><code>1.ArrayBlockingQueue;
+2.LinkedBlockingQueue;
+3.SynchronousQueue;
+</code></pre><p>handler：拒绝处理策略，线程数量大于最大线程数就会采用拒绝处理策略，四种策略为</p>
+<pre><code>1.ThreadPoolExecutor.AbortPolicy:丢弃任务并抛出RejectedExecutionException异常
+2.ThreadPoolExecutor.DiscardPolicy：也是丢弃任务，但是不抛出异常。 
+3.ThreadPoolExecutor.DiscardOldestPolicy：丢弃队列最前面的任务，然后重新尝试执行任务（重复此过程）
+4.ThreadPoolExecutor.CallerRunsPolicy：由调用线程处理该任务 
+</code></pre><h2 id="4、线程池状态转换图"><a href="#4、线程池状态转换图" class="headerlink" title="4、线程池状态转换图"></a>4、线程池状态转换图</h2><p><img src="https://raw.githubusercontent.com/CuiPeng19970825/blogimages/master/JavaImg/%E7%BA%BF%E7%A8%8B%E6%B1%A0%E7%8A%B6%E6%80%81%E8%BD%AC%E6%8D%A2%E5%9B%BE.JPG" alt="线程池状态转换图"></p>
+<h3 id="1-RUNNING"><a href="#1-RUNNING" class="headerlink" title="(1).RUNNING"></a>(1).RUNNING</h3><p>(1) 状态说明：线程池处在RUNNING状态时，能够接收新任务，以及对已添加的任务进行处理。<br>(2) 状态切换：线程池的初始化状态是RUNNING。换句话说，线程池被一旦被创建，就处于RUNNING状态，并且线程池中的任务数为0！</p>
+<h3 id="2-SHUTDOWN"><a href="#2-SHUTDOWN" class="headerlink" title="(2).SHUTDOWN"></a>(2).SHUTDOWN</h3><p>(1) 状态说明：线程池处在SHUTDOWN状态时，不接收新任务，但能处理已添加的任务。<br>(2) 状态切换：调用线程池的shutdown()接口时，线程池由RUNNING -&gt; SHUTDOWN。</p>
+<h3 id="3-STOP"><a href="#3-STOP" class="headerlink" title="(3).STOP"></a>(3).STOP</h3><p>(1) 状态说明：线程池处在STOP状态时，不接收新任务，不处理已添加的任务，并且会中断正在处理的任务。<br>(2) 状态切换：调用线程池的shutdownNow()接口时，线程池由(RUNNING or SHUTDOWN ) -&gt; STOP。</p>
+<h3 id="4-TIDYING"><a href="#4-TIDYING" class="headerlink" title="(4).TIDYING"></a>(4).TIDYING</h3><p>(1) 状态说明：当所有的任务已终止，ctl记录的”任务数量”为0，线程池会变为TIDYING状态。当线程池变为TIDYING状态时，会执行钩子函数terminated()。terminated()在ThreadPoolExecutor类中是空的，若用户想在线程池变为TIDYING时，进行相应的处理；可以通过重载terminated()函数来实现。<br>(2) 状态切换：当线程池在SHUTDOWN状态下，阻塞队列为空并且线程池中执行的任务也为空时，<br>就会由 SHUTDOWN -&gt; TIDYING。 当线程池在STOP状态下，线程池中执行的任务为空时，就会由<br>STOP -&gt; TIDYING。</p>
+<h3 id="5-TERMINATED"><a href="#5-TERMINATED" class="headerlink" title="(5).TERMINATED"></a>(5).TERMINATED</h3><p>(1) 状态说明：线程池彻底终止，就变成TERMINATED状态。<br>(2) 状态切换：线程池处在TIDYING状态时，执行完terminated()之后，就会由 TIDYING -&gt; TERMINATED。</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://Cuipeng19970825.github.io/2018/03/08/Java中常见的流类/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -2114,190 +2438,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://Cuipeng19970825.github.io/2018/03/06/Java基础之this和super关键字用法/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="崔鹏">
-      <meta itemprop="description" content="个人博客">
-      <meta itemprop="image" content="https://raw.githubusercontent.com/CuiPeng19970825/blogimages/master/TouxiangImg/%E5%A4%B4%E5%83%8F.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Program Life">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2018/03/06/Java基础之this和super关键字用法/" class="post-title-link" itemprop="url">Java基础之this和super关键字用法</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2018-03-06 15:10:40" itemprop="dateCreated datePublished" datetime="2018-03-06T15:10:40+08:00">2018-03-06</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-09-10 00:36:01" itemprop="dateModified" datetime="2019-09-10T00:36:01+08:00">2019-09-10</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="一、this关键字"><a href="#一、this关键字" class="headerlink" title="一、this关键字"></a>一、this关键字</h1><ol>
-<li>引用当前类的实例变量</li>
-<li>调用当前类方法</li>
-<li>调用当前类的构造函数</li>
-<li>作为参数传递给方法或构造方法</li>
-<li>用来返回当前类的实例</li>
-</ol>
-<h1 id="二、super关键字"><a href="#二、super关键字" class="headerlink" title="二、super关键字"></a>二、super关键字</h1><ol>
-<li>引用直接父类实例变量</li>
-<li>调用父类方法</li>
-<li>调用父类构造函数</li>
-</ol>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2346,7 +2486,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">53</span>
+                    <span class="site-state-item-count">54</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>

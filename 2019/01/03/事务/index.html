@@ -1,0 +1,918 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=7.1.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.1.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.1.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.1.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.1.0" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.1.0',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: false,
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="一、什么是数据库事务1、定义:数据库事务是构成单一逻辑工作单元的操作集合2、关于定义的解释： 数据库事务可以包含一个或多个数据库操作,但这些操作构成一个逻辑上的整体。 构成逻辑整体的这些数据库操作,要么全部执行成功,要么全部不执行。 构成事务的所有操作,要么全都对数据库产生影响,要么全都不产生影响,即不管事务是否执行成功,数据库总能保持一致性状态。 以上即使在数据库出现故障以及并发事务存在的情况下">
+<meta name="keywords" content="MySQL">
+<meta property="og:type" content="article">
+<meta property="og:title" content="事务">
+<meta property="og:url" content="https://Cuipeng19970825.github.io/2019/01/03/事务/index.html">
+<meta property="og:site_name" content="Program Life">
+<meta property="og:description" content="一、什么是数据库事务1、定义:数据库事务是构成单一逻辑工作单元的操作集合2、关于定义的解释： 数据库事务可以包含一个或多个数据库操作,但这些操作构成一个逻辑上的整体。 构成逻辑整体的这些数据库操作,要么全部执行成功,要么全部不执行。 构成事务的所有操作,要么全都对数据库产生影响,要么全都不产生影响,即不管事务是否执行成功,数据库总能保持一致性状态。 以上即使在数据库出现故障以及并发事务存在的情况下">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://raw.githubusercontent.com/CuiPeng19970825/blogimages/master/SQLImg/%E8%84%8F%E8%AF%BB.JPG">
+<meta property="og:image" content="https://raw.githubusercontent.com/CuiPeng19970825/blogimages/master/SQLImg/%E4%B8%8D%E5%8F%AF%E9%87%8D%E5%A4%8D%E8%AF%BB.JPG">
+<meta property="og:image" content="https://raw.githubusercontent.com/CuiPeng19970825/blogimages/master/SQLImg/%E5%B9%BB%E8%AF%BB.JPG">
+<meta property="og:image" content="https://raw.githubusercontent.com/CuiPeng19970825/blogimages/master/SQLImg/%E5%8F%AF%E8%83%BD%E5%8F%91%E7%94%9F%E7%9A%84%E5%B9%B6%E5%8F%91%E5%BC%82%E5%B8%B8.JPG">
+<meta property="og:image" content="https://raw.githubusercontent.com/CuiPeng19970825/blogimages/master/SQLImg/%E8%84%8F%E5%86%99.JPG">
+<meta property="og:image" content="https://raw.githubusercontent.com/CuiPeng19970825/blogimages/master/SQLImg/%E4%B8%A2%E5%A4%B1%E6%9B%B4%E6%96%B0.JPG">
+<meta property="og:updated_time" content="2019-10-08T10:07:30.088Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="事务">
+<meta name="twitter:description" content="一、什么是数据库事务1、定义:数据库事务是构成单一逻辑工作单元的操作集合2、关于定义的解释： 数据库事务可以包含一个或多个数据库操作,但这些操作构成一个逻辑上的整体。 构成逻辑整体的这些数据库操作,要么全部执行成功,要么全部不执行。 构成事务的所有操作,要么全都对数据库产生影响,要么全都不产生影响,即不管事务是否执行成功,数据库总能保持一致性状态。 以上即使在数据库出现故障以及并发事务存在的情况下">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/CuiPeng19970825/blogimages/master/SQLImg/%E8%84%8F%E8%AF%BB.JPG">
+
+
+
+
+
+  
+  
+  <link rel="canonical" href="https://Cuipeng19970825.github.io/2019/01/03/事务/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>事务 | Program Life</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Program Life</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">welcome</p>
+      
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://Cuipeng19970825.github.io/2019/01/03/事务/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="崔鹏">
+      <meta itemprop="description" content="个人博客">
+      <meta itemprop="image" content="https://raw.githubusercontent.com/CuiPeng19970825/blogimages/master/TouxiangImg/%E5%A4%B4%E5%83%8F.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Program Life">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">事务
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-01-03 20:20:10" itemprop="dateCreated datePublished" datetime="2019-01-03T20:20:10+08:00">2019-01-03</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-10-08 18:07:30" itemprop="dateModified" datetime="2019-10-08T18:07:30+08:00">2019-10-08</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/数据库/" itemprop="url" rel="index"><span itemprop="name">数据库</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="一、什么是数据库事务"><a href="#一、什么是数据库事务" class="headerlink" title="一、什么是数据库事务"></a>一、什么是数据库事务</h1><h2 id="1、定义-数据库事务是构成单一逻辑工作单元的操作集合"><a href="#1、定义-数据库事务是构成单一逻辑工作单元的操作集合" class="headerlink" title="1、定义:数据库事务是构成单一逻辑工作单元的操作集合"></a>1、定义:数据库事务是构成单一逻辑工作单元的操作集合</h2><h2 id="2、关于定义的解释："><a href="#2、关于定义的解释：" class="headerlink" title="2、关于定义的解释："></a>2、关于定义的解释：</h2><ol>
+<li>数据库事务可以包含一个或多个数据库操作,但这些操作构成一个逻辑上的整体。</li>
+<li>构成逻辑整体的这些数据库操作,要么全部执行成功,要么全部不执行。</li>
+<li>构成事务的所有操作,要么全都对数据库产生影响,要么全都不产生影响,即不管事务是否执行成<br>功,数据库总能保持一致性状态。</li>
+<li>以上即使在数据库出现故障以及并发事务存在的情况下依然成立。</li>
+</ol>
+<h1 id="二、事务控制语句："><a href="#二、事务控制语句：" class="headerlink" title="二、事务控制语句："></a>二、事务控制语句：</h1><ol>
+<li><p>BEGIN 或 START TRANSACTION 显式地开启一个事务；</p>
+</li>
+<li><p>COMMIT 也可以使用 COMMIT WORK，不过二者是等价的。COMMIT 会提交事务，并使已对数据<br>库进行的所有修改成为永久性的；</p>
+</li>
+<li><p>ROLLBACK 也可以使用 ROLLBACK WORK，不过二者是等价的。回滚会结束用户的事务，并撤销<br>正在进行的所有未提交的修改；</p>
+</li>
+<li><p>SAVEPOINT identifier，SAVEPOINT 允许在事务中创建一个保存点，一个事务中可以有多个<br>SAVEPOINT；</p>
+</li>
+<li><p>RELEASE SAVEPOINT identifier 删除一个事务的保存点，当没有指定的保存点时，执行该语<br>句会抛出一个异常；</p>
+</li>
+<li><p>ROLLBACK TO identifier 把事务回滚到标记点；</p>
+</li>
+<li><p>SET TRANSACTION 用来设置事务的隔离级别。InnoDB 存储引擎提供事务的隔离级别有READ<br>UNCOMMITTED、READ COMMITTED、REPEATABLE READ 和 SERIALIZABLE。</p>
+</li>
+</ol>
+<h2 id="MYSQL-事务处理主要有两种方法："><a href="#MYSQL-事务处理主要有两种方法：" class="headerlink" title="MYSQL 事务处理主要有两种方法："></a>MYSQL 事务处理主要有两种方法：</h2><p>1、用 BEGIN, ROLLBACK, COMMIT来实现<br>    BEGIN 开始一个事务<br>    ROLLBACK 事务回滚<br>    COMMIT 事务确认<br>2、直接用 SET 来改变 MySQL 的自动提交模式:<br>    SET AUTOCOMMIT=0 禁止自动提交<br>    SET AUTOCOMMIT=1 开启自动提交</p>
+<h1 id="三、事务的ACID特性"><a href="#三、事务的ACID特性" class="headerlink" title="三、事务的ACID特性"></a>三、事务的ACID特性</h1><p>一般来说，事务是必须满足4个条件（ACID）：原子性（Atomicity，或称不可分割性）、一致性（Consistency）、隔离性（Isolation，又称独立性）、持久性（Durability）。</p>
+<p>  1.原子性：一个事务（transaction）中的所有操作，要么全部完成，要么全部不完成，不会结束在中间某个环节。事务在执行过程中发生错误，会被回滚（Rollback）到事务开始前的状态，就像这个事务从来没有执行过一样。</p>
+<p>  2.一致性：在事务开始之前和事务结束以后，数据库的完整性没有被破坏。比如转账前后两个账户的金额总和应该保持不变。</p>
+<p>  3.隔离性：数据库允许多个并发事务同时对其数据进行读写和修改的能力，并发执行的事务不会相互影响,其对数据库的影响和它们串行执行时一样。比如多个用户同时往一个账户转账,最后账户的结果应该和他们按先后次序转账的结果一样。事务隔离分为不同级别，包括读未提交（Read uncommitted）、读提交（read committed）、可重复读（repeatable read）和串行化<br> （Serializable）。</p>
+<p>  4.持久性：事务处理结束后，对数据的修改就是永久的，即便系统故障也不会丢失。</p>
+<p>在 MySQL 命令行的默认设置下，事务都是自动提交的，即执行 SQL 语句后就会马上执行COMMIT<br>操作。因此要显式地开启一个事务务须使用命令 BEGIN 或 START TRANSACTION，或者执行命令 SET AUTOCOMMIT=0，用来禁止使用当前会话的自动提交。</p>
+<h2 id="隔离级别分析"><a href="#隔离级别分析" class="headerlink" title="隔离级别分析"></a>隔离级别分析</h2><ol>
+<li><p>读未提交（Read uncommitted）——<strong>脏读</strong>：是指一个事务读取了另一个事务未提交的数据</p>
+<p>  <img src="https://raw.githubusercontent.com/CuiPeng19970825/blogimages/master/SQLImg/%E8%84%8F%E8%AF%BB.JPG" alt="脏读"></p>
+<p>在事务1对A的处理过程中,事务2读取了A的值,但之后事务1回滚,导致事务2读取的A是未提交的脏数据。</p>
+</li>
+<li><p>读提交(read committed)——<strong>不可重复读</strong>:是指一个事务对同一数据的读取结果前后不一致。</p>
+<p>  <img src="https://raw.githubusercontent.com/CuiPeng19970825/blogimages/master/SQLImg/%E4%B8%8D%E5%8F%AF%E9%87%8D%E5%A4%8D%E8%AF%BB.JPG" alt="不可重复读"></p>
+<p>由于事务2对A的已提交修改,事务1前后两次读取的结果不一致。</p>
+</li>
+<li><p>可重复读(repeatable read)——<strong>幻读</strong><br>是指事务读取某个范围的数据时，因为其他事务的操作导致前后两次读取的结果不一致。幻读和不可重复读的区别在于,不可重复读是针对确定的某一行数据而言,而幻读是针对不确定的多行数据。因而幻读通常出现在带有查询条件的范围查询中,比如下面这种情况:</p>
+<p> <img src="https://raw.githubusercontent.com/CuiPeng19970825/blogimages/master/SQLImg/%E5%B9%BB%E8%AF%BB.JPG" alt="幻读"></p>
+<p>事务1查询A&lt;5的数据,由于事务2插入了一条A=4的数据,导致事务1两次查询得到的结果不一样</p>
+</li>
+<li><p>串行化(Serializable)<br>当一个事务提交之后，另一个事务才可以执行，串行化可以避免所有可能出现的并发异常,但是会极大的降低系统的并发处理能力。</p>
+</li>
+</ol>
+<h2 id="级别由低到高依次为Readuncommitted、Readcommitted、Repeatableread、Serializable。"><a href="#级别由低到高依次为Readuncommitted、Readcommitted、Repeatableread、Serializable。" class="headerlink" title="级别由低到高依次为Readuncommitted、Readcommitted、Repeatableread、Serializable。"></a>级别由低到高依次为Readuncommitted、Readcommitted、Repeatableread、Serializable。</h2><p><img src="https://raw.githubusercontent.com/CuiPeng19970825/blogimages/master/SQLImg/%E5%8F%AF%E8%83%BD%E5%8F%91%E7%94%9F%E7%9A%84%E5%B9%B6%E5%8F%91%E5%BC%82%E5%B8%B8.JPG" alt="可能发生的异常"></p>
+<h2 id="其他常见的数据库并发异常"><a href="#其他常见的数据库并发异常" class="headerlink" title="其他常见的数据库并发异常"></a>其他常见的数据库并发异常</h2><ol>
+<li><p><strong>脏写</strong>：是指事务回滚了其他事务对数据项的已提交修改,比如下面这种情况</p>
+<p><img src="https://raw.githubusercontent.com/CuiPeng19970825/blogimages/master/SQLImg/%E8%84%8F%E5%86%99.JPG" alt="脏写"></p>
+<p>在事务1对数据A的回滚,导致事务2对A的已提交修改也被回滚了。</p>
+</li>
+<li><p><strong>丢失更新</strong><br>丢失更新是指事务覆盖了其他事务对数据的已提交修改,导致这些修改好像丢失了一样。</p>
+<p><img src="https://raw.githubusercontent.com/CuiPeng19970825/blogimages/master/SQLImg/%E4%B8%A2%E5%A4%B1%E6%9B%B4%E6%96%B0.JPG" alt="丢失更新"></p>
+<p>事务1和事务2读取A的值都为10,事务2先将A加上10并提交修改,之后事务2将A减少10并提交修改,A的值最后为0,导致事务2对A的修改好像丢失了一样</p>
+</li>
+</ol>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/MySQL/" rel="tag"># MySQL</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/01/03/SQL的四种连接查询/" rel="next" title="SQL的四种连接查询">
+                <i class="fa fa-chevron-left"></i> SQL的四种连接查询
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/04/22/Markdown/" rel="prev" title="Markdown基础语法简介">
+                Markdown基础语法简介 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="https://raw.githubusercontent.com/CuiPeng19970825/blogimages/master/TouxiangImg/%E5%A4%B4%E5%83%8F.jpg" alt="崔鹏">
+            
+              <p class="site-author-name" itemprop="name">崔鹏</p>
+              <div class="site-description motion-element" itemprop="description">个人博客</div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">54</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  
+                    
+                      <a href="/categories/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">7</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                      <a href="/tags/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">7</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#一、什么是数据库事务"><span class="nav-number">1.</span> <span class="nav-text">一、什么是数据库事务</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1、定义-数据库事务是构成单一逻辑工作单元的操作集合"><span class="nav-number">1.1.</span> <span class="nav-text">1、定义:数据库事务是构成单一逻辑工作单元的操作集合</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2、关于定义的解释："><span class="nav-number">1.2.</span> <span class="nav-text">2、关于定义的解释：</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二、事务控制语句："><span class="nav-number">2.</span> <span class="nav-text">二、事务控制语句：</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#MYSQL-事务处理主要有两种方法："><span class="nav-number">2.1.</span> <span class="nav-text">MYSQL 事务处理主要有两种方法：</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#三、事务的ACID特性"><span class="nav-number">3.</span> <span class="nav-text">三、事务的ACID特性</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#隔离级别分析"><span class="nav-number">3.1.</span> <span class="nav-text">隔离级别分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#级别由低到高依次为Readuncommitted、Readcommitted、Repeatableread、Serializable。"><span class="nav-number">3.2.</span> <span class="nav-text">级别由低到高依次为Readuncommitted、Readcommitted、Repeatableread、Serializable。</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#其他常见的数据库并发异常"><span class="nav-number">3.3.</span> <span class="nav-text">其他常见的数据库并发异常</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">崔鹏</span>
+
+  
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.8.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v7.1.0</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/utils.js?v=7.1.0"></script>
+
+  <script src="/js/motion.js?v=7.1.0"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/affix.js?v=7.1.0"></script>
+
+  <script src="/js/schemes/pisces.js?v=7.1.0"></script>
+
+
+
+  
+  <script src="/js/scrollspy.js?v=7.1.0"></script>
+<script src="/js/post-details.js?v=7.1.0"></script>
+
+
+
+  
+
+
+  <script src="/js/next-boot.js?v=7.1.0"></script>
+
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+
+  
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
