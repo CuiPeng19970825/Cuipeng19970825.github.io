@@ -96,18 +96,20 @@
 
 
 
-  <meta name="description" content="快速排序学习整理快速排序思路快速排序使用分治法策略来把一个序列分为两个子序列，基本步骤为：  先从序列中取出一个数作为基准数；  分区过程：将把这个数大的数全部放到它的右边，小于或者等于它的数全放到它的左边；  递归地对左右子序列进行步骤2，直到各区间只有一个数。   代码实现package demoSort; import java.util.Arrays; public class DemoQ">
-<meta name="keywords" content="数据结构与算法">
+  <meta name="description" content="一、JDBC（Java DataBase Connectivity）可以为多种关系型数据库DBMS，提供统一的访问方式，用Java来操作数据库。  1、JDBC API：提供各种操作访问接口，Connection、Statement、PreparedStatement、  ResultSet。 （1）与数据库建立连接 （2）发送SQL语句 （3）返回处理结果  具体是通过以下类/接口实现：  Dr">
+<meta name="keywords" content="JavaWeb">
 <meta property="og:type" content="article">
-<meta property="og:title" content="三、常见排序算法—快速排序">
-<meta property="og:url" content="https://Cuipeng19970825.github.io/2019/05/17/快速排序/index.html">
+<meta property="og:title" content="JDBC学习">
+<meta property="og:url" content="https://Cuipeng19970825.github.io/2018/03/09/JDBC学习/index.html">
 <meta property="og:site_name" content="Program Life">
-<meta property="og:description" content="快速排序学习整理快速排序思路快速排序使用分治法策略来把一个序列分为两个子序列，基本步骤为：  先从序列中取出一个数作为基准数；  分区过程：将把这个数大的数全部放到它的右边，小于或者等于它的数全放到它的左边；  递归地对左右子序列进行步骤2，直到各区间只有一个数。   代码实现package demoSort; import java.util.Arrays; public class DemoQ">
+<meta property="og:description" content="一、JDBC（Java DataBase Connectivity）可以为多种关系型数据库DBMS，提供统一的访问方式，用Java来操作数据库。  1、JDBC API：提供各种操作访问接口，Connection、Statement、PreparedStatement、  ResultSet。 （1）与数据库建立连接 （2）发送SQL语句 （3）返回处理结果  具体是通过以下类/接口实现：  Dr">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-08-23T06:54:49.913Z">
+<meta property="og:image" content="https://raw.githubusercontent.com/CuiPeng19970825/blogimages/master/JavaWeb/JDBC.JPG">
+<meta property="og:updated_time" content="2019-10-15T18:09:05.544Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="三、常见排序算法—快速排序">
-<meta name="twitter:description" content="快速排序学习整理快速排序思路快速排序使用分治法策略来把一个序列分为两个子序列，基本步骤为：  先从序列中取出一个数作为基准数；  分区过程：将把这个数大的数全部放到它的右边，小于或者等于它的数全放到它的左边；  递归地对左右子序列进行步骤2，直到各区间只有一个数。   代码实现package demoSort; import java.util.Arrays; public class DemoQ">
+<meta name="twitter:title" content="JDBC学习">
+<meta name="twitter:description" content="一、JDBC（Java DataBase Connectivity）可以为多种关系型数据库DBMS，提供统一的访问方式，用Java来操作数据库。  1、JDBC API：提供各种操作访问接口，Connection、Statement、PreparedStatement、  ResultSet。 （1）与数据库建立连接 （2）发送SQL语句 （3）返回处理结果  具体是通过以下类/接口实现：  Dr">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/CuiPeng19970825/blogimages/master/JavaWeb/JDBC.JPG">
 
 
 
@@ -115,7 +117,7 @@
 
   
   
-  <link rel="canonical" href="https://Cuipeng19970825.github.io/2019/05/17/快速排序/">
+  <link rel="canonical" href="https://Cuipeng19970825.github.io/2018/03/09/JDBC学习/">
 
 
 
@@ -125,7 +127,7 @@
   };
 </script>
 
-  <title>三、常见排序算法—快速排序 | Program Life</title>
+  <title>JDBC学习 | Program Life</title>
   
 
 
@@ -328,7 +330,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://Cuipeng19970825.github.io/2019/05/17/快速排序/">
+    <link itemprop="mainEntityOfPage" href="https://Cuipeng19970825.github.io/2018/03/09/JDBC学习/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="崔鹏">
@@ -345,7 +347,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">三、常见排序算法—快速排序
+          <h1 class="post-title" itemprop="name headline">JDBC学习
 
               
             
@@ -371,7 +373,7 @@
                 
               
 
-              <time title="创建时间：2019-05-17 16:41:35" itemprop="dateCreated datePublished" datetime="2019-05-17T16:41:35+08:00">2019-05-17</time>
+              <time title="创建时间：2018-03-09 12:05:10" itemprop="dateCreated datePublished" datetime="2018-03-09T12:05:10+08:00">2018-03-09</time>
             
 
             
@@ -388,7 +390,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-08-23 14:54:49" itemprop="dateModified" datetime="2019-08-23T14:54:49+08:00">2019-08-23</time>
+                <time title="修改时间：2019-10-16 02:09:05" itemprop="dateModified" datetime="2019-10-16T02:09:05+08:00">2019-10-16</time>
               
             
           </span>
@@ -405,7 +407,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/数据结构与算法/" itemprop="url" rel="index"><span itemprop="name">数据结构与算法</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/JavaWeb/" itemprop="url" rel="index"><span itemprop="name">JavaWeb</span></a></span>
 
                 
                 
@@ -440,57 +442,105 @@
       
 
       
-        <h1 id="快速排序学习整理"><a href="#快速排序学习整理" class="headerlink" title="快速排序学习整理"></a>快速排序学习整理</h1><h2 id="快速排序"><a href="#快速排序" class="headerlink" title="快速排序"></a>快速排序</h2><h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><p>快速排序使用分治法策略来把一个序列分为两个子序列，基本步骤为：</p>
-<ol>
-<li><p>先从序列中取出一个数作为基准数；</p>
-</li>
-<li><p>分区过程：将把这个数大的数全部放到它的右边，小于或者等于它的数全放到它的左边；</p>
-</li>
-<li><p>递归地对左右子序列进行步骤2，直到各区间只有一个数。</p>
-</li>
-</ol>
-<h3 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h3><pre><code>package demoSort;
-import java.util.Arrays;
-public class DemoQuickSort {
-       public static void main(String[] args) {
-           int[] elements=new int[]{2,4,3,6,5,1,7,9,8};
-           quicksort(elements,0,elements.length-1);
-           System.out.println(Arrays.toString(elements));
-       }
+        <h1 id="一、JDBC（Java-DataBase-Connectivity）"><a href="#一、JDBC（Java-DataBase-Connectivity）" class="headerlink" title="一、JDBC（Java DataBase Connectivity）"></a>一、JDBC（Java DataBase Connectivity）</h1><p>可以为多种关系型数据库DBMS，提供统一的访问方式，用Java来操作数据库。</p>
+<p><img src="https://raw.githubusercontent.com/CuiPeng19970825/blogimages/master/JavaWeb/JDBC.JPG" alt="JDBC"></p>
+<p>1、JDBC API：提供各种操作访问接口，Connection、Statement、PreparedStatement、<br>  ResultSet。<br> （1）与数据库建立连接<br> （2）发送SQL语句<br> （3）返回处理结果<br>  具体是通过以下类/接口实现：<br>  DriverManager：管理JDBC驱动<br>  Connection：连接(通过DriverManager产生)<br>  Statement(PreparedStatement)：增删改查（通过Connection产生）<br>  CallableStatement：调用数据库中的存储过程/存储函数（通过Connection产生）<br>  Result：返回的结果集(通过上面的Statement等产生)</p>
+<pre><code>常用方法：
+1、Connection产生操作数据库的对象
+      Connection产生Statement对象：createStatement()
+      Connection产生PreparedStatement对象：PrepareStatement()
+      Connection产生CallableStatement对象：PrepareCall()
+2、Statement操作数据库：
+      增删改：executeUpdate()
+      查询：executeQuery()
+3、ResultSet:保存结果集 select * from xxx
+      next():光标下移，判断是否有下一条数据，返回true/false
+      previous():光标上移，返回true/false
+      getXXX(字段名/字段名对应的下标位置):获取具体的字段值
+4、PreparedStatement操作数据库
+    public interface PreparedStatement extends Statement
+  增删改：executeUpdate()
+  查询:executeQuery()
+  *复制操作：setXXX()
+5、CallableStatement:调用存储过程、存储函数
+   (1)Connection.prepareCall(参数：存储过程或存储函数名)
+       参数格式：
+           存储过程(无返回值，用Out参数替代)：{call 存储过程名(参数列表)}
+           存储函数(有返回值)：{?=call 存储函数名(参数列表)}
+   (2)JDBC调用存储过程的步骤：
+        a、产生调用存储过程的对象(CallableStatement)  
+          cs=connection.prepareCall(&quot;...&quot;)
+        b、通过setXXX()函数处理输入参数值
+        c、通过registerOutParameter()函数处理输出参数类型
+        d、cs.execute()执行
+        e、getXXX()函数接收输出值(返回值)
+   (3)JDBC调用存储函数与存储过程的区别在于参数的写法不同，因为存储函数有返回值
+6、异常捕获
+  （1）ClassNotFoundException
+   (2) SQLException
+   (3) Exception
+7、在finally里关闭相应资源（关闭顺序和打开顺序相反，即先打开的后关闭，后打开的  先关闭），为防止异常可以在关闭之前进行排空验证。
+</code></pre><h2 id="注意：PareparedStatement与Statement在使用时的区别"><a href="#注意：PareparedStatement与Statement在使用时的区别" class="headerlink" title="注意：PareparedStatement与Statement在使用时的区别"></a>注意：PareparedStatement与Statement在使用时的区别</h2><pre><code>1、Statement:
+     sql
+     executeUpdate(sql)
+2、PreparedStatement:
+     sql(可能存在占位符)
+     在创建PreparedStatement对象时，将sql预编译：PrepareStatement(sql);
+     executeUpdate()
+     setXXX()替换占位符?
+3、推荐使用PreparedStatement，原因如下：
+  (1)编码更加简便(避免了字符串拼接)
+  (2)提高性能（因为有预编译操作，预编译只需要执行一次）
+  (3)安全(可以有效的防止SQL注入)
+    (SQL注入：将客户输入的内容和开发人员的SQL语句混为一体)
+</code></pre><p>2、JDBC DriverManager:管理不同的数据库驱动。<br>常见的三种数据库驱动：<br>                    驱动jar                                具体驱动类<br>Oracle           ojdbc-x.jar                      oracle.jdbc.OracleDriver<br>MySQL            mysql-connector-java-x.jar       com.mysql.jdbc.Driver<br>SqlServer        sqljdbc-x.jar  com.microsoft.sqlserver.jdbc.SQLServerDriver<br>                   连接字符串<br>                jdbc:oracle:thin:@localhost:1521:ORCL<br>                jdbc:mysql://localhost:3306/数据库实例名<br>                jdbc:microsoft:sqlserver:localhost:1433;databasename=数据库实例名                  </p>
+<p>3、各种数据库驱动：相应的数据库厂商提供的（第三方公司提供），用来连接/直接操作数据库。</p>
+<h1 id="二、JDBC学习测试代码"><a href="#二、JDBC学习测试代码" class="headerlink" title="二、JDBC学习测试代码"></a>二、JDBC学习测试代码</h1><pre><code>  import java.sql.Statement;
+  public class JDBCDemo {
+    private static final String URL=&quot;jdbc:mysql://localhost:3306/hs&quot;;
+    private static final String USERNAME=&quot;root&quot;;
+    private static final String PWD=&quot;MySQL&quot;;
 
-       //快速排序
-       public static void quicksort(int[] arr,int start,int end){
-           if(start&lt;end){
-               //把数组中第0个数字作为标准
-               int stard=arr[start];
-               //记录需要排序的下标
-               int low=start;
-               int high=end;
-               //循环找比标准数大的数和比标准数小的数
-               while(low&lt;high){
-                   //右边的数字比标准数大
-                   while(low&lt;high&amp;&amp;stard&lt;=arr[high]){
-                       high--;
-                   }
-                   //右边的数字比标准数小
-                   arr[low]=arr[high];
-                   //左边的数字比标准数小
-                   while(low&lt;high&amp;&amp;stard&gt;=arr[low]){
-                       low++;
-                   }
-                   //左边的数字比标准数大
-                   arr[high]=arr[low];
-               }
-               //把标准数赋给当前低与高重合的位置的元素
-               arr[low]=stard;
-               //排序标准数前面所有小的数字
-               quicksort(arr,start,low);
-               //排序标准数后面所有大的数字
-               quicksort(arr,low+1,end);
-           }
-
-       }
-   }
+    public static void update() {
+        Connection connection=null;
+        Statement stmt=null;
+        try {
+            //1、导入驱动，加载具体的驱动类
+                Class.forName(&quot;com.mysql.jdbc.Driver&quot;);
+            //2、与数据库建立连接
+                connection = DriverManager.getConnection(URL, USERNAME, PWD);
+            //3、发送SQL，执行增删改查
+                stmt=connection.createStatement();
+            //4、执行SQL语句
+                String sql=&quot;insert into Student values(4,&apos;hh&apos;,&apos;男&apos;,23,&apos;hh&apos;,&apos;hh&apos;)&quot;;
+                int count = stmt.executeUpdate(sql); //返回值表示增删改了几条数据
+            //5、处理结果
+                if(count&gt;0){
+                    System.out.println(&quot;操作成功！&quot;);
+                }
+            } 
+            catch (ClassNotFoundException e1) {
+                // TODO Auto-generated catch block
+                e1.printStackTrace();
+            }catch (SQLException e1) {
+                    // TODO Auto-generated catch block
+                    e1.printStackTrace();
+            }catch(Exception e1){
+                e1.printStackTrace();
+            }finally{
+                //6、关闭连接
+                try {
+                    if(stmt!=null) stmt.close();
+                    if(connection!=null) connection.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    public static void main(String args[]){
+        update();
+    }      
+}
 </code></pre>
       
     </div>
@@ -514,7 +564,7 @@ public class DemoQuickSort {
       
         <div class="post-tags">
           
-            <a href="/tags/数据结构与算法/" rel="tag"># 数据结构与算法</a>
+            <a href="/tags/JavaWeb/" rel="tag"># JavaWeb</a>
           
         </div>
       
@@ -527,8 +577,8 @@ public class DemoQuickSort {
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/05/17/冒泡排序/" rel="next" title="三、常见排序算法—冒泡排序">
-                <i class="fa fa-chevron-left"></i> 三、常见排序算法—冒泡排序
+              <a href="/2018/03/09/JSP学习/" rel="next" title="JSP学习">
+                <i class="fa fa-chevron-left"></i> JSP学习
               </a>
             
           </div>
@@ -537,8 +587,8 @@ public class DemoQuickSort {
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/05/18/直接插入排序/" rel="prev" title="三、常见排序算法—直接插入排序">
-                三、常见排序算法—直接插入排序 <i class="fa fa-chevron-right"></i>
+              <a href="/2019/01/02/员工部门练习题/" rel="prev" title="员工部门练习题">
+                员工部门练习题 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -714,7 +764,7 @@ public class DemoQuickSort {
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#快速排序学习整理"><span class="nav-number">1.</span> <span class="nav-text">快速排序学习整理</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#快速排序"><span class="nav-number">1.1.</span> <span class="nav-text">快速排序</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#思路"><span class="nav-number">1.1.1.</span> <span class="nav-text">思路</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#代码实现"><span class="nav-number">1.1.2.</span> <span class="nav-text">代码实现</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#一、JDBC（Java-DataBase-Connectivity）"><span class="nav-number">1.</span> <span class="nav-text">一、JDBC（Java DataBase Connectivity）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#注意：PareparedStatement与Statement在使用时的区别"><span class="nav-number">1.1.</span> <span class="nav-text">注意：PareparedStatement与Statement在使用时的区别</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二、JDBC学习测试代码"><span class="nav-number">2.</span> <span class="nav-text">二、JDBC学习测试代码</span></a></li></ol></div>
             
 
           </div>
