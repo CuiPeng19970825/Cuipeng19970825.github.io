@@ -327,6 +327,203 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://Cuipeng19970825.github.io/2018/03/09/JSP学习/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="崔鹏">
+      <meta itemprop="description" content="个人博客">
+      <meta itemprop="image" content="https://raw.githubusercontent.com/CuiPeng19970825/blogimages/master/TouxiangImg/%E5%A4%B4%E5%83%8F.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Program Life">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2018/03/09/JSP学习/" class="post-title-link" itemprop="url">JSP学习</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-03-09 09:30:09" itemprop="dateCreated datePublished" datetime="2018-03-09T09:30:09+08:00">2018-03-09</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-10-15 16:10:42" itemprop="dateModified" datetime="2019-10-15T16:10:42+08:00">2019-10-15</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/JavaWeb/" itemprop="url" rel="index"><span itemprop="name">JavaWeb</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="一、JSP九大内置对象（自带的，不需要new也能使用的对象）"><a href="#一、JSP九大内置对象（自带的，不需要new也能使用的对象）" class="headerlink" title="一、JSP九大内置对象（自带的，不需要new也能使用的对象）"></a>一、JSP九大内置对象（自带的，不需要new也能使用的对象）</h1><h2 id="1、out-输出对象，向客户端输出内容"><a href="#1、out-输出对象，向客户端输出内容" class="headerlink" title="1、out:输出对象，向客户端输出内容"></a>1、out:输出对象，向客户端输出内容</h2><h2 id="2、request：请求对象，存储“客户端向服务端发送的请求信息”（数据只在同一次请求时有效）"><a href="#2、request：请求对象，存储“客户端向服务端发送的请求信息”（数据只在同一次请求时有效）" class="headerlink" title="2、request：请求对象，存储“客户端向服务端发送的请求信息”（数据只在同一次请求时有效）"></a>2、request：请求对象，存储“客户端向服务端发送的请求信息”（数据只在同一次请求时有效）</h2><p>常见方法：<br>1.String getParameter(String name):根据请求的字段名key（input标签的name属性），返回<br>  字段值value（input标签的value属性值）<br>2.String[] getParameterValues(Stringname):根据请求的字段名key，返回多个字段值value<br> （checkbox多选按钮）<br>3.void setCharacterEncoding(“编码格式utf-8”):设置请求编码（tomcat7以前默认为iso-88<br>  59-1,tomcat8以后改为了utf-8）<br>4.getRequestDispatcher(“b.jsp”).forward(request,response):请求转发的方式跳转页面<br>  A -&gt; B<br>5.getServerContext():获取项目的ServletContext对象</p>
+<h3 id="注意："><a href="#注意：" class="headerlink" title="注意："></a>注意：</h3><pre><code> get提交方式：
+         1、 连接/文件？参数名1=参数值1 &amp; 参数名2=参数值2 &amp; 参数名3=参数值3
+         2、method=&quot;get&quot;、地址栏、超链接（&lt;a href=&quot;x&quot;&gt;）请求方式 默认都属于get提交方式
+get与post请求方式的区别：
+         1、get方式在地址栏上显示请求信息（但是地址栏能够容纳的信息有限，4-5KB；如果请求数据存在大文件、图片等会出现地址栏无法容纳全部的数据而出错），post方式不显示
+         2、文件上传操作必须是post
+         3、post安全
+</code></pre><h2 id="3、response-响应对象"><a href="#3、response-响应对象" class="headerlink" title="3、response :响应对象"></a>3、response :响应对象</h2><p>提供的方法：<br>1.void addCookie(Cookie cookie): 服务端向客户端增加Cookie对象<br>2.void sendRedirect(String location) throws IOException :页面跳转的一种方式<br>3.void setContentType(String type)设置服务端响应的编码（设置服务端的contentType<br>  类型）</p>
+<h3 id="注意：-1"><a href="#注意：-1" class="headerlink" title="注意："></a>注意：</h3><pre><code>                            请求转发                            重定向
+地址栏是否改变                不变                                改变
+是否保留第一次请求时的数据     保留                               不保留
+请求的次数                    1次                                 2次
+跳转发生的位置                服务端                    客户端发出的第二次跳转
+</code></pre><h2 id="4、session（服务端-同一次会话共享）"><a href="#4、session（服务端-同一次会话共享）" class="headerlink" title="4、session（服务端,同一次会话共享）"></a>4、session（服务端,同一次会话共享）</h2><p>Cookie(客户端，不是内置对象)：Cookie是由服务端生成的，再发送给客户端保存相当于本地<br>缓存的作用（可以提高效率，但不安全）<br>Cookie: Key(name)=value<br>javax.servlet.http.Cookie<br>public Cookie(String name,String value)<br>String getName():获取name<br>String getValue():获取value<br>void setMaxAge(int expiry):最大有效期（秒）</p>
+<p>服务端准备Cookie：<br>response.addCookie(Cookie cookie)<br>页面跳转（转发或者重定向）<br>客户端获取cookie:  request.getCookies();(不能直接获取某一个单独对象，只能一次性将全部的cookie拿到)</p>
+<p>session方法：<br>1.String getId():获取sessionId<br>2.boolean isNew():判断是否时新用户（第一次访问）<br>3.void invalidate():使session失效，（退出登录、注销）<br>4.void setAttribute():将数据保存在session中<br>5.Object getAttribute():从session中取出数据<br>6.void setMaxInactiveInterval(秒)：设置最大有效非活动时间<br>7.int getMaxInactiveInterval:获取最大有效非活动时间</p>
+<h3 id="注意：-2"><a href="#注意：-2" class="headerlink" title="注意："></a>注意：</h3><pre><code>cookie和session的区别
+                       session                cookie
+保存的位置              服务端                  客户端
+安全性                  较安全                 较不安全 
+保存的内容              Object                 String
+</code></pre><h3 id="5、application-全局对象"><a href="#5、application-全局对象" class="headerlink" title="5、application(全局对象)"></a>5、application(全局对象)</h3><p>方法：<br>1.String getContextPath() 虚拟路径<br>2.String getRealPath()    绝对路径（虚拟路径相对的绝对路径）</p>
+<h3 id="6、config-配置对象（服务器配置信息）"><a href="#6、config-配置对象（服务器配置信息）" class="headerlink" title="6、config 配置对象（服务器配置信息）"></a>6、config 配置对象（服务器配置信息）</h3><h3 id="7、page-当前JSP页面对象（相当于java中的this）"><a href="#7、page-当前JSP页面对象（相当于java中的this）" class="headerlink" title="7、page 当前JSP页面对象（相当于java中的this）"></a>7、page 当前JSP页面对象（相当于java中的this）</h3><h3 id="8、exception"><a href="#8、exception" class="headerlink" title="8、exception"></a>8、exception</h3><p>pageContext</p>
+<p>page<br>exception</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://Cuipeng19970825.github.io/2018/03/08/设计模式之关联、依赖、聚合、组合/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -2231,196 +2428,6 @@ public ThreadPoolExecutor(int corePoolSize,int maximumPoolSize,long keepAliveTim
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://Cuipeng19970825.github.io/2018/03/06/面向对象的设计思想/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="崔鹏">
-      <meta itemprop="description" content="个人博客">
-      <meta itemprop="image" content="https://raw.githubusercontent.com/CuiPeng19970825/blogimages/master/TouxiangImg/%E5%A4%B4%E5%83%8F.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Program Life">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2018/03/06/面向对象的设计思想/" class="post-title-link" itemprop="url">面向对象的设计思想</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2018-03-06 21:05:20" itemprop="dateCreated datePublished" datetime="2018-03-06T21:05:20+08:00">2018-03-06</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-09-10 23:35:48" itemprop="dateModified" datetime="2019-09-10T23:35:48+08:00">2019-09-10</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="一、面向对象语言三大特征"><a href="#一、面向对象语言三大特征" class="headerlink" title="一、面向对象语言三大特征"></a>一、面向对象语言三大特征</h1><ol>
-<li>封装</li>
-<li>继承</li>
-<li>多态</li>
-</ol>
-<h2 id="二、设计思想"><a href="#二、设计思想" class="headerlink" title="二、设计思想"></a>二、设计思想</h2><ol>
-<li>看到一个需求时不应该直接写代码，应该先考虑有哪些类；</li>
-<li>考虑类的时候，类一定是一类事物的描述，不能太局限；</li>
-<li>考虑类的时候需要考虑主要的类，也就是需要和业务、动作、事件紧密相关的类；</li>
-<li>属性：不需要把该类的所有属性都声明出来，只需要自己用到的即可；</li>
-<li>属性一般会私有，提供get、set方法区操作；</li>
-<li>方法：考虑封装方法的时候，就站在该类的立场去考虑；</li>
-<li>隐藏和封装：减低耦合度；</li>
-<li>要增加或强化功能的时候，首先应该想的是扩展（重写或重载等），而不是修改；</li>
-<li>当同等类型的、相似类型的类过多的时候，应该想到继承；</li>
-<li>继承多了的时候可以采用多态的方式，用父类引用指向子类对象，从而解决了处理多<br>个对象而产生的不同方法了</li>
-<li>因为继承是很耦合性的，且继承只能继承一个类，所以如果要继承多个父类的情况就<br>要用接口实现。</li>
-</ol>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2469,7 +2476,7 @@ public ThreadPoolExecutor(int corePoolSize,int maximumPoolSize,long keepAliveTim
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">55</span>
+                    <span class="site-state-item-count">56</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -2500,7 +2507,9 @@ public ThreadPoolExecutor(int corePoolSize,int maximumPoolSize,long keepAliveTim
                     
                       
                     
-                    <span class="site-state-item-count">7</span>
+                      
+                    
+                    <span class="site-state-item-count">8</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -2531,7 +2540,9 @@ public ThreadPoolExecutor(int corePoolSize,int maximumPoolSize,long keepAliveTim
                     
                       
                     
-                    <span class="site-state-item-count">7</span>
+                      
+                    
+                    <span class="site-state-item-count">8</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
