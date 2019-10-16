@@ -327,6 +327,407 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://Cuipeng19970825.github.io/2018/03/04/String-StringBuffer-StringBuilder的区别/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="崔鹏">
+      <meta itemprop="description" content="个人博客">
+      <meta itemprop="image" content="https://raw.githubusercontent.com/CuiPeng19970825/blogimages/master/TouxiangImg/%E5%A4%B4%E5%83%8F.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Program Life">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2018/03/04/String-StringBuffer-StringBuilder的区别/" class="post-title-link" itemprop="url">String,StringBuffer,StringBuilder的区别</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-03-04 21:05:40" itemprop="dateCreated datePublished" datetime="2018-03-04T21:05:40+08:00">2018-03-04</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-09-16 23:17:32" itemprop="dateModified" datetime="2019-09-16T23:17:32+08:00">2019-09-16</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a>一、概述</h1><p>字符串广泛应用在Java中，在Java中字符串属于对象，Java提供了String类来创建</p>
+<p>和操作字符串，但需要注意的是，String的值是不可变的，这样就导致每次对String</p>
+<p>的操作都会生成新的String对象，这样不仅效率低下，而且大量浪费有限的内存空间</p>
+<p>，为了应对经常性的字符串相关的操作，引入了两个新类StringBuffer类和StringB</p>
+<p>uilder类来进行处理，和String类不同的是，StringBuffer和StringBuilder类的</p>
+<p>对象能够被多次的修改，并且不产生新的未使用对象，而StringBuffer类和StringB</p>
+<p>uilder类之间最大不同在于StringBuilder的方法不是线程安全的（不能同步访问）。</p>
+<h1 id="二、区别"><a href="#二、区别" class="headerlink" title="二、区别"></a>二、区别</h1><ul>
+<li>StringBuilder和StringBuffer非常类似，均代表可变的字符序列，而且方法一样</li>
+<li>String: 不可变字符序列</li>
+<li>StringBuffer：可变字符序列，效率低，线程安全</li>
+<li>StringBuilder:可变字符序列，效率高，线程不安全</li>
+</ul>
+<h1 id="三、使用"><a href="#三、使用" class="headerlink" title="三、使用"></a>三、使用</h1><ul>
+<li>如果要操作少量的数据用String</li>
+<li>多线程操作字符串缓冲区下操作大量数据用StringBuffer</li>
+<li>单线程操作字符串缓冲区下操作大量数据用StringBuilder</li>
+</ul>
+<h1 id="四、String类常用方法"><a href="#四、String类常用方法" class="headerlink" title="四、String类常用方法"></a>四、String类常用方法</h1><ol>
+<li>int length()            返回此字符串的长度。 </li>
+<li>char charAt(int index)  返回指定索引处的 char 值。  </li>
+<li>char[] toCharArray()    将此字符串转换为一个新的字符数组。 </li>
+<li>int indexOf(String str) 返回指定子字符串在此字符串中第一次出现处的索引。 </li>
+<li>String[] split(String regex) 根据给定正则表达式的匹配拆分此字符串。</li>
+<li>boolean startsWith(String prefix) 测试此字符串是否以指定的前缀开始。  </li>
+<li>String substring(int beginIndex)返回一个新的字符串，它是此字符串的一个子字符串。 </li>
+<li>String toLowerCase() 使用默认语言环境的规则将此 String 中的所有字符都转换为小写。 </li>
+<li>String toString()    返回此对象本身（它已经是一个字符串！）。 </li>
+<li>static String valueOf(char[] data) 返回 char 数组参数的字符串表示形式。 </li>
+</ol>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://Cuipeng19970825.github.io/2018/03/04/Java中final关键字和static关键字的区别/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="崔鹏">
+      <meta itemprop="description" content="个人博客">
+      <meta itemprop="image" content="https://raw.githubusercontent.com/CuiPeng19970825/blogimages/master/TouxiangImg/%E5%A4%B4%E5%83%8F.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Program Life">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2018/03/04/Java中final关键字和static关键字的区别/" class="post-title-link" itemprop="url">Java中final关键字和static关键字的区别</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-03-04 13:12:40" itemprop="dateCreated datePublished" datetime="2018-03-04T13:12:40+08:00">2018-03-04</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-09-05 15:51:15" itemprop="dateModified" datetime="2019-09-05T15:51:15+08:00">2019-09-05</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="一、static关键字"><a href="#一、static关键字" class="headerlink" title="一、static关键字"></a>一、static关键字</h1><h2 id="1、static修饰成员变量"><a href="#1、static修饰成员变量" class="headerlink" title="1、static修饰成员变量"></a>1、static修饰成员变量</h2><ul>
+<li><p>在类中，用static声明的成员变量为静态成员变量，它为该类的公用变量，在第</p>
+<p>一次使用时被初始化，通常通过类名来引用static成员。</p>
+</li>
+<li><p>当创建对象后，成员变量是存储在堆中的，而static成员变量和类的信息一起存</p>
+<p>储在数据区, 而不是在堆中，</p>
+</li>
+<li><p>一个类的static成员变量只有“一份”（存储在数据区data seg），无论该类创建了</p>
+<p>多少对象。</p>
+</li>
+</ul>
+<h2 id="2、static修饰方法"><a href="#2、static修饰方法" class="headerlink" title="2、static修饰方法"></a>2、static修饰方法</h2><ul>
+<li><p>static修饰的方法不需要针对某些对象进行操作，其运行结果仅仅与参数有关，调</p>
+<p>用的话直接用类名就可以调用了。因此static方法中不能对非static成员进行访问，</p>
+</li>
+<li><p>static方法的作用在于提供一些工具方法和工厂方法等</p>
+</li>
+</ul>
+<h2 id="3、static块"><a href="#3、static块" class="headerlink" title="3、static块"></a>3、static块</h2><p>属于类的代码块，在类加载期间执行并且只执行一次，可以用来加载静态资源。（如图</p>
+<p>片、音频和视频等文件）</p>
+<h1 id="二、final关键字"><a href="#二、final关键字" class="headerlink" title="二、final关键字"></a>二、final关键字</h1><h2 id="1、final修饰变量"><a href="#1、final修饰变量" class="headerlink" title="1、final修饰变量"></a>1、final修饰变量</h2><p>final意为不可改变，修饰成员变量时可以在生命时初始化或者在构造函数中初始化，修</p>
+<p>饰局部变量时在使用之前初始化。要是企图改变final修饰等变量值则会编译错误！</p>
+<h2 id="2、final修饰方法"><a href="#2、final修饰方法" class="headerlink" title="2、final修饰方法"></a>2、final修饰方法</h2><p>final修饰的方法不可重写</p>
+<h2 id="3、final修饰类"><a href="#3、final修饰类" class="headerlink" title="3、final修饰类"></a>3、final修饰类</h2><p>final修饰等类不能被继承，jdk中的一些基本类库被定义成final，例如String，Math，</p>
+<p>Integer等，这样可以防止对系统造成危害。</p>
+<h1 id="三、static-final"><a href="#三、static-final" class="headerlink" title="三、static final"></a>三、static final</h1><p>static final修饰的成员变量被成为常量，必须声明时初始化并且不可被改变，static </p>
+<p>final常量在编译期间会被取代为其初始值</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://Cuipeng19970825.github.io/2018/03/04/Java的8种基本数据类型/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1830,7 +2231,7 @@ insert into salgrade (grade, losal, hisal)values (5, 3001, 9999);
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">57</span>
+                    <span class="site-state-item-count">59</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>

@@ -96,18 +96,22 @@
 
 
 
-  <meta name="description" content="一、抽象类（abstract修饰符） abstract修饰的类为抽象类，此类不能有对象(无法对此类进行实例化，即不能new)； abstract修饰的方法为抽象方法，此方法不能有方法体(就是什么内容都不能有)； 有抽象方法的类一定是抽象类，但抽象类中不一定有抽象方法； 抽象类中的抽象方法必须在子类中被实现，子类实现方法必须含有相同或更低的访问级别，抽象类的子类具体实现父类的所有抽象方法，否则也是抽">
-<meta name="keywords" content="Java">
+  <meta name="description" content="一、MVCM:Model       模型  一个功能，用JavaBean实现。V:View        试图  用于展示、以及与用户交互，使用html、js、css、jsp、jquery等前端技术实现C:Controller  控制器  接受请求，将请求跳转到模型进行处理；模型处理完毕后，再将处理的结果通过控制器返回给请求处，可以用JSP实现，但是一般建议使用Servlet实现控制器。(Jsp">
+<meta name="keywords" content="JavaWeb">
 <meta property="og:type" content="article">
-<meta property="og:title" content="抽象类和接口">
-<meta property="og:url" content="https://Cuipeng19970825.github.io/2018/03/07/抽象类和接口/index.html">
+<meta property="og:title" content="MVC设计模式">
+<meta property="og:url" content="https://Cuipeng19970825.github.io/2018/03/09/MVC设计模式/index.html">
 <meta property="og:site_name" content="Program Life">
-<meta property="og:description" content="一、抽象类（abstract修饰符） abstract修饰的类为抽象类，此类不能有对象(无法对此类进行实例化，即不能new)； abstract修饰的方法为抽象方法，此方法不能有方法体(就是什么内容都不能有)； 有抽象方法的类一定是抽象类，但抽象类中不一定有抽象方法； 抽象类中的抽象方法必须在子类中被实现，子类实现方法必须含有相同或更低的访问级别，抽象类的子类具体实现父类的所有抽象方法，否则也是抽">
+<meta property="og:description" content="一、MVCM:Model       模型  一个功能，用JavaBean实现。V:View        试图  用于展示、以及与用户交互，使用html、js、css、jsp、jquery等前端技术实现C:Controller  控制器  接受请求，将请求跳转到模型进行处理；模型处理完毕后，再将处理的结果通过控制器返回给请求处，可以用JSP实现，但是一般建议使用Servlet实现控制器。(Jsp">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-10-01T10:05:09.897Z">
+<meta property="og:image" content="https://raw.githubusercontent.com/CuiPeng19970825/blogimages/master/JavaWeb/MVC%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F.JPG">
+<meta property="og:image" content="https://raw.githubusercontent.com/CuiPeng19970825/blogimages/master/JavaWeb/Servlet%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F.JPG">
+<meta property="og:image" content="https://raw.githubusercontent.com/CuiPeng19970825/blogimages/master/JavaWeb/Servlet%E7%BB%A7%E6%89%BF%E5%9B%BE.JPG">
+<meta property="og:updated_time" content="2019-10-16T16:38:00.795Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="抽象类和接口">
-<meta name="twitter:description" content="一、抽象类（abstract修饰符） abstract修饰的类为抽象类，此类不能有对象(无法对此类进行实例化，即不能new)； abstract修饰的方法为抽象方法，此方法不能有方法体(就是什么内容都不能有)； 有抽象方法的类一定是抽象类，但抽象类中不一定有抽象方法； 抽象类中的抽象方法必须在子类中被实现，子类实现方法必须含有相同或更低的访问级别，抽象类的子类具体实现父类的所有抽象方法，否则也是抽">
+<meta name="twitter:title" content="MVC设计模式">
+<meta name="twitter:description" content="一、MVCM:Model       模型  一个功能，用JavaBean实现。V:View        试图  用于展示、以及与用户交互，使用html、js、css、jsp、jquery等前端技术实现C:Controller  控制器  接受请求，将请求跳转到模型进行处理；模型处理完毕后，再将处理的结果通过控制器返回给请求处，可以用JSP实现，但是一般建议使用Servlet实现控制器。(Jsp">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/CuiPeng19970825/blogimages/master/JavaWeb/MVC%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F.JPG">
 
 
 
@@ -115,7 +119,7 @@
 
   
   
-  <link rel="canonical" href="https://Cuipeng19970825.github.io/2018/03/07/抽象类和接口/">
+  <link rel="canonical" href="https://Cuipeng19970825.github.io/2018/03/09/MVC设计模式/">
 
 
 
@@ -125,7 +129,7 @@
   };
 </script>
 
-  <title>抽象类和接口 | Program Life</title>
+  <title>MVC设计模式 | Program Life</title>
   
 
 
@@ -328,7 +332,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://Cuipeng19970825.github.io/2018/03/07/抽象类和接口/">
+    <link itemprop="mainEntityOfPage" href="https://Cuipeng19970825.github.io/2018/03/09/MVC设计模式/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="崔鹏">
@@ -345,7 +349,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">抽象类和接口
+          <h1 class="post-title" itemprop="name headline">MVC设计模式
 
               
             
@@ -371,7 +375,7 @@
                 
               
 
-              <time title="创建时间：2018-03-07 09:15:30" itemprop="dateCreated datePublished" datetime="2018-03-07T09:15:30+08:00">2018-03-07</time>
+              <time title="创建时间：2018-03-09 17:01:05" itemprop="dateCreated datePublished" datetime="2018-03-09T17:01:05+08:00">2018-03-09</time>
             
 
             
@@ -388,7 +392,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-10-01 18:05:09" itemprop="dateModified" datetime="2019-10-01T18:05:09+08:00">2019-10-01</time>
+                <time title="修改时间：2019-10-17 00:38:00" itemprop="dateModified" datetime="2019-10-17T00:38:00+08:00">2019-10-17</time>
               
             
           </span>
@@ -405,7 +409,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/JavaWeb/" itemprop="url" rel="index"><span itemprop="name">JavaWeb</span></a></span>
 
                 
                 
@@ -440,32 +444,18 @@
       
 
       
-        <h1 id="一、抽象类（abstract修饰符）"><a href="#一、抽象类（abstract修饰符）" class="headerlink" title="一、抽象类（abstract修饰符）"></a>一、抽象类（abstract修饰符）</h1><ol>
-<li>abstract修饰的类为抽象类，此类不能有对象(无法对此类进行实例化，即不能new)；</li>
-<li>abstract修饰的方法为抽象方法，此方法不能有方法体(就是什么内容都不能有)；</li>
-<li>有抽象方法的类一定是抽象类，但抽象类中不一定有抽象方法；</li>
-<li>抽象类中的抽象方法必须在子类中被实现，子类实现方法必须含有相同或更低的访问级别，<br>抽象类的子类具体实现父类的所有抽象方法，否则也是抽象类；</li>
+        <h1 id="一、MVC"><a href="#一、MVC" class="headerlink" title="一、MVC"></a>一、MVC</h1><p><img src="https://raw.githubusercontent.com/CuiPeng19970825/blogimages/master/JavaWeb/MVC%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F.JPG" alt="MVC设计模式"><br>M:Model       模型<br>  一个功能，用JavaBean实现。<br>V:View        试图<br>  用于展示、以及与用户交互，使用html、js、css、jsp、jquery等前端技术实现<br>C:Controller  控制器<br>  接受请求，将请求跳转到模型进行处理；模型处理完毕后，再将处理的结果通过控制器返回给请求处，可以用JSP实现，但是一般建议使用Servlet实现控制器。(Jsp-&gt;java(Servlet)-&gt;Jsp)</p>
+<h1 id="二、Servlet"><a href="#二、Servlet" class="headerlink" title="二、Servlet"></a>二、Servlet</h1><p>Java类必须符合一定的规范：</p>
+<ol>
+<li>必须继承 javax.servlet.http.HttpServlet</li>
+<li>必须重写其中的doGet()或doPost()方法<br>doGet()：接受并处理所有get提交方式的请求<br>doPost()：接受并处理所有post提交方式的请求</li>
+<li><p>配置<br>Servlet2.5: web.xml<br>Servlet3.0: @Servlet<br>Servlet执行流程</p>
+<p>请求–&gt;<url-pattern>–&gt;根据<servlet-mapping>中的<servlet-name>去匹配<servlet>中的<servlet-name>,然后寻找到<servlet-class>,最终将请求交由该<servlet-class>执<br>行。                                                                        </servlet-class></servlet-class></servlet-name></servlet></servlet-name></servlet-mapping></url-pattern></p>
+</li>
 </ol>
-<h1 id="二、接口-interface"><a href="#二、接口-interface" class="headerlink" title="二、接口(interface)"></a>二、接口(interface)</h1><ol>
-<li>接口中的所有属性默认为:public static final; </li>
-<li>接口中的所有方法默认为：public abstract;</li>
-<li>接口不能被实例化；</li>
-<li>接口只能包含方法声明；</li>
-<li>接口不再像类一样用关键字extend去”继承”，而是用implements去”实现”;</li>
-<li>一个类可以实现多个接口，但只能继承于一个类，所以可以通过这种方式来实现多继承；</li>
-</ol>
-<h1 id="三、接口和抽象类的区别"><a href="#三、接口和抽象类的区别" class="headerlink" title="三、接口和抽象类的区别"></a>三、接口和抽象类的区别</h1><ol>
-<li>抽象类描述的是”是不是”的问题，而接口描述的是”有没有”的问题；</li>
-<li>接口强调特定功能的实现，而抽象类强调所属关系；</li>
-<li>抽象类中可以有构造方法，接口中不能有构造方法；</li>
-<li>接口可以被多重实现，抽象类只能被单一继承；</li>
-</ol>
-<h1 id="四、接口和抽象类的相同点"><a href="#四、接口和抽象类的相同点" class="headerlink" title="四、接口和抽象类的相同点"></a>四、接口和抽象类的相同点</h1><ol>
-<li>都可以被继承</li>
-<li>都不能被实例化</li>
-<li>都可以包含方法声明</li>
-<li>派生类必须实现未实现方法</li>
-</ol>
+<h1 id="三、Servlet2-5与Servlet3-0的区别"><a href="#三、Servlet2-5与Servlet3-0的区别" class="headerlink" title="三、Servlet2.5与Servlet3.0的区别"></a>三、Servlet2.5与Servlet3.0的区别</h1><p>Servlet3.0不需要在web.xml文件中配置，但需要在Servlet类的定义处之上编写注解<br>@WebServlet(“url-pattern的值”)<br>匹配流程：请求地址与@WebServlet中的值进行匹配，如果匹配成功，则说明请求就是该注解所对应的类。</p>
+<h1 id="四、Servlet生命周期（五个阶段）"><a href="#四、Servlet生命周期（五个阶段）" class="headerlink" title="四、Servlet生命周期（五个阶段）"></a>四、Servlet生命周期（五个阶段）</h1><p><img src="https://raw.githubusercontent.com/CuiPeng19970825/blogimages/master/JavaWeb/Servlet%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F.JPG" alt="Servlet生命周期"><br>1.加载<br>2.初始化： init(),该方法会在Servlet被加载并实例化以后执行<br>3.服务：   service-&gt;doGet() doPost()<br>4.销毁:    destory(),Servlet被系统回收时执行<br>5.卸载<br>intit(): a、第一次访问Servlet时会被执行（只执行这一次）<br>         b、可以修改为Tomcat启动时自动执行<br>service-&gt;doGet() doPost():调用几次，则执行几次<br>destory():关闭tomcat服务时，执行一次。</p>
+<h1 id="五、Servlet继承图"><a href="#五、Servlet继承图" class="headerlink" title="五、Servlet继承图"></a>五、Servlet继承图</h1><p><img src="https://raw.githubusercontent.com/CuiPeng19970825/blogimages/master/JavaWeb/Servlet%E7%BB%A7%E6%89%BF%E5%9B%BE.JPG" alt="Servlet继承图"></p>
 
       
     </div>
@@ -489,7 +479,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Java/" rel="tag"># Java</a>
+            <a href="/tags/JavaWeb/" rel="tag"># JavaWeb</a>
           
         </div>
       
@@ -502,8 +492,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/03/06/面向对象的设计思想/" rel="next" title="面向对象的设计思想">
-                <i class="fa fa-chevron-left"></i> 面向对象的设计思想
+              <a href="/2018/03/09/JavaBean学习/" rel="next" title="JavaBean学习">
+                <i class="fa fa-chevron-left"></i> JavaBean学习
               </a>
             
           </div>
@@ -512,8 +502,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/03/07/Java异常总结/" rel="prev" title="Java异常总结">
-                Java异常总结 <i class="fa fa-chevron-right"></i>
+              <a href="/2019/01/02/员工部门练习题/" rel="prev" title="员工部门练习题">
+                员工部门练习题 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -689,7 +679,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#一、抽象类（abstract修饰符）"><span class="nav-number">1.</span> <span class="nav-text">一、抽象类（abstract修饰符）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二、接口-interface"><span class="nav-number">2.</span> <span class="nav-text">二、接口(interface)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#三、接口和抽象类的区别"><span class="nav-number">3.</span> <span class="nav-text">三、接口和抽象类的区别</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#四、接口和抽象类的相同点"><span class="nav-number">4.</span> <span class="nav-text">四、接口和抽象类的相同点</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#一、MVC"><span class="nav-number">1.</span> <span class="nav-text">一、MVC</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二、Servlet"><span class="nav-number">2.</span> <span class="nav-text">二、Servlet</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#三、Servlet2-5与Servlet3-0的区别"><span class="nav-number">3.</span> <span class="nav-text">三、Servlet2.5与Servlet3.0的区别</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#四、Servlet生命周期（五个阶段）"><span class="nav-number">4.</span> <span class="nav-text">四、Servlet生命周期（五个阶段）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#五、Servlet继承图"><span class="nav-number">5.</span> <span class="nav-text">五、Servlet继承图</span></a></li></ol></div>
             
 
           </div>
