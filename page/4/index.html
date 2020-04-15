@@ -389,7 +389,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-10-17 01:34:41" itemprop="dateModified" datetime="2019-10-17T01:34:41+08:00">2019-10-17</time>
+                <time title="修改时间：2020-04-15 16:16:09" itemprop="dateModified" datetime="2020-04-15T16:16:09+08:00">2020-04-15</time>
               
             
           </span>
@@ -449,6 +449,79 @@
 <h2 id="1、什么是Spring"><a href="#1、什么是Spring" class="headerlink" title="1、什么是Spring"></a>1、什么是Spring</h2><p>Spring 是一个轻量级的 DI / IoC 和 AOP 容器的开源框架,Spring 提倡以“最少侵入”的方式</p>
 <p>来管理应用中的代码，这意味着我们可以随时安装或者卸载 Spring。适用范围：任何 Java 应用，</p>
 <p>Spring 的根本使命：简化 Java 开发</p>
+<h2 id="2、Spring核心容器的四个模块"><a href="#2、Spring核心容器的四个模块" class="headerlink" title="2、Spring核心容器的四个模块"></a>2、Spring核心容器的四个模块</h2><ol>
+<li>spring-core-5.1.8.RELEASE.jar<br>Spring的核心工具类，其它jar包是建立这个包基础上的，都要用到这个包中的类。</li>
+<li>spring-beans-5.1.8.RELEASE.jar       配置、创建、管理Bean，负责Ioc、DI</li>
+<li>spring-context-5.1.8.RELEASE.jar     提供在基础IoC上的扩展服务</li>
+<li>spring-expression-5.1.8.RELEASE.jar  提供对Spring表达式语言的支持<br>另外，Spring核心容器依赖第三方的commons.logging.jar包，还需要自己去下载这个包。</li>
+</ol>
+<h2 id="3、IoC-控制反转-和DI-依赖注入-简介"><a href="#3、IoC-控制反转-和DI-依赖注入-简介" class="headerlink" title="3、IoC(控制反转)和DI(依赖注入)简介"></a>3、IoC(控制反转)和DI(依赖注入)简介</h2><ol>
+<li>IoC：Inverse of Control（控制反转）<ul>
+<li>读作“反转控制”，更好理解，不是什么技术，而是一种设计思想，就是将原本在程序中手动创<br>建对象的控制权，交由Spring框架来管理。</li>
+<li>正控：若要使用某个对象，需要自己去负责对象的创建</li>
+<li>反控：若要使用某个对象，只需要从 Spring 容器中获取需要使用的对象，不关心对象的创<br>建过程，也就是把创建对象的控制权反转给了Spring框架</li>
+<li>好莱坞法则：Don’t call me ,I’ll call you</li>
+</ul>
+</li>
+<li>DI：Dependency Injection（依赖注入）<br>指 Spring 创建对象的过程中，将对象依赖属性（简单值，集合，对象）通过配置设值给该对象</li>
+</ol>
+<h2 id="4、Spring中的Bean简介"><a href="#4、Spring中的Bean简介" class="headerlink" title="4、Spring中的Bean简介"></a>4、Spring中的Bean简介</h2><p>   如果把Spring看作一个大型工厂，则Spring容器中的Bean就是该工厂的产品，要想使用这个工厂生产和管理Bean,就需要在配置文件中告诉它需要哪些Bean,以及需要使用何种方式将这些Bean装配到一起。</p>
+<ol>
+<li>Bean作用域</li>
+<li>Bean生命周期</li>
+<li>Bean实例化方式</li>
+</ol>
+<h2 id="5、AOP"><a href="#5、AOP" class="headerlink" title="5、AOP"></a>5、AOP</h2><ol>
+<li>AOP简介<ul>
+<li>经典应用：事务管理、性能监视、安全检查、缓存、日志等</li>
+</ul>
+</li>
+<li>AOP实现原理：AOP底层将采用代理机制进行实现<ul>
+<li>接口+实现类：Spring采用jdk的动态代理Proxy<pre><code>JDK动态代理对&quot;装饰者&quot;设计模式的简化，使用前提，必须有接口。
+1、目标类：接口+实现类
+2、切面类(MyAspect)：用于存通知
+3、工厂类：编写工厂生成代理
+4、测试
+</code></pre></li>
+<li>实现类：Spring采用cglib字节码增强<pre><code>没有接口，只有实现类，采用字节码增强框架cglib,在运行时创建目标类的子类，从而对目标类进行增强。
+1、导入jar包
+    自己导包(了解)：1、核心 2、依赖
+2、spring-core.jar已经整合了以上两个内容
+</code></pre></li>
+<li>Spring编写代理：半自动</li>
+<li>全自动：从Spring容器中获得的就是目标类，如果配置aop,spring将自动生成代理<pre><code>要确定目标类，aspectj切入点表达式，导入jar包 
+</code></pre></li>
+</ul>
+</li>
+<li>AOP术语(掌握)<ul>
+<li>target:目标类，需要被代理的类</li>
+<li>Joinpoint(连接点)所谓连接点是指那些可能被拦截到的方法</li>
+<li>PointCut:切入点，已经被增强的连接点，</li>
+<li>advice:通知/增强，增强代码。</li>
+<li>Weaving(织入)是指把增强advice应用到目标对象target来创建新的代理对象proxy的过程</li>
+<li>proxy代理类</li>
+<li>Aspect(切面):是切入点PointCut和通知advice的结合</li>
+</ul>
+</li>
+</ol>
+<h2 id="6、事务管理"><a href="#6、事务管理" class="headerlink" title="6、事务管理"></a>6、事务管理</h2><ol>
+<li>事务：一组业务操作ABCD，要么全成功，要么全部不成功。<br>特性：ACID：原子性、一致性、隔离性、持久性<br>隔离问题：脏读、不可重复读、幻读<br>隔离级别：read uncommitted(读未提交)、read committed(读已提交)、repeatable read(<pre><code>可重复读)、serilizable(串行化)
+</code></pre>mysql事务操作——简单<ol>
+<li>开启事务：连接.setAutoCommit(false);</li>
+<li>提交事务：连接.commit();</li>
+<li>事务回滚：连接.rollback();</li>
+<li>保存点：连接.setSavepoint;(用来回滚一部分)</li>
+<li>回滚到保存点：连接.rollback(savepoint);</li>
+</ol>
+</li>
+<li>三个顶级接口<br>1、PlatformTransactionManager:平台事务管理器,spring要管理事务，必须使用事务管理器。<br>进行事务配置时必须配置事务管理器。<ul>
+<li>常见的两种事务管理器：DataSourceTransactionManager,jdbc开发时的事务管理器，<pre><code>采用JdbcTemplate。
+HibernateTransactionManager,hibernate事务管理器，整合
+hibernate。
+</code></pre>2、TransactionDefinition：事务定义(事务详情、事务属性)，spring用于确定事务具体详情。<br>例如：事务隔离级别、是否只读、超时时间等。进行事务配置时，必须配置详情，spring将配置<br>项封装到该对象实例。<br>3、TransactionStatus:事务状态，spring用于记录当前事务运行状态。例如：是否有保存点，事<br>务是否已经完成等,spring底层根据状态进行相应操作。</li>
+</ul>
+</li>
+</ol>
 
           
         
@@ -1218,7 +1291,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-10-15 16:45:18" itemprop="dateModified" datetime="2019-10-15T16:45:18+08:00">2019-10-15</time>
+                <time title="修改时间：2020-04-15 16:15:54" itemprop="dateModified" datetime="2020-04-15T16:15:54+08:00">2020-04-15</time>
               
             
           </span>
@@ -1294,8 +1367,8 @@ get与post请求方式的区别：
 保存的位置              服务端                  客户端
 安全性                  较安全                 较不安全 
 保存的内容              Object                 String
-</code></pre><h3 id="5、appliation-全局对象"><a href="#5、appliation-全局对象" class="headerlink" title="5、appliation(全局对象)"></a>5、appliation(全局对象)</h3><p>方法：<br>1.String getContextPath() 虚拟路径<br>2.String getRealPath()    绝对路径（虚拟路径相对的绝对路径）</p>
-<h3 id="6、config-配置对象（服务器配置信息）"><a href="#6、config-配置对象（服务器配置信息）" class="headerlink" title="6、config 配置对象（服务器配置信息）"></a>6、config 配置对象（服务器配置信息）</h3><h3 id="7、page-当前JSP页面对象（相当于java中的this）"><a href="#7、page-当前JSP页面对象（相当于java中的this）" class="headerlink" title="7、page 当前JSP页面对象（相当于java中的this）"></a>7、page 当前JSP页面对象（相当于java中的this）</h3><h3 id="8、pageContext-JSP页面容器"><a href="#8、pageContext-JSP页面容器" class="headerlink" title="8、pageContext JSP页面容器"></a>8、pageContext JSP页面容器</h3><h3 id="9、exception-异常对象"><a href="#9、exception-异常对象" class="headerlink" title="9、exception 异常对象"></a>9、exception 异常对象</h3><h1 id="二、四种范围对象（小——-gt-大）"><a href="#二、四种范围对象（小——-gt-大）" class="headerlink" title="二、四种范围对象（小——&gt;大）"></a>二、四种范围对象（小——&gt;大）</h1><p>1、pageContext  JSP页面容器（也叫做page对象），当前页面有效（页面跳转后无效）<br>2、request      请求对象，同一次请求有效，其他请求无效（请求转发后有效，重定向后无效）<br>3、session      会话对象，同一次会话有效（无论怎么跳转都有效，关闭/切换浏览器后无效；<br>               从登录——&gt;退出之间全部有效）<br>4、appliation   全局对象，全局有效（整个项目运行期间都有效，切换浏览器仍然有效）</p>
+</code></pre><h3 id="5、application-全局对象"><a href="#5、application-全局对象" class="headerlink" title="5、application(全局对象)"></a>5、application(全局对象)</h3><p>方法：<br>1.String getContextPath() 虚拟路径<br>2.String getRealPath()    绝对路径（虚拟路径相对的绝对路径）</p>
+<h3 id="6、config-配置对象（服务器配置信息）"><a href="#6、config-配置对象（服务器配置信息）" class="headerlink" title="6、config 配置对象（服务器配置信息）"></a>6、config 配置对象（服务器配置信息）</h3><h3 id="7、page-当前JSP页面对象（相当于java中的this）"><a href="#7、page-当前JSP页面对象（相当于java中的this）" class="headerlink" title="7、page 当前JSP页面对象（相当于java中的this）"></a>7、page 当前JSP页面对象（相当于java中的this）</h3><h3 id="8、pageContext-JSP页面容器"><a href="#8、pageContext-JSP页面容器" class="headerlink" title="8、pageContext JSP页面容器"></a>8、pageContext JSP页面容器</h3><h3 id="9、exception-异常对象"><a href="#9、exception-异常对象" class="headerlink" title="9、exception 异常对象"></a>9、exception 异常对象</h3><h1 id="二、四种范围对象（小——-gt-大）"><a href="#二、四种范围对象（小——-gt-大）" class="headerlink" title="二、四种范围对象（小——&gt;大）"></a>二、四种范围对象（小——&gt;大）</h1><p>1、pageContext  JSP页面容器（也叫做page对象），当前页面有效（页面跳转后无效）<br>2、request      请求对象，同一次请求有效，其他请求无效（请求转发后有效，重定向后无效）<br>3、session      会话对象，同一次会话有效（无论怎么跳转都有效，关闭/切换浏览器后无效；<br>               从登录——&gt;退出之间全部有效）<br>4、application   全局对象，全局有效（整个项目运行期间都有效，切换浏览器仍然有效）</p>
 <h2 id="共有方法"><a href="#共有方法" class="headerlink" title="共有方法"></a>共有方法</h2><p>Object getAttribute(String name) 根据属性命获取属性值<br>void setAttribute(String name,Object object) 设置属性值（新增，修改）<br>void removeAttribute(String name) 根据属性名删除对象</p>
 <h2 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h2><p>以上范围对象，尽量使用最小的范围，因为对象的范围越大，造成的性能损耗越大。</p>
 
@@ -2445,7 +2518,7 @@ public ThreadPoolExecutor(int corePoolSize,int maximumPoolSize,long keepAliveTim
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/3/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/5/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/page/3/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/5/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -2489,7 +2562,7 @@ public ThreadPoolExecutor(int corePoolSize,int maximumPoolSize,long keepAliveTim
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">60</span>
+                    <span class="site-state-item-count">61</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -2601,7 +2674,7 @@ public ThreadPoolExecutor(int corePoolSize,int maximumPoolSize,long keepAliveTim
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
   <span class="with-love" id="animate">
     <i class="fa fa-user"></i>
   </span>
